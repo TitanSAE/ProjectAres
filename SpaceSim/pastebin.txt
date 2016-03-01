@@ -1,0 +1,13 @@
+for (int i = 0; i < m_SegmentCount; i++)
+{
+	float z = m_Length * i;
+
+	for (int j = 0; j < m_SegmentCount; j++)
+	{
+		float x = m_Width * j;
+
+		Vector3 offset = new Vector3(x, Random.Range(0.0f, m_Height), z);
+
+		BuildQuad(meshBuilder, offset);
+	}
+}
