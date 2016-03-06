@@ -1,0 +1,14 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\UI\Debug_Clickable.cs">
+    <Files>
+      <File FileName="Assets\Scripts\UI\UIContentSpawner.cs" Line="28" Column="59" />
+      <File FileName="Assets\Scripts\UI\UIListItem.cs" Line="41" Column="5" />
+      <File FileName="Assets\Scripts\UI\Debug_Clickable.cs" Line="12" Column="18" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

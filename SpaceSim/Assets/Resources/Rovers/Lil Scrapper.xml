@@ -1,0 +1,10 @@
+<MarsRover>
+	<name>Lil Scrapper</name>
+	<description>A longstanding tradition.</description>
+	<avatar>rover-preview-default</avatar>
+	<modules>
+		<mod slot="CAMERA">Basic Camera</mod>
+		<mod slot="LOCOMOTION">Wheels</mod>
+		<mod slot="BATTERY">Solar Panel</mod>
+	</modules>
+</MarsRover>
