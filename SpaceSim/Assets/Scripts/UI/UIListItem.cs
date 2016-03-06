@@ -17,6 +17,8 @@ public class UIListItem : MonoBehaviour {
 
 	bool bUpdateRectSize;
 
+	public UISceneManager uiMng;
+
 	void Start() {
 		//
 	}
@@ -25,6 +27,8 @@ public class UIListItem : MonoBehaviour {
 		txtDisplay = this.GetComponent<Text>();
 		boxcol2d = this.GetComponent<BoxCollider>();
 		sponsor = this.GetComponent<MarsSponsor>();
+
+		uiMng = GameObject.FindGameObjectWithTag("GameController").GetComponent<UISceneManager>();
 	}
 
 	public void LoadSponsorSettings() {
@@ -34,7 +38,15 @@ public class UIListItem : MonoBehaviour {
 	}
 
 	void OnMouseDown() {
-		Debug.Log("BOP");
+		DisplaySponsorData();
+	}
+
+	public void DisplaySponsorData() {
+		sponsor.LoadRoverInfo("Rovers/" + sponsor.sCurRoverFilename);
+		uiMng.imgRoverPic.sprite = Sprite.Create(sponsor.texRoverPreview, new Rect(0, 0, sponsor.texRoverPreview.width, sponsor.texRoverPreview.height), uiMng.imgSponsorPic.rectTransform.pivot);
+		uiMng.imgSponsorPic.sprite = Sprite.Create(sponsor.texSponsorAvatar, new Rect(0, 0, sponsor.texSponsorAvatar.width, sponsor.texSponsorAvatar.height), uiMng.imgSponsorPic.rectTransform.pivot);
+		uiMng.txtRoverInfo.text = sponsor.sRoverDescription;
+		uiMng.txtSponsorInfo.text = sponsor.sSponsorDescription;
 	}
 
 	void Update() {
@@ -67,7 +79,7 @@ public class UIListItem : MonoBehaviour {
 				}
 				else if (xlayer1.Name == "rover") {
 					string stemp = xlayer1.Value;
-					sponsor.sCurRover = stemp;
+					sponsor.sCurRoverFilename = stemp;
 				}
 			}
 		}

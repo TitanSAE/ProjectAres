@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(BoxCollider2D))]
+//[RequireComponent(typeof(BoxCollider2D))]
 public class Debug_Clickable : MonoBehaviour {
 
 	// Use this for initialization
