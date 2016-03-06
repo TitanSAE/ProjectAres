@@ -3,7 +3,11 @@ using System.Collections;
 
 public class RandomQuadTerrain : MonoBehaviour {
 
+<<<<<<< HEAD
 	//private MeshRenderer rend;
+=======
+	private MeshRenderer rend;
+>>>>>>> 1feda277b8c30e57ecc2510bdc955017934aa8b3
 	private MeshCollider collide;
 	private MeshFilter filter;
 
@@ -21,7 +25,11 @@ public class RandomQuadTerrain : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+<<<<<<< HEAD
 		//rend = this.GetComponent<MeshRenderer>();
+=======
+		rend = this.GetComponent<MeshRenderer>();
+>>>>>>> 1feda277b8c30e57ecc2510bdc955017934aa8b3
 		collide = this.GetComponent<MeshCollider>();
 		filter = this.GetComponent<MeshFilter>();
 		construct = new MeshBuilder();

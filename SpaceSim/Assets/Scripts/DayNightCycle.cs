@@ -97,7 +97,11 @@ public class DayNightCycle : MonoBehaviour {
 		fTimePassed += Time.deltaTime;
 		fDayPortion = fTimePassed / ((fHoldDuration * 2) + (fCycleDuration * 2));
 
+<<<<<<< HEAD
 		//float totalday = ((fHoldDuration * 2) + (fCycleDuration * 2));
+=======
+		float totalday = ((fHoldDuration * 2) + (fCycleDuration * 2));
+>>>>>>> 1feda277b8c30e57ecc2510bdc955017934aa8b3
 	}
 
 	public void ResetTime() {
@@ -124,7 +128,11 @@ public class DayNightCycle : MonoBehaviour {
 
 
 		//sunrise
+<<<<<<< HEAD
 		//float lerp1 = 0.0f;
+=======
+		float lerp1 = 0.0f;
+>>>>>>> 1feda277b8c30e57ecc2510bdc955017934aa8b3
 		float lerp1_end = fCycleDuration;
 
 		//day
@@ -132,7 +140,11 @@ public class DayNightCycle : MonoBehaviour {
 		float day_end = fCycleDuration + fHoldDuration;
 
 		//sunset
+<<<<<<< HEAD
 		//float lerp2 = fCycleDuration + fHoldDuration;
+=======
+		float lerp2 = fCycleDuration + fHoldDuration;
+>>>>>>> 1feda277b8c30e57ecc2510bdc955017934aa8b3
 		float lerp2_end = fCycleDuration * 2 + fHoldDuration;
 
 		//night
