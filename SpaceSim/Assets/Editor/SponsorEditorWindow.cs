@@ -51,6 +51,25 @@ public class SponsorEditorWindow : EditorWindow {
 		editor.Show();
 	}
 
+	public void ClearRover() {
+		sRoverName = "";
+		sRoverDescription = "";
+		texRoverPreview = null;
+
+		builder.Init();
+		l_dropchoices.Clear();
+		l_dropdowns.Clear();
+		l_loadedmodules.Clear();
+		bLoadModulesFromList = false;
+	}
+
+	public void ClearSponsor() {
+		sSponsorName = "";
+		sSponsorDescription = "";
+		texSponsorAvatar = null;
+		sCurRover = "none";
+	}
+
 	public void Init() {
 		builder.Init();
 		texNoChoice = Resources.Load<Texture2D>("Icons/icon-none");
@@ -124,6 +143,11 @@ public class SponsorEditorWindow : EditorWindow {
 					}
 				}
 			}
+			if (GUILayout.Button("New")) {
+				if (EditorUtility.DisplayDialog("Are you sure?", "Are you sure you want to make a new sponsor? You will lose any unsaved changes.", "OK", "Cancel")) {
+					ClearSponsor();
+				}
+			}
 			GUILayout.EndHorizontal();
 
 			GUILayout.BeginVertical(EditorStyles.helpBox);
@@ -158,22 +182,24 @@ public class SponsorEditorWindow : EditorWindow {
 			GUILayout.BeginHorizontal(EditorStyles.helpBox);
 			if (GUILayout.Button("Save Rover")) {
 				string savepath = EditorUtility.SaveFilePanelInProject("Save Rover", sRoverName, "xml", "Huh?", Application.dataPath + "/Resources/Rovers/");
-				try {
+				if (savepath.Length > 4) {
 					SaveRoverToXML(savepath);
 				}
-				catch (UnityException e) {
-					EditorUtility.DisplayDialog("Error", e.Message, "OK");
+				else {
+					EditorUtility.DisplayDialog("Error", "Nothing was saved - filename was invalid!", "OK");
 				}
 			}
 			if (GUILayout.Button("Load Rover")) {
 				if (EditorUtility.DisplayDialog("Are you sure?", "Are you sure you want to load? You will lose any unsaved changes.", "OK", "Cancel")) {
 					string loadpath = EditorUtility.OpenFilePanelWithFilters("Load Rover", Application.dataPath + "/Resources/Rovers/", new string[]{"XML", "xml"});
-					try {
+					if (loadpath.Length > 4) {
 						LoadRoverFromXML(loadpath);
 					}
-					catch (UnityException e) {
-						EditorUtility.DisplayDialog("Error", e.Message, "OK");
-					}
+				}
+			}
+			if (GUILayout.Button("New")) {
+				if (EditorUtility.DisplayDialog("Are you sure?", "Are you sure you want to make a new rover? You will lose any unsaved changes.", "OK", "Cancel")) {
+					ClearRover();
 				}
 			}
 			GUILayout.EndHorizontal();
@@ -269,7 +295,7 @@ public class SponsorEditorWindow : EditorWindow {
 					GUILayoutUtility.GetLastRect().y + GUILayoutUtility.GetLastRect().height, 200, 20),
 					items.ToArray(),
 					EditorStyles.toolbarDropDown, EditorStyles.toolbarTextField);
-				Debug.Log(i.ToString() + " was " + l_dropdowns[i].GetSelectedItemIndex().ToString());
+				//Debug.Log(i.ToString() + " was " + l_dropdowns[i].GetSelectedItemIndex().ToString());
 			}
 
 			if (l_dropdowns[i].isVisible) {

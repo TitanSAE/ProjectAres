@@ -57,7 +57,8 @@ using System.Collections.Generic;
 			}	
 
 			// Draw a button. If the button is clicked
-			if(GUI.Button(new Rect(box.x,box.y,box.width,box.height),items[selectedItemIndex])) {
+		if (items.Length > 0 && selectedItemIndex < items.Length) {
+			if(GUI.Button(new Rect(box.x, box.y, box.width, box.height), items[selectedItemIndex])) {
 
 				// If the button was not clicked before, set the current instance to be the active instance
 				if(!isClicked) {
@@ -69,6 +70,7 @@ using System.Collections.Generic;
 					isClicked = false;
 				}
 			}
+		}
 
 			// If the instance is the active instance, set its popup selections to be visible
 			if(current == this) {
