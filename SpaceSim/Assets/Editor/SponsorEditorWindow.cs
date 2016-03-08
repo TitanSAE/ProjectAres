@@ -159,10 +159,22 @@ public class SponsorEditorWindow : EditorWindow {
 
 			GUILayout.BeginHorizontal(EditorStyles.helpBox);
 			GUILayout.Label(sCurRover);
+			if (GUILayout.Button("Edit")) {
+				if (sCurRover != null && sCurRover != "" && sCurRover != "none") {
+					eCurTab = SPONSOR_WINDOW_TABS.ROVERS;
+					LoadRoverFromXML(Application.dataPath + "/Resources/Rovers/" + sCurRover + ".xml");
+				}
+			}
 			if (GUILayout.Button("Change")) {
+				string temprover = sCurRover;
 				sCurRover = EditorUtility.OpenFilePanelWithFilters("Select Rover", Application.dataPath + "/Resources/Rovers/",  new string[]{"XML", "xml"}); 
-				System.IO.FileInfo finfo = new System.IO.FileInfo(sCurRover);
-				sCurRover = finfo.Name.Remove(finfo.Name.Length - 4);
+				if (sCurRover.Length > 4) {
+					System.IO.FileInfo finfo = new System.IO.FileInfo(sCurRover);
+					sCurRover = finfo.Name.Remove(finfo.Name.Length - 4);
+				}
+				else {
+					sCurRover = temprover;
+				}
 			}
 			GUILayout.EndHorizontal();
 
@@ -455,10 +467,16 @@ public class SponsorEditorWindow : EditorWindow {
 		writer.Close();
 	}
 
-	public void LoadRoverFromXML(string path) {
+	public void LoadRoverFromXML(string path, bool bParseInstead = false) {
 		builder.Init();
 
-		XDocument s_xmlDoc = XDocument.Load(path);
+		XDocument s_xmlDoc;
+		if (!bParseInstead) {
+			s_xmlDoc = XDocument.Load(path);
+		}
+		else {
+			s_xmlDoc = XDocument.Parse(path);
+		}
 
 		foreach (XElement xroot in s_xmlDoc.Elements()) {
 			foreach (XElement xlayer1 in xroot.Elements()) {

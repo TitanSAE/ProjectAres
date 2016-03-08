@@ -87,6 +87,7 @@
      <Compile Include="Assets\Scripts\OVR\ParticleGazeCursor.cs" />
      <Compile Include="Assets\Scripts\RandomQuadTerrain.cs" />
      <Compile Include="Assets\Scripts\RoverModules\BasicCamera.cs" />
+     <Compile Include="Assets\Scripts\RoverModules\CaterpillarTracks.cs" />
      <Compile Include="Assets\Scripts\RoverModules\NuclearGenerator.cs" />
      <Compile Include="Assets\Scripts\RoverModules\RoverModule.cs" />
      <Compile Include="Assets\Scripts\RoverModules\SolarPanel.cs" />
