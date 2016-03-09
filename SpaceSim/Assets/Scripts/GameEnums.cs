@@ -27,3 +27,36 @@ public enum ROVER_MODULE_SLOT {
 	CAMERA,
 	MISC
 }
+
+public enum ROVER_MODULE_LOCOMOTION {
+	NONE,
+	Wheels,
+	CaterpillarTracks
+}
+
+public enum ROVER_MODULE_BATTERY {
+	NONE,
+	SolarPanelling,
+	NuclearBattery
+}
+
+public enum ROVER_MODULE_CHASSIS {
+	NONE,
+	ThinChassis
+}
+
+public enum ROVER_MODULE_SENSOR {
+	NONE,
+	RadiationSensor
+}
+
+public enum ROVER_MODULE_CAMERA {
+	NONE,
+	BasicCamera,
+	MkIICamera
+}
+
+public enum ROVER_MODULE_MISC {
+	NONE,
+	HappyBirthday
+}

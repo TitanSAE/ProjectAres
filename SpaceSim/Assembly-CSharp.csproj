@@ -73,6 +73,7 @@
      <Compile Include="Assets\OVR\Scripts\Util\OVRSceneSampleController.cs" />
      <Compile Include="Assets\OVR\Scripts\Util\OVRScreenFade.cs" />
      <Compile Include="Assets\OVR\Scripts\Util\OVRTrackerBounds.cs" />
+     <Compile Include="Assets\RoverEngineAudio.cs" />
      <Compile Include="Assets\Scripts\DayNightCycle.cs" />
      <Compile Include="Assets\Scripts\FPS_Player.cs" />
      <Compile Include="Assets\Scripts\GameEnums.cs" />
@@ -90,6 +91,7 @@
      <Compile Include="Assets\Scripts\RoverModules\CaterpillarTracks.cs" />
      <Compile Include="Assets\Scripts\RoverModules\NuclearGenerator.cs" />
      <Compile Include="Assets\Scripts\RoverModules\RoverModule.cs" />
+     <Compile Include="Assets\Scripts\RoverModules\RoverModuleDataHolder.cs" />
      <Compile Include="Assets\Scripts\RoverModules\SolarPanel.cs" />
      <Compile Include="Assets\Scripts\RoverModules\Wheels.cs" />
      <Compile Include="Assets\Scripts\SceneManager.cs" />
@@ -100,6 +102,7 @@
      <Compile Include="Assets\Scripts\UI\UIListItem.cs" />
      <Compile Include="Assets\Scripts\UI\UISceneManager.cs" />
      <Compile Include="Assets\Scripts\UI\UIStickToTarget.cs" />
+     <Compile Include="Assets\UIShowPivot.cs" />
      <None Include="Assets\RAIN\Editor\Shaders\AspectSphereShader.shader" />
      <None Include="Assets\Shaders\Particle-Alpha-Premultiply-AfterTrans.shader" />
      <None Include="Assets\RAIN\Editor\Shaders\VisualSensorLineShader.shader" />
@@ -116,6 +119,7 @@
      <None Include="Assets\RAIN\Editor\Shaders\AspectRingShader.shader" />
      <None Include="Assets\RAIN\Editor\Shaders\NavMeshColliderShader.shader" />
      <None Include="Assets\Shaders\Particle Alpha Blend-AfterTrans.shader" />
+     <None Include="Assets\Shaders\Default-OverAll.shader" />
      <None Include="Assets\Resources\Sponsors\Goat Rocket.xml" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity 532f1/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

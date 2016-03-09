@@ -36,6 +36,9 @@ public class FPS_Player: MonoBehaviour {
 	private bool bPlayerControl = false;
 	private int iJumpTimer;
 
+	public bool bJetting = false;
+	public bool bIdle = false;
+
 	void Start() {
 		controller = GetComponent<CharacterController>();
 		localtrans = transform;
@@ -55,6 +58,13 @@ public class FPS_Player: MonoBehaviour {
 			inputY = Input.GetAxis("Vertical");
 			//Diagonal movement limit
 			inputModifyFactor = (inputX != 0.0f && inputY != 0.0f && bLimitDiagonalSpeed) ? 0.7071f : 1.0f;
+		}
+
+		if (inputY > 0) {
+			bIdle = false;
+		}
+		else {
+			bIdle = true;
 		}
 
 		if (bGrounded) {
@@ -102,13 +112,13 @@ public class FPS_Player: MonoBehaviour {
 			}
 
 			//Jump
-			if (!Input.GetButton("Jump")) {
-				iJumpTimer++;
-			}
-			else if (iJumpTimer >= iAntiBunnyHop) {
-				vMoveDirection.y = fJumpSpeed;
-				iJumpTimer = 0;
-			}
+//			if (!Input.GetButton("Jump")) {
+//				iJumpTimer++;
+//			}
+//			else if (iJumpTimer >= iAntiBunnyHop) {
+//				vMoveDirection.y = fJumpSpeed;
+//				iJumpTimer = 0;
+//			}
 		}
 		//In the air
 		else {
@@ -126,22 +136,41 @@ public class FPS_Player: MonoBehaviour {
 			}
 		}
 
+		//Rocket Booster quickie
+		if (Input.GetKey(KeyCode.Space) || Input.GetButton("Jump") || Input.GetAxis("XboxRightTrigger") > 0) {
+			vMoveDirection.y = 5.0f;
+			bJetting = true;
+		}
+		else {
+			bJetting = false;
+		}
+
 		//Apply gravity
 		vMoveDirection.y -= fGravity * Time.deltaTime;
 
 		//Grounded?
 		bGrounded = (controller.Move(vMoveDirection * Time.deltaTime) & CollisionFlags.Below) != 0;
 
-		//Rocket Booster quickie
-		if (Input.GetKey(KeyCode.Space)) {
-			vMoveDirection.y = 5.0f;
+
+
+		float turn = Input.GetAxisRaw("XboxRightStickX");
+
+		if (turn > 0) {
+			gameObject.transform.Rotate(gameObject.transform.up);
+		}
+
+		if (turn < 0) {
+			gameObject.transform.Rotate(-gameObject.transform.up);
 		}
 	}
 
 	void Update() {
 		//If the run button is set to toggle switch between walk/run speed
-		if (bRunToggleMode && bGrounded && Input.GetButtonDown("Run"))
+		if (bRunToggleMode && bGrounded && Input.GetButtonDown("Run")) {
 			fSpeed = (fSpeed == fWalkSpeed? fRunSpeed : fWalkSpeed);
+		}
+			
+
 	}
 		
 	void OnControllerColliderHit(ControllerColliderHit hit) {

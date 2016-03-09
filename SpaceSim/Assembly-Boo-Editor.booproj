@@ -63,6 +63,7 @@
      <None Include="Assets\RAIN\Editor\Shaders\AspectRingShader.shader" />
      <None Include="Assets\RAIN\Editor\Shaders\NavMeshColliderShader.shader" />
      <None Include="Assets\Shaders\Particle Alpha Blend-AfterTrans.shader" />
+     <None Include="Assets\Shaders\Default-OverAll.shader" />
      <None Include="Assets\Resources\Sponsors\Goat Rocket.xml" />
  <Reference Include="UnityEditor.Advertisements">
  <HintPath>C:/Program Files/Unity 532f1/Editor/Data/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>

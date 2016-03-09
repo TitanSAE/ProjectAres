@@ -94,7 +94,7 @@ public class OVRSceneSampleController : MonoBehaviour
 
         if (playerControllers.Length == 0)
         {
-            Debug.LogWarning("OVRMainMenu: No OVRPlayerController attached.");
+            //Debug.LogWarning("OVRMainMenu: No OVRPlayerController attached.");
         }
         else if (playerControllers.Length > 1)
         {

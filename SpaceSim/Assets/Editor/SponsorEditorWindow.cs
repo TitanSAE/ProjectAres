@@ -2,7 +2,7 @@
 using UnityEditor;
 using System.Collections;
 using System.Collections.Generic;
-
+using System;
 using System.Xml;
 using System.Xml.Linq;
 using System.Linq;
@@ -33,6 +33,8 @@ public class SponsorEditorWindow : EditorWindow {
 
 	List<DropdownList> l_dropdowns = new List<DropdownList>();
 	List<int> l_dropchoices = new List<int>();
+	//List<KeyValuePair<ROVER_MODULE_SLOT, int>> l_loadedrmodules = new List<KeyValuePair<ROVER_MODULE_SLOT, int>>();
+
 	List<string> l_loadedmodules = new List<string>();
 	bool bLoadModulesFromList = false;
 	Texture texNoChoice;
@@ -55,6 +57,7 @@ public class SponsorEditorWindow : EditorWindow {
 		sRoverName = "";
 		sRoverDescription = "";
 		texRoverPreview = null;
+		//l_loadedrmodules.Clear();
 
 		builder.Init();
 		l_dropchoices.Clear();
@@ -76,6 +79,7 @@ public class SponsorEditorWindow : EditorWindow {
 		l_dropchoices.Clear();
 		l_dropdowns.Clear();
 		l_loadedmodules.Clear();
+		//l_loadedrmodules.Clear();
 		bLoadModulesFromList = false;
 	}
 
@@ -237,14 +241,14 @@ public class SponsorEditorWindow : EditorWindow {
 			GUILayout.BeginHorizontal();
 			eCurSlot = (ROVER_MODULE_SLOT)EditorGUILayout.EnumPopup(eCurSlot);
 			if (GUILayout.Button("Add Slot")) {
-				builder.AddMod(eCurSlot);
+				builder.AddMod(eCurSlot, 0);
 			}
 			if (GUILayout.Button("Remove Slot") && !bRemoveSlot) {
 				//builder.RemoveMod(eCurSlot);
-				if (builder.l_slots.Contains(eCurSlot)) {
-					iDeadSlot = builder.l_slots.FindLastIndex(findnum => findnum == eCurSlot);
-					bRemoveSlot = true;
-				}
+//				if (builder.l_slots.Contains(eCurSlot)) {
+//					iDeadSlot = builder.l_slots.FindLastIndex(findnum => findnum == eCurSlot);
+//					bRemoveSlot = true;
+//				}
 			}
 			if (GUILayout.Button("Refresh")) {
 				RefreshModules();
@@ -259,60 +263,67 @@ public class SponsorEditorWindow : EditorWindow {
 	}
 
 	public void RefreshModules() {
-		while (l_dropdowns.Count < builder.l_slots.Count) {
-			if (l_dropdowns.Count < builder.l_slots.Count) {
-				l_dropdowns.Add(new DropdownList());
-				l_dropchoices.Add(0);
-			}
-		}
+//		while (l_dropdowns.Count < builder.l_slots.Count) {
+//			if (l_dropdowns.Count < builder.l_slots.Count) {
+//				l_dropdowns.Add(new DropdownList());
+//				l_dropchoices.Add(0);
+//			}
+//		}
 
 		if (bRemoveSlot) {
 			l_dropdowns.RemoveAt(iDeadSlot);
-			builder.l_slots.RemoveAt(iDeadSlot);
+			//builder.l_slots.RemoveAt(iDeadSlot);
 			bRemoveSlot = false;
 		}
 	}
 
 	public void DrawModules() {
-		for (int i = 0; i < builder.l_slots.Count; i++) {
-			GUILayout.Label("Slot " + (i + 1).ToString() + " (" + builder.l_slots[i].ToString() + "):");
-			List<GUIContent> items = new List<GUIContent>();
+		for (int i = 0; i < builder.l_loadedrmodules.Count; i++) {
+			GUILayout.BeginHorizontal();
+			GUILayout.Label("Slot " + (i + 1).ToString() + " (" + builder.l_loadedrmodules[i].Key.ToString() + "):");
+			GUILayout.EndHorizontal();
 
-			items.Add(new GUIContent("Empty", texNoChoice));
-			foreach (RoverModule modf in builder.l_allmods) {
-				if (modf.eSlot == builder.l_slots[i]) {
-					items.Add(new GUIContent(modf.ToString(), modf.texIcon));
-				}
-			}
 
-			if (bLoadModulesFromList) {
-				//l_loadedmodules.Add("dummy");
-				bLoadModulesFromList = false;
 
-				int iload = 0;
-				foreach (string mod in l_loadedmodules) {
-					if (mod != "dummy") {
-						int ifound = builder.l_allmods.FindIndex(findtype => findtype.sName == mod);
-						l_dropdowns[iload].selectedItemIndex = ifound;
-					}
+			//ecur = EditorGUILayout.EnumPopup((Enum)ecur);
 
-					iload++;
-				}
+//			List<GUIContent> items = new List<GUIContent>();
+//
+//			items.Add(new GUIContent("Empty", texNoChoice));
+//			foreach (RoverModule modf in builder.l_allmods) {
+//				if (modf.eSlot == builder.l_slots[i]) {
+//					items.Add(new GUIContent(modf.ToString(), modf.texIcon));
+//				}
+//			}
 
-				Repaint();
-			}
+//			if (bLoadModulesFromList) {
+//				//l_loadedmodules.Add("dummy");
+//				bLoadModulesFromList = false;
+//
+//				int iload = 0;
+//				foreach (string mod in l_loadedmodules) {
+//					if (mod != "dummy") {
+//						int ifound = builder.l_allmods.FindIndex(findtype => findtype.sName == mod);
+//						l_dropdowns[iload].selectedItemIndex = ifound;
+//					}
+//
+//					iload++;
+//				}
+//
+//				Repaint();
+//			}
 
-			if (items.Count > 0) {
-				l_dropchoices[i] = l_dropdowns[i].List(new Rect(GUILayoutUtility.GetLastRect().x,
-					GUILayoutUtility.GetLastRect().y + GUILayoutUtility.GetLastRect().height, 200, 20),
-					items.ToArray(),
-					EditorStyles.toolbarDropDown, EditorStyles.toolbarTextField);
-				//Debug.Log(i.ToString() + " was " + l_dropdowns[i].GetSelectedItemIndex().ToString());
-			}
-
-			if (l_dropdowns[i].isVisible) {
-				GUILayout.Space(20.0f * items.Count);
-			}
+//			if (items.Count > 0) {
+//				l_dropchoices[i] = l_dropdowns[i].List(new Rect(GUILayoutUtility.GetLastRect().x,
+//					GUILayoutUtility.GetLastRect().y + GUILayoutUtility.GetLastRect().height, 200, 20),
+//					items.ToArray(),
+//					EditorStyles.toolbarDropDown, EditorStyles.toolbarTextField);
+//				//Debug.Log(i.ToString() + " was " + l_dropdowns[i].GetSelectedItemIndex().ToString());
+//			}
+//
+//			if (l_dropdowns[i].isVisible) {
+//				GUILayout.Space(20.0f * items.Count);
+//			}
 			GUILayout.Space(25);
 		}
 	}
@@ -411,50 +422,50 @@ public class SponsorEditorWindow : EditorWindow {
 		writer.WriteStartElement("modules");
 		writer.WriteWhitespace("\n");
 
-		if (builder.l_slots != null && builder.l_slots.Count != 0) {
-			for (int i = 0; i < builder.l_slots.Count; i++) {
-				string slotname = "NONE";
-				string itemname = "RoverModule";
-
-				if (builder.l_slots[i] != ROVER_MODULE_SLOT.NONE && l_dropchoices[i] != 0) {
-					writer.WriteWhitespace("\t\t");
-					writer.WriteStartElement("mod");
-
-					//int ifound = builder.l_allmods.FindIndex(findtype => findtype.sName == mod);
-					//l_dropdowns[iload].selectedItemIndex = ifound;
-
-					//RoverModule outmod = builder.l_allmods.Find(findrov => findrov.sName == l_dropdowns[i].lastgui[l_dropdowns[i].GetSelectedItemIndex()].text);
-					string match = l_dropdowns[i].lastgui[l_dropdowns[i].GetSelectedItemIndex()].text;
-					match = match.ToLower();
-					//Debug.Log("match: " + match);
-
-					slotname = "NONE";
-					itemname = "RoverModule";
-
-					foreach (RoverModule mod in builder.l_allmods) {
-						if (match == mod.sName.Replace(" ", "").ToLower()) {
-							slotname = mod.eSlot.ToString();
-							itemname = mod.sName;
-							break;
-						}
-					}
-
-					//Debug.Log(slotname + "|" + itemname);
-					//Debug.Log("===");
-
-					//slotname = outmod.eSlot.ToString();
-					//itemname = outmod.sName;
-
-					writer.WriteAttributeString("slot", slotname);
-					writer.WriteValue(itemname);
-					writer.WriteEndElement();
-					writer.WriteWhitespace("\n");
-				}
-				else {
-					//Debug.Log(i.ToString() + " WAS NONE");
-				}
-			}
-		}
+//		if (builder.l_slots != null && builder.l_slots.Count != 0) {
+//			for (int i = 0; i < builder.l_slots.Count; i++) {
+//				string slotname = "NONE";
+//				string itemname = "RoverModule";
+//
+//				if (builder.l_slots[i] != ROVER_MODULE_SLOT.NONE && l_dropchoices[i] != 0) {
+//					writer.WriteWhitespace("\t\t");
+//					writer.WriteStartElement("mod");
+//
+//					//int ifound = builder.l_allmods.FindIndex(findtype => findtype.sName == mod);
+//					//l_dropdowns[iload].selectedItemIndex = ifound;
+//
+//					//RoverModule outmod = builder.l_allmods.Find(findrov => findrov.sName == l_dropdowns[i].lastgui[l_dropdowns[i].GetSelectedItemIndex()].text);
+//					string match = l_dropdowns[i].lastgui[l_dropdowns[i].GetSelectedItemIndex()].text;
+//					match = match.ToLower();
+//					//Debug.Log("match: " + match);
+//
+//					slotname = "NONE";
+//					itemname = "RoverModule";
+//
+//					foreach (RoverModule mod in builder.l_allmods) {
+//						if (match == mod.sName.Replace(" ", "").ToLower()) {
+//							slotname = mod.eSlot.ToString();
+//							itemname = mod.sName;
+//							break;
+//						}
+//					}
+//
+//					//Debug.Log(slotname + "|" + itemname);
+//					//Debug.Log("===");
+//
+//					//slotname = outmod.eSlot.ToString();
+//					//itemname = outmod.sName;
+//
+//					writer.WriteAttributeString("slot", slotname);
+//					writer.WriteValue(itemname);
+//					writer.WriteEndElement();
+//					writer.WriteWhitespace("\n");
+//				}
+//				else {
+//					//Debug.Log(i.ToString() + " WAS NONE");
+//				}
+//			}
+//		}
 
 		writer.WriteWhitespace("\t");
 		writer.WriteEndElement();
@@ -493,10 +504,10 @@ public class SponsorEditorWindow : EditorWindow {
 				else if (xlayer1.Name == "modules") {
 					l_loadedmodules.Clear();
 					foreach (XElement xlayer2 in xlayer1.Elements()) {
-						ROVER_MODULE_SLOT slot = (ROVER_MODULE_SLOT)System.Enum.Parse(typeof(ROVER_MODULE_SLOT), xlayer2.Attribute("slot").Value.ToString());
-						builder.AddMod(slot);
-						l_loadedmodules.Add(xlayer2.Value);
-						bLoadModulesFromList = true;
+//						ROVER_MODULE_SLOT slot = (ROVER_MODULE_SLOT)System.Enum.Parse(typeof(ROVER_MODULE_SLOT), xlayer2.Attribute("slot").Value.ToString());
+//						builder.AddMod(slot);
+//						l_loadedmodules.Add(xlayer2.Value);
+//						bLoadModulesFromList = true;
 					}
 				}
 			}
