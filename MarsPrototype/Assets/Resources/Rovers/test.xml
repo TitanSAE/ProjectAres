@@ -1,0 +1,12 @@
+<MarsRover>
+	<name>test</name>
+	<description>(Y)</description>
+	<avatar>dinotrucks</avatar>
+	<modules>
+		<mod slot="CAMERA">Basic Camera</mod>
+		<mod slot="CAMERA">Basic Camera</mod>
+		<mod slot="LOCOMOTION">Wheels</mod>
+		<mod slot="BATTERY">Nuclear Generator</mod>
+		<mod slot="BATTERY">Solar Panel</mod>
+	</modules>
+</MarsRover>
