@@ -3,17 +3,6 @@ using UnityEditor;
 using System.Collections;
 using System.Collections.Generic;
 
-public enum FlowLocation {
-	NONE,
-	FLOW1,
-	FLOW2
-}
-public enum ClassificationType {
-	NONE,
-	ALIVE,
-	DEAD
-}
-
 public class FlowsheetNode {
 
 	public int id {private set; get;}
@@ -30,7 +19,7 @@ public class FlowsheetNode {
 	public bool bShowSizeBoxes = false;
 	public bool bParentResizing = false;
 
-	public FlowLocation eLocation = FlowLocation.NONE;
+	public DIALOG_LOCATION eLocation = DIALOG_LOCATION.NONE;
 
 	private Texture2D stretchicon;
 
@@ -40,15 +29,19 @@ public class FlowsheetNode {
 	public List<FlowsheetNode> l_inputs {private set; get;}
 	public List<FlowsheetNode> l_outputs {private set; get;}
 
-	public Dictionary<FlowsheetNode, ClassificationType> d_linktypes_in {private set; get;}
-	public Dictionary<FlowsheetNode, ClassificationType> d_linktypes_out {private set; get;}
+	public Dictionary<FlowsheetNode, FLOWSHEET_LINK_TYPE> d_linktypes_in {private set; get;}
+	public Dictionary<FlowsheetNode, FLOWSHEET_LINK_TYPE> d_linktypes_out {private set; get;}
+
+	public Texture2D texTalkAvatar = null;
+	public string sSpeakerName= "";
+	public string sDialog = "";
 
 	public FlowsheetNode() {
 		l_inputs = new List<FlowsheetNode>();
 		l_outputs = new List<FlowsheetNode>();
 
-		d_linktypes_in = new Dictionary<FlowsheetNode, ClassificationType>();
-		d_linktypes_out = new Dictionary<FlowsheetNode, ClassificationType>();
+		d_linktypes_in = new Dictionary<FlowsheetNode, FLOWSHEET_LINK_TYPE>();
+		d_linktypes_out = new Dictionary<FlowsheetNode, FLOWSHEET_LINK_TYPE>();
 
 		stretchicon = Resources.Load<Texture2D>("resize");
 	}
@@ -61,15 +54,15 @@ public class FlowsheetNode {
 		l_inputs = new List<FlowsheetNode>();
 		l_outputs = new List<FlowsheetNode>();
 
-		d_linktypes_in = new Dictionary<FlowsheetNode, ClassificationType>();
-		d_linktypes_out = new Dictionary<FlowsheetNode, ClassificationType>();
+		d_linktypes_in = new Dictionary<FlowsheetNode, FLOWSHEET_LINK_TYPE>();
+		d_linktypes_out = new Dictionary<FlowsheetNode, FLOWSHEET_LINK_TYPE>();
 
 		stretchicon = Resources.Load<Texture2D>("resize");
 	}
 
-	public void AddInput(FlowsheetNode node, ClassificationType type) {
+	public void AddInput(FlowsheetNode node, FLOWSHEET_LINK_TYPE type) {
 		if (!l_inputs.Contains(node)) {
-			d_linktypes_in.Add(node, ClassificationType.NONE);
+			d_linktypes_in.Add(node, FLOWSHEET_LINK_TYPE.NONE);
 			l_inputs.Add(node);
 		}
 	}
@@ -81,9 +74,9 @@ public class FlowsheetNode {
 		}
 	}
 
-	public void AddOutput(FlowsheetNode node, ClassificationType type) {
+	public void AddOutput(FlowsheetNode node, FLOWSHEET_LINK_TYPE type) {
 		if (!l_outputs.Contains(node)) {
-			d_linktypes_out.Add(node, ClassificationType.NONE);
+			d_linktypes_out.Add(node, FLOWSHEET_LINK_TYPE.NONE);
 			l_outputs.Add(node);
 		}
 	}
@@ -95,29 +88,29 @@ public class FlowsheetNode {
 		}
 	}
 
-	public void SetInputClassification(FlowsheetNode node, ClassificationType type) {
+	public void SetInputClassification(FlowsheetNode node, FLOWSHEET_LINK_TYPE type) {
 		if (l_inputs.Contains(node)) {
 			d_linktypes_in[node] = type;
 		}
 	}
 
-	public void SetOutputClassification(FlowsheetNode node, ClassificationType type) {
+	public void SetOutputClassification(FlowsheetNode node, FLOWSHEET_LINK_TYPE type) {
 		if (l_outputs.Contains(node)) {
 			d_linktypes_out[node] = type;
 		}
 	}
 
-	//    public void DetectEvents(ref bool bResize, ref FlowsheetNode selnode, Vector2 mousepos) {
-	//        Rect corner = new Rect(position.width - 20, position.height - 20, 20, 20);
-	//
-	//        if (mousepos.x > corner.x && mousepos.x < corner.x + 20) {
-	//            if (mousepos.y > corner.y && mousepos.y < corner.y + 20) {
-	//                bResize = true;
-	//                selnode = this;
-	//                Debug.Log("FOIUDN IT");
-	//            }
-	//        }
-	//    }
+//	public void DetectEvents(ref bool bResize, ref FlowsheetNode selnode, Vector2 mousepos) {
+//		Rect corner = new Rect(position.width - 20, position.height - 20, 20, 20);
+//
+//		if (mousepos.x > corner.x && mousepos.x < corner.x + 20) {
+//			if (mousepos.y > corner.y && mousepos.y < corner.y + 20) {
+//				bResize = true;
+//				selnode = this;
+//				Debug.Log("FOIUDN IT");
+//			}
+//		}
+//	}
 
 	public void Draw(int winid) {
 		//Begin auto layout
@@ -140,9 +133,17 @@ public class FlowsheetNode {
 				EditorGUIUtility.labelWidth = 0;
 				GUILayout.EndHorizontal();
 			}
-			EditorGUIUtility.labelWidth = 55.0f;
-			eLocation = (FlowLocation)EditorGUILayout.EnumPopup("Flow Loc:", eLocation);
-			//GUILayout.Space(4.0f);
+			EditorGUIUtility.labelWidth = 75.0f;
+			eLocation = (DIALOG_LOCATION)EditorGUILayout.EnumPopup("Screen Loc:", eLocation);
+			EditorGUIUtility.labelWidth = 0;
+
+			GUILayout.Label("Avatar:");
+			texTalkAvatar = (Texture2D)EditorGUILayout.ObjectField((Object)texTalkAvatar, typeof(Texture2D), false);
+
+			sSpeakerName = EditorGUILayout.TextField("Speaker", sSpeakerName);
+
+			GUILayout.Label("Dialog:");
+			sDialog = EditorGUILayout.TextArea(sDialog, GUILayout.ExpandHeight(true));
 
 			GUILayout.Label("Links", EditorStyles.boldLabel);
 			bShowInputs = EditorGUILayout.Foldout(bShowInputs, "Inputs");
@@ -171,7 +172,7 @@ public class FlowsheetNode {
 
 					GUILayout.Label(l_outputs[i].sTitle);
 
-					d_linktypes_out[l_outputs[i]] = (ClassificationType)EditorGUILayout.EnumPopup(d_linktypes_out[l_outputs[i]]);
+					d_linktypes_out[l_outputs[i]] = (FLOWSHEET_LINK_TYPE)EditorGUILayout.EnumPopup(d_linktypes_out[l_outputs[i]]);
 
 					if (GUILayout.Button("Sever")) {
 						FlowsheetNode tempnode = l_outputs[i];
@@ -183,7 +184,7 @@ public class FlowsheetNode {
 			}
 		}
 		else {
-			GUILayout.Label("Inputs: " + l_inputs.Count.ToString());
+			GUILayout.Label("Inputs: " + l_outputs.Count.ToString());
 			GUILayout.Label("Outputs: " + l_outputs.Count.ToString());
 		}
 		GUILayout.EndVertical();
@@ -194,6 +195,18 @@ public class FlowsheetNode {
 		//Fixed layout
 		if (GUI.Button(new Rect(position.width - 15, 0, 15, 15), "X")) {
 			bMarkedForDelete = true;
+
+			for (int i = l_outputs.Count - 1; i > -1; i--) {
+				FlowsheetNode tempnode = l_outputs[i];
+				l_outputs[i].RemoveInput(this);
+				RemoveOutput(tempnode);
+			}
+
+			for (int i = l_inputs.Count - 1; i > -1; i--) {
+				FlowsheetNode tempnode = l_inputs[i];
+				l_inputs[i].RemoveOutput(this);
+				RemoveInput(tempnode);
+			}
 		}
 
 		if (bParentResizing && parentSelectedNode == this && Event.current.type == EventType.MouseDrag) {

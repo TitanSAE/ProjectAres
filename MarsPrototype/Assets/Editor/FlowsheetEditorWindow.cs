@@ -66,8 +66,8 @@ public class FlowsheetEditorWindow : EditorWindow {
 		selectednode = null;
 		nodeToAttach = null;
 
-		goFlowLoc = Resources.Load<GameObject>("Prefabs/FlowLocation");
-		goFlowOut = Resources.Load<GameObject>("Prefabs/FlowOutput");
+		//goFlowLoc = Resources.Load<GameObject>("Prefabs/FlowLocation");
+		//goFlowOut = Resources.Load<GameObject>("Prefabs/FlowOutput");
 	}
 
 	void Update() {
@@ -88,13 +88,13 @@ public class FlowsheetEditorWindow : EditorWindow {
 		vMousePos = e.mousePosition;
 
 		//Weird mouse error?
-		vMousePos = new Vector2(vMousePos.x - 100.0f, vMousePos.y);
+		vMousePos = new Vector2(vMousePos.x - TOOLBAR_OFFSET + vScrollPos.x, vMousePos.y + vScrollPos.y);
 
 		if (e.type == EventType.Layout) {
 			if (bDoAttachment && selectednode != null) {
 				if (!selectednode.l_outputs.Contains(nodeToAttach)) {
-					selectednode.AddOutput(nodeToAttach, ClassificationType.NONE);
-					nodeToAttach.AddInput(selectednode, ClassificationType.NONE);
+					selectednode.AddOutput(nodeToAttach, FLOWSHEET_LINK_TYPE.NONE);
+					nodeToAttach.AddInput(selectednode, FLOWSHEET_LINK_TYPE.NONE);
 				}
 				bSelectingNode = false;
 				//Debug.Log("Linked!");
@@ -158,7 +158,7 @@ public class FlowsheetEditorWindow : EditorWindow {
 		GUILayout.BeginArea(new Rect(0, 0, TOOLBAR_OFFSET, editor.position.height));
 		GUILayout.BeginVertical();
 		if (GUILayout.Button("New Node")) {
-			FlowsheetNode tempNode = new FlowsheetNode(curid, new Rect(30, 30, 170, 180), "Window " + curid.ToString());
+			FlowsheetNode tempNode = new FlowsheetNode(curid, new Rect(vScrollPos.x + 30, vScrollPos.y + 30, 170, 180), "Window " + curid.ToString());
 			l_nodes.Add(tempNode);
 			curid++;
 		}
@@ -178,15 +178,15 @@ public class FlowsheetEditorWindow : EditorWindow {
 				Debug.Log("Nothing to undo!");
 			}
 		}
-		if (GUILayout.Button("Load from scene")) {
+		if (GUILayout.Button("Load")) {
 			if (EditorUtility.DisplayDialog("Are you sure?", "This will overwrite any current Flowsheet nodes.", "OK", "Cancel")) {
-				LoadFromScene();
+				//LoadFromScene();
 			}
 		}
-		if (GUILayout.Button("Save to scene")) {
-			if (EditorUtility.DisplayDialog("Are you sure?", "This will overwrite any current Flowsheet GameObjects.", "OK", "Cancel")) {
-				SaveToScene();
-			}
+		if (GUILayout.Button("Save")) {
+			//if (EditorUtility.DisplayDialog("Are you sure?", "This will overwrite any current Flowsheet GameObjects.", "OK", "Cancel")) {
+				//SaveToScene();
+			//}
 		}
 		GUILayout.EndVertical();
 
@@ -217,10 +217,10 @@ public class FlowsheetEditorWindow : EditorWindow {
 			foreach (FlowsheetNode child in node.l_outputs) {
 				//float xoffset = 0.0f;
 				//float yoffset = 0.0f;
-				//				float index = (float)node.l_outputs.IndexOf(child);
-				//
-				//				xoffset = index * 3;
-				//				yoffset = index * 3;
+//				float index = (float)node.l_outputs.IndexOf(child);
+//
+//				xoffset = index * 3;
+//				yoffset = index * 3;
 
 				DrawCurve(node.position, child.position, Color.white);
 			}
@@ -256,17 +256,17 @@ public class FlowsheetEditorWindow : EditorWindow {
 		}
 
 		if (bAnyRecentDead) {
-			l_lastdeadnodes.Clear();
+				l_lastdeadnodes.Clear();
 
-			for (int i = l_nodes.Count - 1; i > -1; i--) {
-				if (l_nodes[i].bMarkedForDelete) {
-					l_nodes[i].bMarkedForDelete = false;
-					l_lastdeadnodes.Add(l_nodes[i]);
-					l_nodes.Remove(l_nodes[i]);
+				for (int i = l_nodes.Count - 1; i > -1; i--) {
+					if (l_nodes[i].bMarkedForDelete) {
+						l_nodes[i].bMarkedForDelete = false;
+						l_lastdeadnodes.Add(l_nodes[i]);
+						l_nodes.Remove(l_nodes[i]);
+					}
 				}
-			}
 
-			bAnyRecentDead = false;
+				bAnyRecentDead = false;
 		}
 
 		//Cancel resize etc. if we lost focus
@@ -274,11 +274,11 @@ public class FlowsheetEditorWindow : EditorWindow {
 			GUIUtility.hotControl = 0;
 		}
 
-		//		if (l_nodes.Count > 0) {
-		//			GUI.DrawTexture(new Rect(l_nodes[0].position.x - 11, l_nodes[0].position.y - 11, 21, 21), arrowhead);
-		//			float yoff2 = l_nodes[0].position.y - 11 - ((vScrollPos.y / (float)MAX_SCROLL_AREA) * l_nodes[0].position.height);
-		//			GUI.DrawTexture(new Rect(l_nodes[0].position.width - 20, yoff2, 11, 11), arrowhead);
-		//		}
+//		if (l_nodes.Count > 0) {
+//			GUI.DrawTexture(new Rect(l_nodes[0].position.x - 11, l_nodes[0].position.y - 11, 21, 21), arrowhead);
+//			float yoff2 = l_nodes[0].position.y - 11 - ((vScrollPos.y / (float)MAX_SCROLL_AREA) * l_nodes[0].position.height);
+//			GUI.DrawTexture(new Rect(l_nodes[0].position.width - 20, yoff2, 11, 11), arrowhead);
+//		}
 	}
 
 	public void DrawCurve(Rect source, Rect dest, Color color, float width = 3.0f, float xoffset = 0.0f, float yoffset = 0.0f) {
@@ -331,141 +331,17 @@ public class FlowsheetEditorWindow : EditorWindow {
 		source_pos = new Vector3(source_fx, source_fy, 0);
 		end_pos = new Vector3(end_fx, end_fy, 0);
 
-		float dist = Vector3.Distance(source_pos, end_pos);
+		//float dist = Vector3.Distance(source_pos, end_pos);
 
-		Vector3 start_tang = source_pos + Vector3.right * (dist / 2f) ;
-		Vector3 end_tang = end_pos + Vector3.left * (dist / 2f);
+		//Vector3 start_tang = source_pos + Vector3.right * (dist / 2f) ;
+		//Vector3 end_tang = end_pos + Vector3.left * (dist / 2f);
 
 		Rect arrowpoint = new Rect(end_pos.x - 11, end_pos.y - 11, 21, 21);
 
 		Handles.BeginGUI();
-		Handles.DrawBezier(source_pos, end_pos, start_tang, end_tang, color, null, width);
+		Handles.DrawLine(source_pos, end_pos);
+//		Handles.DrawBezier(source_pos, end_pos, start_tang, end_tang, color, null, width);
 		GUI.DrawTexture(arrowpoint, arrowhead);
 		Handles.EndGUI();
 	}
-
-	public void LoadFromScene() {
-//		l_nodes.Clear();
-//		l_lastdeadnodes.Clear();
-//		curid = 0;
-//
-//		GameObject flowmaster = GameObject.FindGameObjectWithTag("FlowsheetMaster");
-//
-//		if (flowmaster == null) {
-//			Debug.LogError("No FlowsheetMaster was found!");
-//			return;
-//		}
-//
-//		Dictionary<FlowsheetObject, List<FlowsheetObject>> d_flowlinks_out = new Dictionary<FlowsheetObject, List<FlowsheetObject>>();
-//
-//		List<FlowsheetObject> l_flowobj = new List<FlowsheetObject>();
-//		l_flowobj.AddRange(flowmaster.GetComponentsInChildren<FlowsheetObject>());
-//
-//		//l_flowobj.Reverse();
-//
-//		if (l_flowobj.Count == 0) {
-//			Debug.LogError("Nothing was attached to the FlowsheetMaster!");
-//			return;
-//		}
-//
-//		//Generate outputs
-//		foreach (FlowsheetObject obj in l_flowobj) {
-//			d_flowlinks_out.Add(obj, new List<FlowsheetObject>());
-//			if (obj.GetComponentInChildren<MineralProcessingLink>() != null) {
-//				//Store all the outputs
-//				foreach (MineralProcessingLink link in obj.GetComponentsInChildren<MineralProcessingLink>()) {
-//					d_flowlinks_out[obj].Add(link.flowObjDest);
-//				}
-//			}
-//		}
-//
-//		Dictionary<FlowsheetObject, FlowsheetNode> d_flowbridge = new Dictionary<FlowsheetObject, FlowsheetNode>();
-//
-//		//What node goes with what object?
-//		foreach (FlowsheetObject obj in l_flowobj) {
-//			FlowsheetNode tempnode = new FlowsheetNode(curid, new Rect(30 + 200 * curid, 30 + 90 * curid, 170, 180), obj.name);
-//			l_nodes.Add(tempnode);
-//			d_flowbridge.Add(obj, tempnode);
-//
-//			curid++;
-//		}
-//
-//		//Tie them all together
-//		foreach (KeyValuePair<FlowsheetObject, List<FlowsheetObject>> outpair in d_flowlinks_out) {
-//			foreach (FlowsheetObject outpair_link in outpair.Value) {
-//				d_flowbridge[outpair.Key].AddOutput(d_flowbridge[outpair_link], ClassificationType.NONE);
-//				d_flowbridge[outpair_link].AddInput(d_flowbridge[outpair.Key], ClassificationType.NONE);
-//
-//				if (d_flowbridge[outpair.Key].eLocation == FlowLocation.NONE) {
-//					d_flowbridge[outpair.Key].eLocation = outpair.Key.outputLinks[0].flowSrc;
-//				}
-//			}
-//		}
-//
-//		//Find "terminators" - ones with no outputs. They won't have a Location set.
-//		foreach (FlowsheetObject obj in l_flowobj) {
-//			if (d_flowbridge[obj].eLocation == FlowLocation.NONE) {
-//				d_flowbridge[obj].eLocation = obj.inputLinks[0].flowDst;
-//			}
-//		}
-	}
-
-	public void SaveToScene() {
-		//l_lastdeadnodes.Clear();
-
-//		GameObject flowmaster = GameObject.FindGameObjectWithTag("FlowsheetMaster");
-//
-//		if (flowmaster == null) {
-//			Debug.LogError("No FlowsheetMaster was found!");
-//			return;
-//		}
-//
-//		if (l_nodes.Count == 0) {
-//			Debug.LogError("There's nothing to write!");
-//			return;
-//		}
-//
-//		//Clean up old one
-//		for (int i = flowmaster.transform.childCount - 1; i > -1; i--) {
-//			GameObject.DestroyImmediate(flowmaster.transform.GetChild(i).gameObject);
-//		}
-//
-//		List<GameObject> l_gonodes = new List<GameObject>();
-//		Dictionary<FlowsheetNode, FlowsheetObject> d_flowbridge = new Dictionary<FlowsheetNode, FlowsheetObject>();
-//
-//		//Make FlowsheetObjects
-//		foreach(FlowsheetNode node in l_nodes) {
-//			GameObject gotemp = GameObject.Instantiate(goFlowLoc);
-//
-//			gotemp.name = node.sTitle;
-//			l_gonodes.Add(gotemp);
-//
-//			d_flowbridge.Add(node, gotemp.GetComponent<FlowsheetObject>());
-//		}
-//
-//		l_gonodes.Reverse();
-//
-//		foreach (GameObject go in l_gonodes) {
-//			go.transform.SetParent(flowmaster.transform);
-//		}
-//
-//		//Make MineralProcessingLinks
-//		foreach (KeyValuePair<FlowsheetNode, FlowsheetObject> pair in d_flowbridge) {
-//			foreach (FlowsheetNode outnode in pair.Key.l_outputs) {
-//				GameObject mplTemp = GameObject.Instantiate(goFlowOut);
-//				mplTemp.transform.parent = pair.Value.gameObject.transform;
-//
-//				MineralProcessingLink MPL = mplTemp.GetComponent<MineralProcessingLink>();
-//				MPL.flowObjDest = d_flowbridge[outnode];
-//				MPL.flowObjSrc = d_flowbridge[pair.Key];
-//				MPL.flowSrc = pair.Key.eLocation;
-//				MPL.flowDst = outnode.eLocation;
-//				MPL.linkType = ProcessingLinkType.OUTPUT;
-//
-//				pair.Value.outputLinks.Add(MPL);
-//				MPL.flowObjDest.inputLinks.Add(MPL);
-//			}
-//		}
-	}
 }
-

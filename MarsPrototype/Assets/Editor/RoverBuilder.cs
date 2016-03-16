@@ -13,20 +13,7 @@ public class RoverBuilder {
 	//public List<RoverModule> l_allmods = new List<RoverModule>();
 
 	public void Init() {
-		//l_slots = new List<ROVER_MODULE_SLOT>();
-		//l_allmods = new List<RoverModule>();
-
-		//l_slots.Clear();
-		//l_allmods.Clear();
-
-		//l_allmods.Add(new BasicCamera());
-		//l_allmods.Add(new NuclearGenerator());
-		//l_allmods.Add(new SolarPanel());
-		//l_allmods.Add(new Wheels());
-
-		//foreach (RoverModule mod in l_allmods) {
-		//	mod.Init();
-		//}
+		l_loadedrmodules.Clear();
 	}
 
 	public void AddMod(ROVER_MODULE_SLOT type, int num) {
@@ -36,8 +23,8 @@ public class RoverBuilder {
 	}
 
 	public void RemoveMod(ROVER_MODULE_SLOT type, int num) {
-		//if (l_slots.Contains(type)) {
-			//l_slots.Remove(type);
+		//if (l_loadedrmodules.Contains(type)) {
+			//l_loadedrmodules.Remove(type);
 			//l_modules.Remove(mod);
 		//}
 	}

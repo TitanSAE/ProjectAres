@@ -94,10 +94,12 @@
      <Compile Include="Assets\Scripts\RoverModules\RoverModuleDataHolder.cs" />
      <Compile Include="Assets\Scripts\RoverModules\SolarPanel.cs" />
      <Compile Include="Assets\Scripts\RoverModules\Wheels.cs" />
+     <Compile Include="Assets\Scripts\RoverPlayerController.cs" />
      <Compile Include="Assets\Scripts\RoverStatistics.cs" />
      <Compile Include="Assets\Scripts\RoverWheelMovement.cs" />
      <Compile Include="Assets\Scripts\SceneManager.cs" />
      <Compile Include="Assets\Scripts\SimpleSmoothMouseLook.cs" />
+     <Compile Include="Assets\Scripts\SkyCamera.cs" />
      <Compile Include="Assets\Scripts\UI\Debug_Clickable.cs" />
      <Compile Include="Assets\Scripts\UI\SponsorUI.cs" />
      <Compile Include="Assets\Scripts\UI\UIContentSpawner.cs" />

@@ -37,7 +37,7 @@ public class SponsorEditorWindow : EditorWindow {
 
 	List<string> l_loadedmodules = new List<string>();
 	bool bLoadModulesFromList = false;
-	Texture texNoChoice;
+	//Texture texNoChoice;
 	bool bRemoveSlot;
 	int iDeadSlot;
 
@@ -64,6 +64,7 @@ public class SponsorEditorWindow : EditorWindow {
 		l_dropdowns.Clear();
 		l_loadedmodules.Clear();
 		bLoadModulesFromList = false;
+		bRemoveSlot = false;
 	}
 
 	public void ClearSponsor() {
@@ -75,12 +76,14 @@ public class SponsorEditorWindow : EditorWindow {
 
 	public void Init() {
 		builder.Init();
-		texNoChoice = Resources.Load<Texture2D>("Icons/icon-none");
+		//texNoChoice = Resources.Load<Texture2D>("Icons/icon-none");
 		l_dropchoices.Clear();
 		l_dropdowns.Clear();
 		l_loadedmodules.Clear();
 		//l_loadedrmodules.Clear();
 		bLoadModulesFromList = false;
+		bRemoveSlot = false;
+		builder.Init();
 	}
 
 	void Update () {
@@ -101,17 +104,15 @@ public class SponsorEditorWindow : EditorWindow {
 		GUIStyle buttonStyle = new GUIStyle(GUI.skin.button);
 		buttonStyle.padding.bottom = 8;
 
-		GUILayout.BeginHorizontal(); {   //Create a row of buttons
+		GUILayout.BeginHorizontal(); {
 			for (int i = 0; i < options.Length; ++i) {
 				GUI.backgroundColor = i == selected ? highlightCol : bgCol;
 				if (GUILayout.Button(options[i], buttonStyle)) {
-					selected = i; //Tab click
+					selected = i;
 				}
 			}
 		} GUILayout.EndHorizontal();
-		//Restore color
 		GUI.backgroundColor = storeColor;
-		//Draw a line over the bottom part of the buttons
 		var texture = new Texture2D(1, 1);
 		texture.SetPixel(0, 0, highlightCol);
 		texture.Apply();
@@ -244,11 +245,10 @@ public class SponsorEditorWindow : EditorWindow {
 				builder.AddMod(eCurSlot, 0);
 			}
 			if (GUILayout.Button("Remove Slot") && !bRemoveSlot) {
-				//builder.RemoveMod(eCurSlot);
-//				if (builder.l_slots.Contains(eCurSlot)) {
-//					iDeadSlot = builder.l_slots.FindLastIndex(findnum => findnum == eCurSlot);
-//					bRemoveSlot = true;
-//				}
+				iDeadSlot = builder.l_loadedrmodules.FindLastIndex(findnum => findnum.Key == eCurSlot);
+				if (iDeadSlot != null) {
+					bRemoveSlot = true;
+				}
 			}
 			if (GUILayout.Button("Refresh")) {
 				RefreshModules();
@@ -271,8 +271,8 @@ public class SponsorEditorWindow : EditorWindow {
 //		}
 
 		if (bRemoveSlot) {
-			l_dropdowns.RemoveAt(iDeadSlot);
-			//builder.l_slots.RemoveAt(iDeadSlot);
+			//l_dropdowns.RemoveAt(iDeadSlot);
+			builder.l_loadedrmodules.RemoveAt(iDeadSlot);
 			bRemoveSlot = false;
 		}
 	}
@@ -283,48 +283,37 @@ public class SponsorEditorWindow : EditorWindow {
 			GUILayout.Label("Slot " + (i + 1).ToString() + " (" + builder.l_loadedrmodules[i].Key.ToString() + "):");
 			GUILayout.EndHorizontal();
 
-
-
-			//ecur = EditorGUILayout.EnumPopup((Enum)ecur);
-
-//			List<GUIContent> items = new List<GUIContent>();
-//
-//			items.Add(new GUIContent("Empty", texNoChoice));
-//			foreach (RoverModule modf in builder.l_allmods) {
-//				if (modf.eSlot == builder.l_slots[i]) {
-//					items.Add(new GUIContent(modf.ToString(), modf.texIcon));
-//				}
-//			}
-
-//			if (bLoadModulesFromList) {
-//				//l_loadedmodules.Add("dummy");
-//				bLoadModulesFromList = false;
-//
-//				int iload = 0;
-//				foreach (string mod in l_loadedmodules) {
-//					if (mod != "dummy") {
-//						int ifound = builder.l_allmods.FindIndex(findtype => findtype.sName == mod);
-//						l_dropdowns[iload].selectedItemIndex = ifound;
-//					}
-//
-//					iload++;
-//				}
-//
-//				Repaint();
-//			}
-
-//			if (items.Count > 0) {
-//				l_dropchoices[i] = l_dropdowns[i].List(new Rect(GUILayoutUtility.GetLastRect().x,
-//					GUILayoutUtility.GetLastRect().y + GUILayoutUtility.GetLastRect().height, 200, 20),
-//					items.ToArray(),
-//					EditorStyles.toolbarDropDown, EditorStyles.toolbarTextField);
-//				//Debug.Log(i.ToString() + " was " + l_dropdowns[i].GetSelectedItemIndex().ToString());
-//			}
-//
-//			if (l_dropdowns[i].isVisible) {
-//				GUILayout.Space(20.0f * items.Count);
-//			}
-			GUILayout.Space(25);
+			if (builder.l_loadedrmodules[i].Key == ROVER_MODULE_SLOT.BATTERY) {
+				ROVER_MODULE_BATTERY etemp = (ROVER_MODULE_BATTERY)builder.l_loadedrmodules[i].Value;
+				etemp = (ROVER_MODULE_BATTERY)EditorGUILayout.EnumPopup(etemp);
+				builder.l_loadedrmodules[i] = new KeyValuePair<ROVER_MODULE_SLOT, int>(builder.l_loadedrmodules[i].Key, (int)etemp);
+			}
+			else if (builder.l_loadedrmodules[i].Key == ROVER_MODULE_SLOT.CAMERA) {
+				ROVER_MODULE_CAMERA etemp = (ROVER_MODULE_CAMERA)builder.l_loadedrmodules[i].Value;
+				etemp = (ROVER_MODULE_CAMERA)EditorGUILayout.EnumPopup(etemp);
+				builder.l_loadedrmodules[i] = new KeyValuePair<ROVER_MODULE_SLOT, int>(builder.l_loadedrmodules[i].Key, (int)etemp);
+			}
+			else if (builder.l_loadedrmodules[i].Key == ROVER_MODULE_SLOT.SENSOR) {
+				ROVER_MODULE_SENSOR etemp = (ROVER_MODULE_SENSOR)builder.l_loadedrmodules[i].Value;
+				etemp = (ROVER_MODULE_SENSOR)EditorGUILayout.EnumPopup(etemp);
+				builder.l_loadedrmodules[i] = new KeyValuePair<ROVER_MODULE_SLOT, int>(builder.l_loadedrmodules[i].Key, (int)etemp);
+			}
+			else if (builder.l_loadedrmodules[i].Key == ROVER_MODULE_SLOT.MISC) {
+				ROVER_MODULE_MISC etemp = (ROVER_MODULE_MISC)builder.l_loadedrmodules[i].Value;
+				etemp = (ROVER_MODULE_MISC)EditorGUILayout.EnumPopup(etemp);
+				builder.l_loadedrmodules[i] = new KeyValuePair<ROVER_MODULE_SLOT, int>(builder.l_loadedrmodules[i].Key, (int)etemp);
+			}
+			else if (builder.l_loadedrmodules[i].Key == ROVER_MODULE_SLOT.CHASSIS) {
+				ROVER_MODULE_CHASSIS etemp = (ROVER_MODULE_CHASSIS)builder.l_loadedrmodules[i].Value;
+				etemp = (ROVER_MODULE_CHASSIS)EditorGUILayout.EnumPopup(etemp);
+				builder.l_loadedrmodules[i] = new KeyValuePair<ROVER_MODULE_SLOT, int>(builder.l_loadedrmodules[i].Key, (int)etemp);
+			}
+			else if (builder.l_loadedrmodules[i].Key == ROVER_MODULE_SLOT.LOCOMOTION) {
+				ROVER_MODULE_LOCOMOTION etemp = (ROVER_MODULE_LOCOMOTION)builder.l_loadedrmodules[i].Value;
+				etemp = (ROVER_MODULE_LOCOMOTION)EditorGUILayout.EnumPopup(etemp);
+				builder.l_loadedrmodules[i] = new KeyValuePair<ROVER_MODULE_SLOT, int>(builder.l_loadedrmodules[i].Key, (int)etemp);
+			}
+			GUILayout.Space(15);
 		}
 	}
 

@@ -53,11 +53,6 @@ public class FPS_Player: MonoBehaviour {
 		float inputY = 0.0f;
 		float inputModifyFactor = 1.0f;
 
-		//Don't do this, kids!
-		if (Application.unityVersion == "stoptellingmeaboutthis") {
-			iJumpTimer = 1;
-		}
-
 		if (!bFrozen) {
 			inputX = Input.GetAxis("Horizontal");
 			inputY = Input.GetAxis("Vertical");

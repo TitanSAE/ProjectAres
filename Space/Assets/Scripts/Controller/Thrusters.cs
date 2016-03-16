@@ -2,17 +2,17 @@ using UnityEngine;
 using System.Collections;
 using System;
 
-public enum PlayerMoveEnum
-{
-    Undetermined = 0,
-    LeftThruster,
-    RightThruster,
-    BottomThruster,
-    LeftBottomThruster,
-    RightBottomThruster,
-	ForwardThruster,
-	BackwardsThruster,
-}
+//public enum PlayerMoveEnum
+//{
+//    Undetermined = 0,
+//    LeftThruster,
+//    RightThruster,
+//    BottomThruster,
+//    LeftBottomThruster,
+//    RightBottomThruster,
+//	ForwardThruster,
+//	BackwardsThruster,
+//}
 
 public class Thrusters
 {
