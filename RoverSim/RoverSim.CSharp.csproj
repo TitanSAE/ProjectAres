@@ -91,8 +91,9 @@
     <Compile Include="Assets\OVR\Scripts\Util\OVRTrackerBounds.cs" />
     <Compile Include="Assets\Scripts\Compass.cs" />
     <Compile Include="Assets\Scripts\RoverMovement.cs" />
+    <Compile Include="Assets\Scripts\RoverStatistics.cs" />
     <Compile Include="Assets\Scripts\RoverStats.cs" />
-    <Compile Include="Assets\TurnWheel.cs" />
+    <Compile Include="Assets\Scripts\RoverWheelMovement.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\OVR\Moonlight\Resources\Unlit Transparent Color.shader" />
