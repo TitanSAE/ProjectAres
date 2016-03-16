@@ -4,7 +4,8 @@ using System.Collections;
 
 public class RoverStats : MonoBehaviour {
 
-    [Header ("Stats")]
+    [Header("Stats")]
+    public float fTimeDuration = 5;
     [Range(0, 100)]
     public float fRoverHealth;
     [Range(0, 100)]
@@ -28,9 +29,9 @@ public class RoverStats : MonoBehaviour {
 
     void UpdateStats()
     {
-        tHealthValue.text = "" + fRoverHealth + "%";
+        tHealthValue.text = "" + ((int)fRoverHealth).ToString() + "%";
         imHealthFill.fillAmount = fRoverHealth / 100f;
-        tEnergyValue.text = "" + fRoverEnergy + "%";
+        tEnergyValue.text = "" + ((int)fRoverEnergy).ToString() + "%";
         imEnergyFill.fillAmount = fRoverEnergy / 100f;
     }
 }

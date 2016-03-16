@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-//[System.Serializable]
+[System.Serializable]
 //public class AxleInfo
 //{
 //    public WheelCollider leftWheel;
