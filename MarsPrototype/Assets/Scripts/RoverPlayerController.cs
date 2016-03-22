@@ -21,11 +21,16 @@ public class RoverPlayerController : MonoBehaviour {
 	public bool bJetting = false;
 	public bool bIdle = false;
 
+	public Camera MouseCamera;
+	public GameObject OVRCameraRig;
+
 	// Use this for initialization
 	void Start () {
 		//Fallback for no Rift
 		if (!VRDevice.isPresent) {
-			this.GetComponent<SimpleSmoothMouseLook>().enabled = true;
+			Debug.LogWarning("Can't find Oculus. Activating mouse controls...");
+			OVRCameraRig.SetActive(false);
+			MouseCamera.gameObject.SetActive(true);
 		}
 	}
 	
@@ -44,6 +49,13 @@ public class RoverPlayerController : MonoBehaviour {
 
 		if (Input.GetAxis("XboxRightStickX") != 0) {
 			fTurning += fTurnSpeed * Input.GetAxis("XboxRightStickX");
+		}
+
+		if (Input.GetKey(KeyCode.D)) {
+			fTurning += fTurnSpeed;
+		}
+		else if (Input.GetKey(KeyCode.A)) {
+			fTurning -= fTurnSpeed;
 		}
 
 		if (Input.GetAxis("Vertical") != 0 && Input.GetAxis("XboxRightStickX") != 0) {

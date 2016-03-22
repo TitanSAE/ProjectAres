@@ -28,7 +28,7 @@ public class SceneManager : MonoBehaviour {
 		}
 
 		if (Input.GetMouseButtonDown(2)) {
-			mouselook.bMouseLocked = !mouselook.bMouseLocked;
+			//mouselook.bMouseLocked = !mouselook.bMouseLocked;
 		}
 	}
 
@@ -44,11 +44,11 @@ public class SceneManager : MonoBehaviour {
 
 		if (iActiveCam == 0) {
 			ply.bFrozen = false;
-			mouselook.bMouseLocked = true;
+			//mouselook.bMouseLocked = true;
 		}
 		else {
 			ply.bFrozen = true;
-			mouselook.bMouseLocked = false;
+			//mouselook.bMouseLocked = false;
 			Cursor.lockState = CursorLockMode.None;
 			Cursor.visible = true;
 		}

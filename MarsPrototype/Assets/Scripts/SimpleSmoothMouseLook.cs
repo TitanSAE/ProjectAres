@@ -1,87 +1,135 @@
 ﻿using UnityEngine;
-
-// Very simple smooth mouselook modifier for the MainCamera in Unity
-// by Francis R. Griffiths-Keam - www.runningdimensions.com
-
-[AddComponentMenu("Camera/Simple Smooth Mouse Look ")]
+using System.Collections;
+using System.Collections.Generic;
+ 
+[AddComponentMenu("Camera-Control/Smooth Mouse Look")]
 public class SimpleSmoothMouseLook : MonoBehaviour {
-	Vector2 _mouseAbsolute;
-	Vector2 _smoothMouse;
-
-	public Vector2 clampInDegrees = new Vector2(360, 180);
-	public bool lockCursor;
-	public Vector2 sensitivity = new Vector2(2, 2);
-	public Vector2 smoothing = new Vector2(3, 3);
-	public Vector2 targetDirection;
-	public Vector2 targetCharacterDirection;
-
-	public GameObject characterBody;
-
-	public bool bMouseLocked = true;
-
-	void Start() {
-		// Set target direction to the camera's initial orientation.
-		targetDirection = transform.localRotation.eulerAngles;
-
-		// Set target direction for the character body to its inital state.
-		if (characterBody) targetCharacterDirection = characterBody.transform.localRotation.eulerAngles;
+ 
+	public enum RotationAxes { MouseXAndY = 0, MouseX = 1, MouseY = 2 }
+	public RotationAxes axes = RotationAxes.MouseXAndY;
+	public float sensitivityX = 15F;
+	public float sensitivityY = 15F;
+ 
+	public float minimumX = -360F;
+	public float maximumX = 360F;
+ 
+	public float minimumY = -60F;
+	public float maximumY = 60F;
+ 
+	float rotationX = 0F;
+	float rotationY = 0F;
+ 
+	private List<float> rotArrayX = new List<float>();
+	float rotAverageX = 0F;	
+ 
+	private List<float> rotArrayY = new List<float>();
+	float rotAverageY = 0F;
+ 
+	public float frameCounter = 20;
+ 
+	Quaternion originalRotation;
+ 
+	void Update ()
+	{
+		if (axes == RotationAxes.MouseXAndY)
+		{			
+			rotAverageY = 0f;
+			rotAverageX = 0f;
+ 
+			rotationY += Input.GetAxis("Mouse Y") * sensitivityY;
+			rotationX += Input.GetAxis("Mouse X") * sensitivityX;
+ 
+			rotArrayY.Add(rotationY);
+			rotArrayX.Add(rotationX);
+ 
+			if (rotArrayY.Count >= frameCounter) {
+				rotArrayY.RemoveAt(0);
+			}
+			if (rotArrayX.Count >= frameCounter) {
+				rotArrayX.RemoveAt(0);
+			}
+ 
+			for(int j = 0; j < rotArrayY.Count; j++) {
+				rotAverageY += rotArrayY[j];
+			}
+			for(int i = 0; i < rotArrayX.Count; i++) {
+				rotAverageX += rotArrayX[i];
+			}
+ 
+			rotAverageY /= rotArrayY.Count;
+			rotAverageX /= rotArrayX.Count;
+ 
+			rotAverageY = ClampAngle (rotAverageY, minimumY, maximumY);
+			rotAverageX = ClampAngle (rotAverageX, minimumX, maximumX);
+ 
+			Quaternion yQuaternion = Quaternion.AngleAxis (rotAverageY, Vector3.left);
+			Quaternion xQuaternion = Quaternion.AngleAxis (rotAverageX, Vector3.up);
+ 
+			transform.localRotation = originalRotation * xQuaternion * yQuaternion;
+		}
+		else if (axes == RotationAxes.MouseX)
+		{			
+			rotAverageX = 0f;
+ 
+			rotationX += Input.GetAxis("Mouse X") * sensitivityX;
+ 
+			rotArrayX.Add(rotationX);
+ 
+			if (rotArrayX.Count >= frameCounter) {
+				rotArrayX.RemoveAt(0);
+			}
+			for(int i = 0; i < rotArrayX.Count; i++) {
+				rotAverageX += rotArrayX[i];
+			}
+			rotAverageX /= rotArrayX.Count;
+ 
+			rotAverageX = ClampAngle (rotAverageX, minimumX, maximumX);
+ 
+			Quaternion xQuaternion = Quaternion.AngleAxis (rotAverageX, Vector3.up);
+			transform.localRotation = originalRotation * xQuaternion;			
+		}
+		else
+		{			
+			rotAverageY = 0f;
+ 
+			rotationY += Input.GetAxis("Mouse Y") * sensitivityY;
+ 
+			rotArrayY.Add(rotationY);
+ 
+			if (rotArrayY.Count >= frameCounter) {
+				rotArrayY.RemoveAt(0);
+			}
+			for(int j = 0; j < rotArrayY.Count; j++) {
+				rotAverageY += rotArrayY[j];
+			}
+			rotAverageY /= rotArrayY.Count;
+ 
+			rotAverageY = ClampAngle (rotAverageY, minimumY, maximumY);
+ 
+			Quaternion yQuaternion = Quaternion.AngleAxis (rotAverageY, Vector3.left);
+			transform.localRotation = originalRotation * yQuaternion;
+		}
 	}
-
-	void Update() {
-		if (bMouseLocked) {
-			// Ensure the cursor is always locked when set
-			if (!Input.GetKey(KeyCode.P)) {
-				Cursor.lockState = CursorLockMode.Locked;
+ 
+	void Start ()
+	{		
+                Rigidbody rb = GetComponent<Rigidbody>();	
+		if (rb)
+			rb.freezeRotation = true;
+		originalRotation = transform.localRotation;
+	}
+ 
+	public static float ClampAngle (float angle, float min, float max)
+	{
+		angle = angle % 360;
+		if ((angle >= -360F) && (angle <= 360F)) {
+			if (angle < -360F) {
+				angle += 360F;
 			}
-			else {
-				Cursor.lockState = CursorLockMode.None;
-				Cursor.visible = true;
-			}
-
-			// Allow the script to clamp based on a desired target value.
-			Quaternion targetOrientation = Quaternion.Euler(targetDirection);
-			Quaternion targetCharacterOrientation = Quaternion.Euler(targetCharacterDirection);
-
-			// Get raw mouse input for a cleaner reading on more sensitive mice.
-			Vector2 mouseDelta = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
-
-			// Scale input against the sensitivity setting and multiply that against the smoothing value.
-			mouseDelta = Vector2.Scale(mouseDelta, new Vector2(sensitivity.x * smoothing.x, sensitivity.y * smoothing.y));
-
-			// Interpolate mouse movement over time to apply smoothing delta.
-			_smoothMouse.x = Mathf.Lerp(_smoothMouse.x, mouseDelta.x, 1f / smoothing.x);
-			_smoothMouse.y = Mathf.Lerp(_smoothMouse.y, mouseDelta.y, 1f / smoothing.y);
-
-			// Find the absolute mouse movement value from point zero.
-			_mouseAbsolute += _smoothMouse;
-
-			// Clamp and apply the local x value first, so as not to be affected by world transforms.
-			if (clampInDegrees.x < 360)
-				_mouseAbsolute.x = Mathf.Clamp(_mouseAbsolute.x, -clampInDegrees.x * 0.5f, clampInDegrees.x * 0.5f);
-
-			Quaternion xRotation = Quaternion.AngleAxis(-_mouseAbsolute.y, targetOrientation * Vector3.right);
-			transform.localRotation = xRotation;
-
-			// Then clamp and apply the global y value.
-			if (clampInDegrees.y < 360)
-				_mouseAbsolute.y = Mathf.Clamp(_mouseAbsolute.y, -clampInDegrees.y * 0.5f, clampInDegrees.y * 0.5f);
-
-			transform.localRotation *= targetOrientation;
-
-			// If there's a character body that acts as a parent to the camera
-			if (characterBody) {
-				Quaternion yRotation = Quaternion.AngleAxis(_mouseAbsolute.x, characterBody.transform.up);
-				characterBody.transform.localRotation = yRotation;
-				characterBody.transform.localRotation *= targetCharacterOrientation;
-			}
-			else {
-				Quaternion yRotation = Quaternion.AngleAxis(_mouseAbsolute.x, transform.InverseTransformDirection(Vector3.up));
-				transform.localRotation *= yRotation;
-			}
+			if (angle > 360F) {
+				angle -= 360F;
+			}			
 		}
-		else {
-			Cursor.lockState = CursorLockMode.None;
-			Cursor.visible = true;
-		}
+		return Mathf.Clamp (angle, min, max);
 	}
 }
