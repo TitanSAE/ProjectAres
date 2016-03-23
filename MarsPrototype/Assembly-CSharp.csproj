@@ -45,7 +45,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\MarsResource.cs" />
      <Compile Include="Assets\OVR\Moonlight\Scripts\OVRDebugHeadController.cs" />
      <Compile Include="Assets\OVR\Moonlight\Scripts\OVROverlay.cs" />
      <Compile Include="Assets\OVR\Moonlight\Scripts\OVRPlatformMenu.cs" />
@@ -77,6 +76,11 @@
      <Compile Include="Assets\Scripts\DayNightCycle.cs" />
      <Compile Include="Assets\Scripts\FPS_Player.cs" />
      <Compile Include="Assets\Scripts\GameEnums.cs" />
+     <Compile Include="Assets\Scripts\MarsBase.cs" />
+     <Compile Include="Assets\Scripts\MarsBaseAttachmentPoint.cs" />
+     <Compile Include="Assets\Scripts\MarsDelivery.cs" />
+     <Compile Include="Assets\Scripts\MarsHelicopter.cs" />
+     <Compile Include="Assets\Scripts\MarsResource.cs" />
      <Compile Include="Assets\Scripts\MarsSponsor.cs" />
      <Compile Include="Assets\Scripts\MeshBuilder.cs" />
      <Compile Include="Assets\Scripts\OVR\OVRGazePointer.cs" />

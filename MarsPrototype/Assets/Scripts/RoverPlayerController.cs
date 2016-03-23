@@ -23,6 +23,11 @@ public class RoverPlayerController : MonoBehaviour {
 
 	public Camera MouseCamera;
 	public GameObject OVRCameraRig;
+	public GameObject goTowbar;
+
+	public bool bCopterActive;
+	public GameObject goCopterStatic;
+	public GameObject goCopterLive;
 
 	// Use this for initialization
 	void Start () {
@@ -40,34 +45,58 @@ public class RoverPlayerController : MonoBehaviour {
 		fForewardPush = 0;
 		fTurning = 0;
 
-		if (Input.GetAxis("Vertical") > 0) {
-			fForewardPush += fForwardMoveSpeed * Input.GetAxis("Vertical");
-		}
-		else if (Input.GetAxis("Vertical") < 0) {
-			fForewardPush += fReverseMoveSpeed * Input.GetAxis("Vertical");
+		if (!bCopterActive) {
+			if (Input.GetAxis("Vertical") > 0) {
+				fForewardPush += fForwardMoveSpeed * Input.GetAxis("Vertical");
+			}
+			else if (Input.GetAxis("Vertical") < 0) {
+				fForewardPush += fReverseMoveSpeed * Input.GetAxis("Vertical");
+			}
+
+			if (Input.GetAxis("XboxRightStickX") != 0) {
+				fTurning += fTurnSpeed * Input.GetAxis("XboxRightStickX");
+			}
+
+			if (Input.GetKey(KeyCode.D)) {
+				fTurning += fTurnSpeed;
+			}
+			else if (Input.GetKey(KeyCode.A)) {
+				fTurning -= fTurnSpeed;
+			}
+
+			if (Input.GetAxis("Vertical") != 0 && Input.GetAxis("XboxRightStickX") != 0) {
+				bIdle = false;
+			}
+			else {
+				bIdle = true;
+			}
 		}
 
-		if (Input.GetAxis("XboxRightStickX") != 0) {
-			fTurning += fTurnSpeed * Input.GetAxis("XboxRightStickX");
-		}
+		if (Input.GetKeyDown(KeyCode.P)) {
+			bCopterActive = !bCopterActive;
 
-		if (Input.GetKey(KeyCode.D)) {
-			fTurning += fTurnSpeed;
-		}
-		else if (Input.GetKey(KeyCode.A)) {
-			fTurning -= fTurnSpeed;
-		}
+			if (bCopterActive) {
+				goCopterLive.transform.position = goCopterStatic.transform.position;
+				goCopterLive.transform.rotation = goCopterStatic.transform.rotation;
 
-		if (Input.GetAxis("Vertical") != 0 && Input.GetAxis("XboxRightStickX") != 0) {
-			bIdle = false;
-		}
-		else {
-			bIdle = true;
-		}
+				OVRCameraRig.SetActive(false);
+				goCopterStatic.SetActive(false);
+				goCopterLive.SetActive(true);
 
-//		if (Input.GetAxis("Vertical") != 0) {
-//			vFinalMove += new Vector3(0, 1, 0);
-//		}
+				if (!VRDevice.isPresent) {
+					MouseCamera.gameObject.SetActive(false);
+				}
+			}
+			else {
+				OVRCameraRig.SetActive(true);
+				goCopterStatic.SetActive(true);
+				goCopterLive.SetActive(false);
+
+				if (!VRDevice.isPresent) {
+					MouseCamera.gameObject.SetActive(true);
+				}
+			}
+		}
 	}
 
 	void LateUpdate() {
