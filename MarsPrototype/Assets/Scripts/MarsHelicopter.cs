@@ -2,17 +2,6 @@
 using System.Collections;
 using System;
 
-public enum HelicopterMovement {
-    Undetermined = 0,
-    LeftThruster,
-    RightThruster,
-    BottomThruster,
-    LeftBottomThruster,
-    RightBottomThruster,
-	ForwardThruster,
-	BackwardsThruster,
-}
-
 public class MarsHelicopter : MonoBehaviour {
 	public ParticleSystem ThrusterBottom;
 	public ParticleSystem ThrusterLeft;

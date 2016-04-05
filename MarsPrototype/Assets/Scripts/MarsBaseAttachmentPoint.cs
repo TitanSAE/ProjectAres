@@ -2,14 +2,17 @@
 using System.Collections;
 
 
-public enum BASE_ATTACHMENT {
-	NONE,
-	POWER_SUPPLY
-}
-
 public class MarsBaseAttachmentPoint : MonoBehaviour {
 
 	public BASE_ATTACHMENT eAttachmentType;
+	public bool bIsEmpty {
+		private set {
+			//
+		}
+		get {
+			return this.transform.childCount == 0;
+		}
+	}
 
 	// Use this for initialization
 	void Start () {
