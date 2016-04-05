@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class MeshBuilder {
+public class MeshBuilders {
 	private List<Vector3> m_Vertices = new List<Vector3>();
 	public List<Vector3> Vertices { get { return m_Vertices; } }
 

@@ -1,12 +1,13 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\RoverPlayerController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\RoverWheelMovement.cs">
     <Files>
-      <File FileName="Assets\Scripts\RoverPlayerController.cs" Line="52" Column="4" />
-      <File FileName="Assets\Scripts\RoverEngineAudio.cs" Line="11" Column="20" />
-      <File FileName="Assets\Scripts\SimpleSmoothMouseLook.cs" Line="6" Column="20" />
-      <File FileName="Assets\Scripts\SceneManager.cs" Line="51" Column="6" />
-      <File FileName="Assets\MarsResource.cs" Line="12" Column="34" />
+      <File FileName="Assets\Scripts\RoverStatsss.cs" Line="5" Column="26" />
+      <File FileName="Assets\Scripts\RoverPlayerController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\RoverEngineAudio.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\SimpleSmoothMouseLook.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\SceneManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\RoverWheelMovement.cs" Line="6" Column="23" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

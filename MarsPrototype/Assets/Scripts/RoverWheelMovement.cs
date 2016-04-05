@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 [System.Serializable]
-public class AxleInfo
+public class AxleInfos
 {
     public WheelCollider leftWheel;
     public WheelCollider rightWheel;
@@ -11,7 +11,7 @@ public class AxleInfo
     public bool steering;
 }
 
-public class RoverMovement : MonoBehaviour
+public class RoverMovements : MonoBehaviour
 {
     public List<AxleInfo> axleInfos; 
     public float maxMotorTorque;
