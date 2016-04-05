@@ -78,3 +78,25 @@ public enum DIALOG_LOCATION {
 	CENTER_LEFT,
 	CENTER_RIGHT
 }
+
+public enum BASE_ATTACHMENT {
+	NONE,
+	POWER_SUPPLY,
+	FOOD_SUPPLY,
+	AIR_SUPPLY,
+	OTHER_RESOURCE_SUPPLY,
+	STORAGE,
+	LIVING_AREA,
+	REPAIR_CENTRE
+}
+
+public enum HelicopterMovement {
+	Undetermined = 0,
+	LeftThruster,
+	RightThruster,
+	BottomThruster,
+	LeftBottomThruster,
+	RightBottomThruster,
+	ForwardThruster,
+	BackwardsThruster,
+}

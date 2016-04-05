@@ -33,7 +33,7 @@ public class MarsDelivery : MonoBehaviour {
 			if (eDeliveryType == c.GetComponent<MarsBaseAttachmentPoint>().eAttachmentType) {
 				bAttachedToPlayer = false;
 				bAttachedToBase = true;
-				this.GetComponent<BoxCollider>().isTrigger = false;
+				//this.GetComponent<BoxCollider>().isTrigger = false;
 				this.transform.position = c.gameObject.transform.position;
 				this.transform.rotation = c.gameObject.transform.rotation;
 				//this.transform.position = ((this.transform.forward * -3) + this.transform.position);
