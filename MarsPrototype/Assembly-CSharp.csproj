@@ -143,6 +143,7 @@
      <Compile Include="Assets\Scripts\MarsBase.cs" />
      <Compile Include="Assets\Scripts\MarsBaseAttachmentPoint.cs" />
      <Compile Include="Assets\Scripts\MarsDelivery.cs" />
+     <Compile Include="Assets\Scripts\MarsDeliveryManager.cs" />
      <Compile Include="Assets\Scripts\MarsHelicopter.cs" />
      <Compile Include="Assets\Scripts\MarsResource.cs" />
      <Compile Include="Assets\Scripts\MarsSponsor.cs" />
@@ -185,6 +186,7 @@
      <Compile Include="Assets\Scripts\SimpleSmoothMouseLook.cs" />
      <Compile Include="Assets\Scripts\SkyCamera.cs" />
      <Compile Include="Assets\Scripts\SmoothFollow.cs" />
+     <Compile Include="Assets\Scripts\TimedDelivery.cs" />
      <Compile Include="Assets\Scripts\UI\Debug_Clickable.cs" />
      <Compile Include="Assets\Scripts\UI\SponsorUI.cs" />
      <Compile Include="Assets\Scripts\UI\UIContentSpawner.cs" />

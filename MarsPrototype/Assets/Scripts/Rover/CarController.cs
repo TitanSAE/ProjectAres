@@ -54,8 +54,14 @@ public class CarController : MonoBehaviour {
 			DoRollBar (wheelFR, wheelFL);
 			DoRollBar (wheelRR, wheelRL);
 
-			wheelFR.steerAngle = Input.GetAxis ("Horizontal") * turnRadius;
-			wheelFL.steerAngle = Input.GetAxis ("Horizontal") * turnRadius;
+			if (Input.GetAxis ("XboxRightStickX") == 0) {
+				wheelFR.steerAngle = Input.GetAxis ("Horizontal") * turnRadius;
+				wheelFL.steerAngle = Input.GetAxis ("Horizontal") * turnRadius;
+			}
+			else {
+				wheelFR.steerAngle = Input.GetAxis ("XboxRightStickX") * turnRadius;
+				wheelFL.steerAngle = Input.GetAxis ("XboxRightStickX") * turnRadius;
+			}
 
 			wheelFR.motorTorque = driveMode == DriveMode.Rear ? 0 : scaledTorque;
 			wheelFL.motorTorque = driveMode == DriveMode.Rear ? 0 : scaledTorque;

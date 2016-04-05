@@ -4,10 +4,10 @@ using System.Collections;
 public class Magnet : TurnOnTurnOff {
 
 	bool Pull = false;
-	StaticChargeScript chargeScript;
+//	StaticChargeScript chargeScript;
 	// Use this for initialization
 	void Start () {
-		chargeScript = charge.GetComponent<StaticChargeScript>();
+//		chargeScript = charge.GetComponent<StaticChargeScript>();
 	}
 	
 	// Update is called once per frame
@@ -46,7 +46,7 @@ public class Magnet : TurnOnTurnOff {
 					current = 1.0f - 0.99f * (1.0f - current);
 				}
 		
-				chargeScript.strength = 1e-4f * current;
+//				chargeScript.strength = 1e-4f * current;
 				glow.intensity = 8.0f * current;
 
 	}

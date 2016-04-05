@@ -14,14 +14,14 @@ public class ElectromagneticInfinitesimal : MonoBehaviour {
 	// When magnets collide, we have to be careful that they don't go inside each other and create divergent forces.  Keep track of which magnets' rigidbodies are touching which other ones so that we can turn off the forces in those cases.
 	void OnTriggerEnter(Collider other) {
 	    ElectromagneticInfinitesimal otherScript = other.gameObject.GetComponent<MagneticDipoleScript>();
-	    if (!otherScript) { otherScript = other.gameObject.GetComponent<StaticChargeScript>(); }
+//	    if (!otherScript) { otherScript = other.gameObject.GetComponent<StaticChargeScript>(); }
 	    if (otherScript) {
 	        controller.UpdateCollisionState(rigidbodyId, otherScript.GetRigidbodyId(), 1);
 	    }
 	}
 	void OnTriggerExit(Collider other) {
 	    ElectromagneticInfinitesimal otherScript = other.gameObject.GetComponent<MagneticDipoleScript>();
-	    if (!otherScript) { otherScript = other.gameObject.GetComponent<StaticChargeScript>(); }
+//	    if (!otherScript) { otherScript = other.gameObject.GetComponent<StaticChargeScript>(); }
 	    if (otherScript) {
 	        controller.UpdateCollisionState(rigidbodyId, otherScript.GetRigidbodyId(), 0);
 	    }

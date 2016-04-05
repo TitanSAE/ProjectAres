@@ -5,13 +5,13 @@ public class TurnOnTurnOff : MonoBehaviour {
 	public GameObject charge;
 	public Light glow;
 
-	StaticChargeScript chargeScript;
+//	StaticChargeScript chargeScript;
 	public int target = 0;
 	public float current = 0.0f;
 	public GameObject Arm;
 	Animation anim;
 	void Start() {
-		chargeScript = charge.GetComponent<StaticChargeScript>();
+//		chargeScript = charge.GetComponent<StaticChargeScript>();
 		anim = Arm.GetComponent<Animation> ();
 	}
 
