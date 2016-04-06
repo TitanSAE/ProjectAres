@@ -38,7 +38,7 @@ public class CarController : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
-		if (GameObject.Find ("GameManager").GetComponent<GameManager> ().roverControl == true) {
+		if (GameObject.Find ("SceneManager").GetComponent<GameManager> ().roverControl == true) {
 			if (speedText != null)
 				speedText.text = "Speed: " + Speed ().ToString ("f0") + " km/h";
 
@@ -54,6 +54,8 @@ public class CarController : MonoBehaviour {
 			DoRollBar (wheelFR, wheelFL);
 			DoRollBar (wheelRR, wheelRL);
 
+			Debug.Log (Input.GetAxisRaw ("XboxRightStickX"));
+
 			if (Input.GetAxis ("XboxRightStickX") == 0) {
 				wheelFR.steerAngle = Input.GetAxis ("Horizontal") * turnRadius;
 				wheelFL.steerAngle = Input.GetAxis ("Horizontal") * turnRadius;
@@ -61,6 +63,10 @@ public class CarController : MonoBehaviour {
 			else {
 				wheelFR.steerAngle = Input.GetAxis ("XboxRightStickX") * turnRadius;
 				wheelFL.steerAngle = Input.GetAxis ("XboxRightStickX") * turnRadius;
+
+				Debug.Log (Input.GetAxis ("XboxRightStickX"));
+				Debug.Log (Input.GetAxisRaw ("XboxRightStickX"));
+				Debug.Log ("====");
 			}
 
 			wheelFR.motorTorque = driveMode == DriveMode.Rear ? 0 : scaledTorque;

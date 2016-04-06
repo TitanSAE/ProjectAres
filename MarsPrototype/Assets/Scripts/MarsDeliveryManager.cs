@@ -8,6 +8,7 @@ public class MarsDeliveryManager : MonoBehaviour {
 	public Stack<BASE_ATTACHMENT> st_ePackages = new Stack<BASE_ATTACHMENT>();
 
 	public GameObject goProtoPackage;
+	public GameObject goTowbar;
 
 	void Start() {
 		for (int i = 0; i < 10; i++) {
@@ -24,6 +25,7 @@ public class MarsDeliveryManager : MonoBehaviour {
 
 		GameObject goTemp = (GameObject)GameObject.Instantiate(goProtoPackage, l_tSpawnPoints[rspot].position, Quaternion.identity);
 		MarsDelivery crate = goTemp.GetComponent<MarsDelivery>();
+		crate.goPlayerTowbar = goTowbar;
 		crate.eDeliveryType = st_ePackages.Pop();
 	}
 }

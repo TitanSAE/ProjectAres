@@ -42,11 +42,11 @@ public class GameManager : MonoBehaviour {
 			Vector3 radius = new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10));
 			Instantiate (module, Random.insideUnitSphere * 20f + transform.position, Random.rotation);
 		}
-		if (Input.GetKeyDown (KeyCode.Space)) {
-			GameObject.Find ("GameManager").GetComponent<Fading> ().ResetFade ();
-			GameObject.Find ("GameManager").GetComponent<Fading> ().BeginFade (-1);
-			Instantiate(Establishment, Car.transform.position + (Car.transform.forward*1) + new Vector3(0,1.3f,0), transform.rotation);
-		}
+//		if (Input.GetKeyDown (KeyCode.Space)) {
+//			GameObject.Find ("GameManager").GetComponent<Fading> ().ResetFade ();
+//			GameObject.Find ("GameManager").GetComponent<Fading> ().BeginFade (-1);
+//			Instantiate(Establishment, Car.transform.position + (Car.transform.forward*1) + new Vector3(0,1.3f,0), transform.rotation);
+//		}
 	
 	}
 }
