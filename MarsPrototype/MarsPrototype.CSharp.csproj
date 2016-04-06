@@ -58,12 +58,6 @@
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Networking">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
@@ -186,6 +180,7 @@
     <Compile Include="Assets\Scripts\MarsHelicopter.cs" />
     <Compile Include="Assets\Scripts\MarsResource.cs" />
     <Compile Include="Assets\Scripts\MarsSponsor.cs" />
+    <Compile Include="Assets\Scripts\MaterialLerp.cs" />
     <Compile Include="Assets\Scripts\MeshBuilder.cs" />
     <Compile Include="Assets\Scripts\Model\GameMode.cs" />
     <Compile Include="Assets\Scripts\Model\Globals.cs" />
@@ -222,6 +217,7 @@
     <Compile Include="Assets\Scripts\RoverStatsss.cs" />
     <Compile Include="Assets\Scripts\RoverWheelMovement.cs" />
     <Compile Include="Assets\Scripts\SceneManager.cs" />
+    <Compile Include="Assets\Scripts\SimpleMove.cs" />
     <Compile Include="Assets\Scripts\SimpleSmoothMouseLook.cs" />
     <Compile Include="Assets\Scripts\SkyCamera.cs" />
     <Compile Include="Assets\Scripts\SmoothFollow.cs" />
