@@ -43,14 +43,19 @@ public class BuildingPad : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider col) {
-		if (col.gameObject.tag == "MarsDelivery") {
+		if (col.gameObject.tag == "MarsDelivery" && !bBuilt) {
+
+			bBuilt = true;
 
 			if (building.bGhosted && !building.bLerping) {
 				building.bLerping = true;
 			}
 
 			buildcollider.isTrigger = false;
-
+			MarsDelivery del = col.gameObject.GetComponent<MarsDelivery> ();
+			del.bAttachedToPlayer = false;
+			del.bDelivered = true;
+			del.goPlayerTowbar.GetComponent<RoverPlayerTowbar>().bTowing = false;
 
 			Debug.Log ("Built!");
 			GameObject.Destroy (col.gameObject);
