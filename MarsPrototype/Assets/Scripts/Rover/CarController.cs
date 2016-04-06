@@ -38,7 +38,7 @@ public class CarController : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
-		if (GameObject.Find ("GameManager").GetComponent<GameManager> ().roverControl == true) {
+		if (GameObject.Find ("SceneManager").GetComponent<GameManager> ().roverControl == true) {
 			if (speedText != null)
 				speedText.text = "Speed: " + Speed ().ToString ("f0") + " km/h";
 

@@ -5,6 +5,7 @@ public class MarsDelivery : MonoBehaviour {
 
 	public BASE_ATTACHMENT eDeliveryType;
 	public bool bAttachedToPlayer;
+	public GameObject goPlayerTowbar;
 	//public bool bAttachedToBase;
 
 	// Use this for initialization
@@ -21,8 +22,9 @@ public class MarsDelivery : MonoBehaviour {
 		if (c.gameObject.tag == "Player" && !bAttachedToPlayer && !c.gameObject.GetComponent<RoverPlayerTowbar>().bTowing) {
 			bAttachedToPlayer = true;
 			this.GetComponent<BoxCollider>().isTrigger = true;
-			this.transform.position = c.gameObject.GetComponent<RoverPlayerTowbar>().goTowbar.transform.position;
-			c.gameObject.GetComponent<RoverPlayerTowbar>().bTowing = true;
+			goPlayerTowbar = c.gameObject;
+			this.transform.position = goPlayerTowbar.GetComponent<RoverPlayerTowbar>().goTowbar.transform.position;
+			goPlayerTowbar.GetComponent<RoverPlayerTowbar>().bTowing = true;
 			this.transform.rotation = c.gameObject.transform.rotation;
 			this.transform.position = ((this.transform.forward * -3) + this.transform.position);
 			this.transform.SetParent(c.gameObject.transform);
@@ -38,6 +40,7 @@ public class MarsDelivery : MonoBehaviour {
 				//this.GetComponent<BoxCollider>().isTrigger = false;
 				this.transform.position = c.gameObject.transform.position;
 				this.transform.rotation = c.gameObject.transform.rotation;
+				goPlayerTowbar.GetComponent<RoverPlayerTowbar> ().bTowing = false;
 				//this.transform.position = ((this.transform.forward * -3) + this.transform.position);
 				this.transform.SetParent(c.gameObject.transform);
 			}
