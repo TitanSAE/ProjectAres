@@ -2,12 +2,23 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\MarsDeliveryManager.cs">
     <Files>
-      <File FileName="Assets\Scripts\MarsDelivery.cs" Line="6" Column="24" />
-      <File FileName="Assets\Scripts\MarsBaseAttachmentPoint.cs" Line="10" Column="6" />
-      <File FileName="Assets\Scripts\GameEnums.cs" Line="90" Column="15" />
-      <File FileName="Assets\Scripts\MarsHelicopter.cs" Line="3" Column="14" />
-      <File FileName="Assets\Scripts\MarsDeliveryManager.cs" Line="10" Column="34" />
-      <File FileName="Assets\Scripts\TimedDelivery.cs" Line="11" Column="22" />
+      <File FileName="Assets\Scripts\PlayerTouch.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\RoverStatsss.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\RoverPlayerController.cs" Line="56" Column="4" />
+      <File FileName="Assets\Scripts\Rover\CarController.cs" Line="63" Column="57" />
+      <File FileName="Assets\Scripts\RoverEngineAudio.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\SimpleSmoothMouseLook.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\SceneManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\RoverWheelMovement.cs" Line="6" Column="23" />
+      <File FileName="Assets\Scripts\MeshBuilder.cs" Line="5" Column="26" />
+      <File FileName="Assets\Standard Assets\Effects\ImageEffects\Scripts\NoiseAndScratches.cs" Line="61" Column="1" />
+      <File FileName="Assets\Scripts\Kacey Scripts\PlayerKeyboard.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Kacey Scripts\BuildingPad.cs" Line="16" Column="1" />
+      <File FileName="Assets\Magnetodynamics\ObjectsToPlaceInYourScene\_ScriptsThatMakeThemWork\StaticChargeScript.cs" Line="44" Column="3" />
+      <File FileName="Assets\Scripts\TimedDelivery.cs" Line="6" Column="16" />
+      <File FileName="Assets\Scripts\MarsDeliveryManager.cs" Line="25" Column="1" />
+      <File FileName="Assets\Scripts\MarsDelivery.cs" Line="6" Column="16" />
+      <File FileName="Assets\Scripts\GameEnums.cs" Line="82" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

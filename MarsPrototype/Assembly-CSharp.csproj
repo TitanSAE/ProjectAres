@@ -118,6 +118,7 @@
      <Compile Include="Assets\Prefabs\Particles\Detonator Explosion Framework\System\DetonatorSparks.cs" />
      <Compile Include="Assets\Prefabs\Particles\Detonator Explosion Framework\System\DetonatorSpray.cs" />
      <Compile Include="Assets\Quad\TextureCreator.cs" />
+     <Compile Include="Assets\RoverPlayerTowbar.cs" />
      <Compile Include="Assets\Scripts\Controller\Thrusters.cs" />
      <Compile Include="Assets\Scripts\DayNightCycle.cs" />
      <Compile Include="Assets\Scripts\FPS_Player.cs" />
