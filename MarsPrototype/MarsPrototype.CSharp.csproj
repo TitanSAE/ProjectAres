@@ -96,6 +96,7 @@
     <Compile Include="Assets\Magnetodynamics\ObjectsToPlaceInYourScene\_ScriptsThatMakeThemWork\SuperconductorSmallSphereScript.cs" />
     <Compile Include="Assets\Magnetodynamics\ScriptsToEnhanceExistingObjects\MagnetizableMaterial.cs" />
     <Compile Include="Assets\Magnetodynamics\ScriptsToEnhanceExistingObjects\PlasmaIonizedGas.cs" />
+    <Compile Include="Assets\MarsBuilding.cs" />
     <Compile Include="Assets\Mirza Beig\Particle Twister\_scripts\DemoManager.cs" />
     <Compile Include="Assets\Mirza Beig\Particle Twister\_scripts\FPSDisplay.cs" />
     <Compile Include="Assets\Mirza Beig\Particle Twister\_scripts\InstantiatedParticleManager.cs" />
@@ -151,6 +152,8 @@
     <Compile Include="Assets\Prefabs\Particles\Detonator Explosion Framework\System\DetonatorSparks.cs" />
     <Compile Include="Assets\Prefabs\Particles\Detonator Explosion Framework\System\DetonatorSpray.cs" />
     <Compile Include="Assets\Quad\TextureCreator.cs" />
+    <Compile Include="Assets\RoverPlayerTowbar.cs" />
+    <Compile Include="Assets\Scripts\CameraFogSetting.cs" />
     <Compile Include="Assets\Scripts\Controller\Thrusters.cs" />
     <Compile Include="Assets\Scripts\DayNightCycle.cs" />
     <Compile Include="Assets\Scripts\FPS_Player.cs" />
@@ -250,9 +253,12 @@
     <None Include="Assets\Resources\Rovers\Lil Scrapper.xml" />
     <None Include="Assets\Resources\Rovers\test.xml" />
     <None Include="Assets\Resources\Sponsors\Goat Rocket.xml" />
+    <None Include="Assets\Shaders\AlphaBlendTransition.shader" />
+    <None Include="Assets\Shaders\BlendTransitionPanorama.shader" />
     <None Include="Assets\Shaders\Default-OverAll.shader" />
     <None Include="Assets\Shaders\Particle Alpha Blend-AfterTrans.shader" />
     <None Include="Assets\Shaders\Particle-Alpha-Premultiply-AfterTrans.shader" />
+    <None Include="Assets\Shaders\SphereShader.shader" />
     <None Include="Assets\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\BlendModesOverlay.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\BlurEffectConeTaps.shader" />
