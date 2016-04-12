@@ -29,13 +29,15 @@ public class MarsDelivery : MonoBehaviour {
 			this.transform.rotation = c.gameObject.transform.rotation;
 			this.transform.position = ((this.transform.forward * -3) + this.transform.position);
 			this.transform.SetParent(c.gameObject.transform);
+			this.GetComponent<Rigidbody>().isKinematic = true;
+			this.GetComponent<Rigidbody>().useGravity = false;
 			Debug.Log ("Hit C");
 		}
 	}
 
 	void OnTriggerEnter(Collider c) {
 		if (c.gameObject.tag == "BaseAttachment" && bAttachedToPlayer) {
-			if (eDeliveryType == c.GetComponent<MarsBaseAttachmentPoint>().eAttachmentType) {
+			//if (eDeliveryType == c.GetComponent<MarsBaseAttachmentPoint>().eAttachmentType) {
 				//bAttachedToPlayer = false;
 				//bDelivered = true;
 				//bAttachedToBase = true;
@@ -45,7 +47,7 @@ public class MarsDelivery : MonoBehaviour {
 				////goPlayerTowbar.GetComponent<RoverPlayerTowbar> ().bTowing = false;
 				//this.transform.position = ((this.transform.forward * -3) + this.transform.position);
 				//this.transform.SetParent(c.gameObject.transform);
-			}
+			//}
 
 //			if (c.gameObject.tag == "Player" && !bAttachedToPlayer && !bAttachedToBase) {
 //				Debug.Log ("HIT");
