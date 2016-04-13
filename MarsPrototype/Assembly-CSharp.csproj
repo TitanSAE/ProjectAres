@@ -64,6 +64,7 @@
      <Compile Include="Assets\Magnetodynamics\ScriptsToEnhanceExistingObjects\MagnetizableMaterial.cs" />
      <Compile Include="Assets\Magnetodynamics\ScriptsToEnhanceExistingObjects\PlasmaIonizedGas.cs" />
      <Compile Include="Assets\MarsMessageUI.cs" />
+     <Compile Include="Assets\MarsMovement.cs" />
      <Compile Include="Assets\Mirza Beig\Particle Twister\_scripts\DemoManager.cs" />
      <Compile Include="Assets\Mirza Beig\Particle Twister\_scripts\FPSDisplay.cs" />
      <Compile Include="Assets\Mirza Beig\Particle Twister\_scripts\InstantiatedParticleManager.cs" />
