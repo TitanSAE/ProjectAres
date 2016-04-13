@@ -96,6 +96,7 @@
     <Compile Include="Assets\Magnetodynamics\ObjectsToPlaceInYourScene\_ScriptsThatMakeThemWork\SuperconductorSmallSphereScript.cs" />
     <Compile Include="Assets\Magnetodynamics\ScriptsToEnhanceExistingObjects\MagnetizableMaterial.cs" />
     <Compile Include="Assets\Magnetodynamics\ScriptsToEnhanceExistingObjects\PlasmaIonizedGas.cs" />
+    <Compile Include="Assets\MarsMessageUI.cs" />
     <Compile Include="Assets\Mirza Beig\Particle Twister\_scripts\DemoManager.cs" />
     <Compile Include="Assets\Mirza Beig\Particle Twister\_scripts\FPSDisplay.cs" />
     <Compile Include="Assets\Mirza Beig\Particle Twister\_scripts\InstantiatedParticleManager.cs" />
@@ -137,6 +138,7 @@
     <Compile Include="Assets\OVR\Scripts\Util\OVRSceneSampleController.cs" />
     <Compile Include="Assets\OVR\Scripts\Util\OVRScreenFade.cs" />
     <Compile Include="Assets\OVR\Scripts\Util\OVRTrackerBounds.cs" />
+    <Compile Include="Assets\PainSphere.cs" />
     <Compile Include="Assets\Prefabs\Particles\Detonator Explosion Framework\System\Detonator.cs" />
     <Compile Include="Assets\Prefabs\Particles\Detonator Explosion Framework\System\DetonatorBurstEmitter.cs" />
     <Compile Include="Assets\Prefabs\Particles\Detonator Explosion Framework\System\DetonatorCloudRing.cs" />
@@ -151,6 +153,7 @@
     <Compile Include="Assets\Prefabs\Particles\Detonator Explosion Framework\System\DetonatorSparks.cs" />
     <Compile Include="Assets\Prefabs\Particles\Detonator Explosion Framework\System\DetonatorSpray.cs" />
     <Compile Include="Assets\Quad\TextureCreator.cs" />
+    <Compile Include="Assets\Scripts\CameraFogSetting.cs" />
     <Compile Include="Assets\Scripts\Controller\Thrusters.cs" />
     <Compile Include="Assets\Scripts\DayNightCycle.cs" />
     <Compile Include="Assets\Scripts\FPS_Player.cs" />
@@ -175,9 +178,14 @@
     <Compile Include="Assets\Scripts\Magnet.cs" />
     <Compile Include="Assets\Scripts\MarsBase.cs" />
     <Compile Include="Assets\Scripts\MarsBaseAttachmentPoint.cs" />
+    <Compile Include="Assets\Scripts\MarsBuilding.cs" />
+    <Compile Include="Assets\Scripts\MarsDayCounter.cs" />
     <Compile Include="Assets\Scripts\MarsDelivery.cs" />
     <Compile Include="Assets\Scripts\MarsDeliveryManager.cs" />
     <Compile Include="Assets\Scripts\MarsHelicopter.cs" />
+    <Compile Include="Assets\Scripts\MarsMessage.cs" />
+    <Compile Include="Assets\Scripts\MarsMessageManager.cs" />
+    <Compile Include="Assets\Scripts\MarsPlayer.cs" />
     <Compile Include="Assets\Scripts\MarsResource.cs" />
     <Compile Include="Assets\Scripts\MarsSponsor.cs" />
     <Compile Include="Assets\Scripts\MaterialLerp.cs" />
@@ -213,6 +221,7 @@
     <Compile Include="Assets\Scripts\RoverModules\Wheels.cs" />
     <Compile Include="Assets\Scripts\RoverMovement.cs" />
     <Compile Include="Assets\Scripts\RoverPlayerController.cs" />
+    <Compile Include="Assets\Scripts\RoverPlayerTowbar.cs" />
     <Compile Include="Assets\Scripts\RoverStatistics.cs" />
     <Compile Include="Assets\Scripts\RoverStatsss.cs" />
     <Compile Include="Assets\Scripts\RoverWheelMovement.cs" />
@@ -250,9 +259,12 @@
     <None Include="Assets\Resources\Rovers\Lil Scrapper.xml" />
     <None Include="Assets\Resources\Rovers\test.xml" />
     <None Include="Assets\Resources\Sponsors\Goat Rocket.xml" />
+    <None Include="Assets\Shaders\AlphaBlendTransition.shader" />
+    <None Include="Assets\Shaders\BlendTransitionPanorama.shader" />
     <None Include="Assets\Shaders\Default-OverAll.shader" />
     <None Include="Assets\Shaders\Particle Alpha Blend-AfterTrans.shader" />
     <None Include="Assets\Shaders\Particle-Alpha-Premultiply-AfterTrans.shader" />
+    <None Include="Assets\Shaders\SphereShader.shader" />
     <None Include="Assets\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\BlendModesOverlay.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\BlurEffectConeTaps.shader" />
