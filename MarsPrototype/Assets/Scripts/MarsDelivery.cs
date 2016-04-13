@@ -14,6 +14,8 @@ public class MarsDelivery : MonoBehaviour {
 	GameObject smallPanel;
 	GameObject largePanel;
 
+	private bool bImpact;
+
 	//public bool bAttachedToBase;
 
 
@@ -29,6 +31,9 @@ public class MarsDelivery : MonoBehaviour {
 	}
 
 	void OnCollisionEnter(Collision c) {
+		if (!bImpact) {
+			bImpact = true;
+		}
 		if (c.gameObject.tag == "Player" && !bAttachedToPlayer && !c.gameObject.GetComponent<MarsTowbar>().bTowing && !bDelivered) {
 			bAttachedToPlayer = true;
 			this.GetComponent<BoxCollider>().isTrigger = true;

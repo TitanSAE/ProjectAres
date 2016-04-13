@@ -58,6 +58,11 @@
      <Compile Include="Assets\ExampleScenes\VanDeGraaffExampleAssets\Up.js" />
      <Compile Include="Assets\ExampleScenes\WrenchesTutorialAssets\SetupFog.js" />
      <Compile Include="Assets\ExampleScenes\WrenchesTutorialAssets\StopAndStick.js" />
+     <Compile Include="Assets\Meteor Storm Effects\Standard Assets\Character Controllers\Sources\Scripts\CharacterMotor.js" />
+     <Compile Include="Assets\Meteor Storm Effects\Standard Assets\Character Controllers\Sources\Scripts\FPSInputController.js" />
+     <Compile Include="Assets\Meteor Storm Effects\Standard Assets\Character Controllers\Sources\Scripts\PlatformInputController.js" />
+     <Compile Include="Assets\Meteor Storm Effects\Standard Assets\Character Controllers\Sources\Scripts\ThirdPersonCamera.js" />
+     <Compile Include="Assets\Meteor Storm Effects\Standard Assets\Character Controllers\Sources\Scripts\ThirdPersonController.js" />
      <Compile Include="Assets\Prefabs\Particles\Detonator Explosion Framework\Sample Supporting Emitters\Detonator Spray Helper.js" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />
@@ -86,6 +91,7 @@
      <None Include="Assets\Shaders\BlendTransitionPanorama.shader" />
      <None Include="Assets\Resources\Rovers\test.xml" />
      <None Include="Assets\RAIN\Editor\Shaders\NavMeshContourShader.shader" />
+     <None Include="Assets\Meteor Storm Effects\Shaders\PlanetNoFog.shader" />
      <None Include="Assets\RAIN\Editor\Shaders\WaypointShader.shader" />
      <None Include="Assets\OVR\Moonlight\Shaders\Unlit Crosshair.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\DepthOfField34.shader" />

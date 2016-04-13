@@ -10,24 +10,56 @@ public class MarsDeliveryManager : MonoBehaviour {
 	public GameObject goProtoPackage;
 	public GameObject goTowbar;
 
-	List<int> usedValues = new List<int>();
-	public int UniqueRandomInt(int min, int max)
-	{
-		int val = Random.Range(min, max);
-		while(usedValues.Contains(val))
-		{
-			val = Random.Range(min, max);
+
+	int [] spawnarray = new int[]{0,1,2,3,4,5};
+	List<int>spawnlist = new List<int>();
+
+	int [] spawnarray2 = new int[]{0,1,2,3,4,5};
+	List<int>spawnlist2 = new List<int>();
+
+
+
+
+
+	int GetUniqueRandom(bool reloadEmptyList){
+		if(spawnlist.Count == 0 ){
+			if(reloadEmptyList){
+				spawnlist.AddRange(spawnarray); 
+			}
+			else{
+				return -1; // here is up to you 
+			}
 		}
-		return val;
+		int rand = Random.Range(0, spawnlist.Count);
+		int value = spawnlist[rand];
+		spawnlist.RemoveAt(rand);
+		return value;
+	}
+	int GetUniqueRandomSpawn(bool reloadEmptyList){
+		if(spawnlist2.Count == 0 ){
+			if(reloadEmptyList){
+				spawnlist2.AddRange(spawnarray2); 
+			}
+			else{
+				return -1; // here is up to you 
+			}
+		}
+		int rand = Random.Range(0, spawnlist2.Count);
+		int value = spawnlist2[rand];
+		spawnlist2.RemoveAt(rand);
+		return value;
 	}
 
 
 
 
 	void Start() {
-		for (int i = 0; i < 8; i++) {
-			st_ePackages.Push((BASE_ATTACHMENT)UniqueRandomInt(0, 6));
+		spawnlist.AddRange(spawnarray);
+		spawnlist2.AddRange(spawnarray2);
+		for (int i = 0; i < 6; i++) {
+			st_ePackages.Push((BASE_ATTACHMENT)GetUniqueRandom(true));
 		}
+
 	}
 
 
@@ -35,10 +67,18 @@ public class MarsDeliveryManager : MonoBehaviour {
 	
 	}
 
-	public void SpawnPackage() {
-		int rspot = Random.Range(0, l_tSpawnPoints.Count);
+//	public void SpawnPackage() {
+//		int rspot = GetUniqueRandomSpawn(true);
+//
+//		GameObject goTemp = (GameObject)GameObject.Instantiate(goProtoPackage, l_tSpawnPoints[rspot].position, Quaternion.identity);
+//		MarsDelivery crate = goTemp.GetComponent<MarsDelivery>();
+//		crate.goPlayerTowbar = goTowbar;
+//		crate.eDeliveryType = st_ePackages.Pop();
+//	}
+	public void SpawnPackage(Vector3 Location) {
+		int rspot = GetUniqueRandomSpawn(true);
 
-		GameObject goTemp = (GameObject)GameObject.Instantiate(goProtoPackage, l_tSpawnPoints[rspot].position, Quaternion.identity);
+		GameObject goTemp = (GameObject)GameObject.Instantiate(goProtoPackage, Location, Quaternion.identity);
 		MarsDelivery crate = goTemp.GetComponent<MarsDelivery>();
 		crate.goPlayerTowbar = goTowbar;
 		crate.eDeliveryType = st_ePackages.Pop();
