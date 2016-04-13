@@ -9,7 +9,7 @@ public class TimedDelivery : MonoBehaviour {
 	public float fDeliveryTime = 30.0f;
 
 	public bool bActive;
-
+	int count = 0;
 	void Start() {
 	
 	}
@@ -18,10 +18,12 @@ public class TimedDelivery : MonoBehaviour {
 		if (mngDelivery.st_ePackages.Count > 0) {
 			fCounter += Time.deltaTime;
 		}
-
-		if (fCounter >= fDeliveryTime) {
-			fCounter = 0;
-			mngDelivery.SpawnPackage();
+		if (count < 6) {
+			if (fCounter >= fDeliveryTime) {
+				fCounter = 0;
+				mngDelivery.SpawnPackage ();
+				count += 1;
+			}
 		}
 	}
 }

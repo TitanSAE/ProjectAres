@@ -10,11 +10,26 @@ public class MarsDeliveryManager : MonoBehaviour {
 	public GameObject goProtoPackage;
 	public GameObject goTowbar;
 
+	List<int> usedValues = new List<int>();
+	public int UniqueRandomInt(int min, int max)
+	{
+		int val = Random.Range(min, max);
+		while(usedValues.Contains(val))
+		{
+			val = Random.Range(min, max);
+		}
+		return val;
+	}
+
+
+
+
 	void Start() {
 		for (int i = 0; i < 8; i++) {
-			st_ePackages.Push((BASE_ATTACHMENT)Random.Range(1, 6));
+			st_ePackages.Push((BASE_ATTACHMENT)UniqueRandomInt(0, 6));
 		}
 	}
+
 
 	void Update() {
 	
