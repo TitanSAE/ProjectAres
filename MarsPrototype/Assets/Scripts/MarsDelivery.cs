@@ -23,14 +23,15 @@ public class MarsDelivery : MonoBehaviour {
 	}
 
 	void OnCollisionEnter(Collision c) {
-		if (c.gameObject.tag == "Player" && !bAttachedToPlayer && !c.gameObject.GetComponent<RoverPlayerTowbar>().bTowing && !bDelivered) {
+		if (c.gameObject.tag == "Player" && !bAttachedToPlayer && !c.gameObject.GetComponent<MarsTowbar>().bTowing && !bDelivered) {
 			bAttachedToPlayer = true;
 			this.GetComponent<BoxCollider>().isTrigger = true;
 			goPlayerTowbar = c.gameObject;
-			this.transform.position = goPlayerTowbar.GetComponent<RoverPlayerTowbar>().goTowbar.transform.position;
-			goPlayerTowbar.GetComponent<RoverPlayerTowbar>().bTowing = true;
+			this.transform.position = goPlayerTowbar.GetComponent<MarsTowbar>().goTowbar.transform.position;
+			goPlayerTowbar.GetComponent<MarsTowbar>().goAttached = this.gameObject;
+			goPlayerTowbar.GetComponent<MarsTowbar>().bTowing = true;
 			this.transform.rotation = c.gameObject.transform.rotation;
-			this.transform.position = ((this.transform.forward * -3) + this.transform.position);
+			this.transform.position = ((this.transform.forward * -0.5f) + this.transform.position);
 			this.transform.SetParent(c.gameObject.transform);
 			this.GetComponent<Rigidbody>().isKinematic = true;
 			this.GetComponent<Rigidbody>().useGravity = false;

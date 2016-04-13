@@ -155,6 +155,7 @@
      <Compile Include="Assets\Scripts\MarsPlayer.cs" />
      <Compile Include="Assets\Scripts\MarsResource.cs" />
      <Compile Include="Assets\Scripts\MarsSponsor.cs" />
+     <Compile Include="Assets\Scripts\MarsTowbar.cs" />
      <Compile Include="Assets\Scripts\MaterialLerp.cs" />
      <Compile Include="Assets\Scripts\MeshBuilder.cs" />
      <Compile Include="Assets\Scripts\Model\GameMode.cs" />
@@ -188,7 +189,6 @@
      <Compile Include="Assets\Scripts\RoverModules\Wheels.cs" />
      <Compile Include="Assets\Scripts\RoverMovement.cs" />
      <Compile Include="Assets\Scripts\RoverPlayerController.cs" />
-     <Compile Include="Assets\Scripts\RoverPlayerTowbar.cs" />
      <Compile Include="Assets\Scripts\RoverStatistics.cs" />
      <Compile Include="Assets\Scripts\RoverStatsss.cs" />
      <Compile Include="Assets\Scripts\RoverWheelMovement.cs" />
@@ -206,6 +206,7 @@
      <Compile Include="Assets\Scripts\UI\UIStickToTarget.cs" />
      <Compile Include="Assets\Scripts\UIShowPivot.cs" />
      <Compile Include="Assets\Scripts\Utility\GenericEventArgs.cs" />
+     <Compile Include="Assets\SmoothCameraFPS.cs" />
      <Compile Include="Assets\Surface\SurfaceCreator.cs" />
      <Compile Include="Assets\Surface\SurfaceFlow.cs" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />

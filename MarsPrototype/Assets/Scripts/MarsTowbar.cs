@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class RoverPlayerTowbar : MonoBehaviour {
+public class MarsTowbar : MonoBehaviour {
 
 	public GameObject goTowbar;
 	public GameObject goAttached;

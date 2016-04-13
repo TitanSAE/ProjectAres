@@ -55,7 +55,7 @@ public class BuildingPad : MonoBehaviour {
 			MarsDelivery del = col.gameObject.GetComponent<MarsDelivery> ();
 			del.bAttachedToPlayer = false;
 			del.bDelivered = true;
-			del.goPlayerTowbar.GetComponent<RoverPlayerTowbar>().bTowing = false;
+			del.goPlayerTowbar.GetComponent<MarsTowbar>().bTowing = false;
 
 			Debug.Log ("Built!");
 			GameObject.Destroy (col.gameObject);

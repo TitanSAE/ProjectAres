@@ -9,14 +9,15 @@ public class MarsBuilding : MonoBehaviour {
 	public float fLerpTime = 3.0f;
 	public bool bLerping = false;
 	//public Renderer rendTex;
+	private MarsPlayer ply;
 
 	//public Material matGhost;
 	//public Material matSolid;
 
 	// Use this for initialization
 	void Start () {
-	
-	}
+		ply = GameObject.FindGameObjectWithTag("Player").GetComponent<MarsPlayer>();
+	}	
 	
 	// Update is called once per frame
 	void Update () {
@@ -36,5 +37,7 @@ public class MarsBuilding : MonoBehaviour {
 				bGhosted = false;
 			}
 		}
+
+
 	}
 }
