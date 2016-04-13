@@ -26,8 +26,10 @@ public class MarsPlayer : MonoBehaviour {
 	private float fEnergyDrainTimer;
 	public float fEnergyDrainSeconds = 10;
 
+	public MarsTowbar towbar;
+
 	void Start() {
-	
+		towbar = gameObject.GetComponent<MarsTowbar>();
 	}
 
 	void Update() {
