@@ -7,11 +7,20 @@ public class MarsDelivery : MonoBehaviour {
 	public bool bAttachedToPlayer;
 	public GameObject goPlayerTowbar;
 	public bool bDelivered = false;
+	GameObject Level1;
+	GameObject Level2;
+	GameObject Level3;
+	GameObject Level4;
+	GameObject smallPanel;
+	GameObject largePanel;
+
 	//public bool bAttachedToBase;
+
 
 	// Use this for initialization
 	void Start () {
 	
+
 	}
 	
 	// Update is called once per frame
@@ -33,6 +42,32 @@ public class MarsDelivery : MonoBehaviour {
 			this.GetComponent<Rigidbody>().isKinematic = true;
 			this.GetComponent<Rigidbody>().useGravity = false;
 			Debug.Log ("Hit C");
+
+			if (eDeliveryType == BASE_ATTACHMENT.Level1) {
+				Level1 = GameObject.Find ("SceneManager").GetComponent<GameManager> ().Level1;
+				Level1.SetActive (true);
+			}
+			if (eDeliveryType == BASE_ATTACHMENT.Level2) {
+				Level2 = GameObject.Find ("SceneManager").GetComponent<GameManager> ().Level2;
+				Level2.SetActive (true);
+			}
+			if (eDeliveryType == BASE_ATTACHMENT.Level3) {
+				Level3 = GameObject.Find ("SceneManager").GetComponent<GameManager> ().Level3;
+				Level3.SetActive (true);
+			}
+			if (eDeliveryType == BASE_ATTACHMENT.Level4) {
+				Level4 = GameObject.Find ("SceneManager").GetComponent<GameManager> ().Level4;
+				Level4.SetActive (true);
+			}
+			if (eDeliveryType == BASE_ATTACHMENT.smallPanel) {
+				smallPanel = GameObject.Find ("SceneManager").GetComponent<GameManager> ().smallPanel;
+				smallPanel.SetActive (true);
+			}
+			if (eDeliveryType == BASE_ATTACHMENT.largePanel) {
+				largePanel = GameObject.Find ("SceneManager").GetComponent<GameManager> ().largePanel;
+				largePanel.SetActive (true);
+			}
+
 		}
 	}
 

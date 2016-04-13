@@ -37,6 +37,7 @@ public class PlayerShip : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+		try{
 		if (OnPad) {
 			transform.position = new Vector3(padPos.position.x,transform.position.y,padPos.position.z);
 			transform.GetComponent<Rigidbody> ().freezeRotation = true;
@@ -50,6 +51,9 @@ public class PlayerShip : MonoBehaviour
 			landingPad = landPad.gameObject.GetComponent ("LandingPad") as LandingPad;
 			landingPad.DeActivate ();
 		}
+	}catch{
+
+	}
       
     }
 		

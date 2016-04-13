@@ -80,14 +80,12 @@ public enum DIALOG_LOCATION {
 }
 
 public enum BASE_ATTACHMENT {
-	NONE,
-	POWER_SUPPLY,
-	FOOD_SUPPLY,
-	AIR_SUPPLY,
-	OTHER_RESOURCE_SUPPLY,
-	STORAGE,
-	LIVING_AREA,
-	REPAIR_CENTRE
+	Level1,
+	Level2,
+	Level3,
+	Level4,
+	smallPanel,
+	largePanel
 }
 
 public enum HelicopterMovement {
