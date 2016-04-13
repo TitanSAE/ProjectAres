@@ -87,7 +87,11 @@ public enum BASE_ATTACHMENT {
 	OTHER_RESOURCE_SUPPLY,
 	STORAGE,
 	LIVING_AREA,
-	REPAIR_CENTRE
+	REPAIR_CENTRE,
+	Level1,
+	Level2,
+	Level3,
+	Level4
 }
 
 public enum HelicopterMovement {

@@ -7,11 +7,14 @@ public class MarsDelivery : MonoBehaviour {
 	public bool bAttachedToPlayer;
 	public GameObject goPlayerTowbar;
 	public bool bDelivered = false;
+
 	//public bool bAttachedToBase;
+
 
 	// Use this for initialization
 	void Start () {
 	
+
 	}
 	
 	// Update is called once per frame
@@ -32,6 +35,11 @@ public class MarsDelivery : MonoBehaviour {
 			this.GetComponent<Rigidbody>().isKinematic = true;
 			this.GetComponent<Rigidbody>().useGravity = false;
 			Debug.Log ("Hit C");
+
+			if (eDeliveryType == BASE_ATTACHMENT.Level1) {
+				Debug.Log ("Hit PowerSupply");
+			}
+
 		}
 	}
 
