@@ -64,13 +64,10 @@
      <Compile Include="Assets\Magnetodynamics\ScriptsToEnhanceExistingObjects\MagnetizableMaterial.cs" />
      <Compile Include="Assets\Magnetodynamics\ScriptsToEnhanceExistingObjects\PlasmaIonizedGas.cs" />
      <Compile Include="Assets\MarsMessageUI.cs" />
-<<<<<<< HEAD
+     <Compile Include="Assets\MarsMovement.cs" />
      <Compile Include="Assets\Meteor Storm Effects\Scripts\LockRotation.cs" />
      <Compile Include="Assets\Meteor Storm Effects\Scripts\MeteorCrashSound.cs" />
      <Compile Include="Assets\Meteor Storm Effects\Standard Assets\Character Controllers\Sources\Scripts\MouseLook.cs" />
-=======
-     <Compile Include="Assets\MarsMovement.cs" />
->>>>>>> ae8a0add7e912affb76040a8a45f62691969b57f
      <Compile Include="Assets\Mirza Beig\Particle Twister\_scripts\DemoManager.cs" />
      <Compile Include="Assets\Mirza Beig\Particle Twister\_scripts\FPSDisplay.cs" />
      <Compile Include="Assets\Mirza Beig\Particle Twister\_scripts\InstantiatedParticleManager.cs" />
