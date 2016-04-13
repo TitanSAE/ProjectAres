@@ -11,6 +11,14 @@ public class GameManager : MonoBehaviour {
 	public GameObject Establishment;
 	public GameObject Car;
 
+
+	public	GameObject Level1;
+	public	GameObject Level2;
+	public	GameObject Level3;
+	public	GameObject Level4;
+	public GameObject smallPanel;
+	public GameObject largePanel;
+
 	// Use this for initialization
 	void Start () {
 	

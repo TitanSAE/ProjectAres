@@ -1,14 +1,17 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\MarsPlayer.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\MarsDelivery.cs">
     <Files>
-      <File FileName="Assets\MarsMessageUI.cs" Line="16" Column="38" />
-      <File FileName="Assets\Scripts\MarsMessageManager.cs" Line="8" Column="2" />
-      <File FileName="Assets\Scripts\MarsMessage.cs" Line="8" Column="20" />
-      <File FileName="Assets\Scripts\MarsDeliveryManager.cs" Line="7" Column="39" />
-      <File FileName="Assets\Scripts\MarsDelivery.cs" Line="22" Column="2" />
-      <File FileName="Assets\Scripts\MarsPlayer.cs" Line="39" Column="57" />
-      <File FileName="Assets\PainSphere.cs" Line="8" Column="75" />
+      <File FileName="Assets\Scripts\MarsBuilding.cs" Line="1" Column="1" />
+      <File FileName="Assets\MarsMessageUI.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\MarsMessageManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\MarsMessage.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\GameEnums.cs" Line="94" Column="8" />
+      <File FileName="Assets\Scripts\MarsDelivery.cs" Line="39" Column="4" />
+      <File FileName="Assets\Scripts\MarsDeliveryManager.cs" Line="27" Column="60" />
+      <File FileName="Assets\Scripts\MarsPlayer.cs" Line="1" Column="1" />
+      <File FileName="Assets\PainSphere.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Kacey Scripts\GameManager.cs" Line="19" Column="36" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

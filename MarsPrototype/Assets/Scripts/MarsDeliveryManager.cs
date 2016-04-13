@@ -11,8 +11,8 @@ public class MarsDeliveryManager : MonoBehaviour {
 	public GameObject goTowbar;
 
 	void Start() {
-		for (int i = 0; i < 10; i++) {
-			st_ePackages.Push((BASE_ATTACHMENT)Random.Range(1, 8));
+		for (int i = 0; i < 8; i++) {
+			st_ePackages.Push((BASE_ATTACHMENT)Random.Range(1, 6));
 		}
 	}
 
