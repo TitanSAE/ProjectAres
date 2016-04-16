@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour {
 
@@ -18,6 +19,11 @@ public class GameManager : MonoBehaviour {
 	public	GameObject Level4;
 	public GameObject smallPanel;
 	public GameObject largePanel;
+
+	public ParticleSystem PackageParticle;
+
+
+	public int finishedBuildings = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -47,10 +53,13 @@ public class GameManager : MonoBehaviour {
 		}
 
 		if (Input.GetKeyDown (KeyCode.U)) {
-			Vector3 radius = new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10));
-			Instantiate (module, Random.insideUnitSphere * 20f + transform.position, Random.rotation);
+			PackageParticle.Clear ();
+			PackageParticle.Play ();
 		}
 
+		if (finishedBuildings == 6) {
+			Debug.Log ("Win");
+		}
 
 
 //		if (Input.GetKeyDown (KeyCode.Space)) {

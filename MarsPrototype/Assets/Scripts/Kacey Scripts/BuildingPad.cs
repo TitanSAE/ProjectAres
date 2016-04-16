@@ -46,7 +46,8 @@ public class BuildingPad : MonoBehaviour {
 	void OnTriggerEnter(Collider col) {
 		if (col.gameObject.tag == "MarsDelivery" && !bBuilt) {
 			if (buildingType == col.gameObject.GetComponent<MarsDelivery> ().eDeliveryType) {
-
+				GameObject.Find ("SceneManager").GetComponent<GameManager> ().finishedBuildings += 1;
+				Debug.Log (GameObject.Find ("SceneManager").GetComponent<GameManager> ().finishedBuildings);
 				bBuilt = true;
 
 				if (building.bGhosted && !building.bLerping) {

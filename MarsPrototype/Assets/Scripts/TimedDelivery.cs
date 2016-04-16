@@ -21,7 +21,8 @@ public class TimedDelivery : MonoBehaviour {
 		if (count < 6) {
 			if (fCounter >= fDeliveryTime) {
 				fCounter = 0;
-				mngDelivery.SpawnPackage ();
+				GameObject.Find ("SceneManager").GetComponent<GameManager> ().PackageParticle.Clear ();
+				GameObject.Find ("SceneManager").GetComponent<GameManager> ().PackageParticle.Play ();
 				count += 1;
 			}
 		}

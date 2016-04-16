@@ -64,7 +64,13 @@
      <Compile Include="Assets\Magnetodynamics\ScriptsToEnhanceExistingObjects\MagnetizableMaterial.cs" />
      <Compile Include="Assets\Magnetodynamics\ScriptsToEnhanceExistingObjects\PlasmaIonizedGas.cs" />
      <Compile Include="Assets\MarsMessageUI.cs" />
+<<<<<<< HEAD
+     <Compile Include="Assets\Meteor Storm Effects\Scripts\LockRotation.cs" />
+     <Compile Include="Assets\Meteor Storm Effects\Scripts\MeteorCrashSound.cs" />
+     <Compile Include="Assets\Meteor Storm Effects\Standard Assets\Character Controllers\Sources\Scripts\MouseLook.cs" />
+=======
      <Compile Include="Assets\MarsMovement.cs" />
+>>>>>>> ae8a0add7e912affb76040a8a45f62691969b57f
      <Compile Include="Assets\Mirza Beig\Particle Twister\_scripts\DemoManager.cs" />
      <Compile Include="Assets\Mirza Beig\Particle Twister\_scripts\FPSDisplay.cs" />
      <Compile Include="Assets\Mirza Beig\Particle Twister\_scripts\InstantiatedParticleManager.cs" />
@@ -237,6 +243,7 @@
      <None Include="Assets\Shaders\BlendTransitionPanorama.shader" />
      <None Include="Assets\Resources\Rovers\test.xml" />
      <None Include="Assets\RAIN\Editor\Shaders\NavMeshContourShader.shader" />
+     <None Include="Assets\Meteor Storm Effects\Shaders\PlanetNoFog.shader" />
      <None Include="Assets\RAIN\Editor\Shaders\WaypointShader.shader" />
      <None Include="Assets\OVR\Moonlight\Shaders\Unlit Crosshair.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\DepthOfField34.shader" />

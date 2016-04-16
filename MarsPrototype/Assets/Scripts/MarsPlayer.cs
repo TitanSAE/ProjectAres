@@ -65,5 +65,9 @@ public class MarsPlayer : MonoBehaviour {
 			fEnergyDrainTimer = 0;
 			fEnergy -= 1;
 		}
+
+		if (fHealth <= 0) {
+			GameObject.Destroy (this.gameObject);
+		}
 	}
 }
