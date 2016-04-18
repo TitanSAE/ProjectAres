@@ -3,10 +3,10 @@ using System.Collections;
 
 public class MarsMovement : MonoBehaviour {
 
-	public Rigidbody tSkiFrontLeft;
-	public Rigidbody tSkiFrontRight;
-	public Rigidbody tSkiBackLeft;
-	public Rigidbody tSkiBackRight;
+	//public Rigidbody tSkiFrontLeft;
+	//public Rigidbody tSkiFrontRight;
+	//public Rigidbody tSkiBackLeft;
+	//public Rigidbody tSkiBackRight;
 
 	public Transform tCenterOfGravity;
 
@@ -24,15 +24,19 @@ public class MarsMovement : MonoBehaviour {
 	public float fVel;
 
 	void Start() {
-		//rbBody = this.gameObject.GetComponent<Rigidbody>();
+		rbBody = this.gameObject.GetComponent<Rigidbody>();
 	}
 
 	void LateUpdate() {
 		//No gamepad, use keys
 		if (!IsJoystickConnected()) {
 			if (Input.GetAxis("Vertical") > 0) {
-				tSkiBackLeft.AddForce(tCenterOfGravity.forward * 100, ForceMode.Acceleration);
-				tSkiBackRight.AddForce(tCenterOfGravity.forward * 100, ForceMode.Acceleration);
+				rbBody.AddForce(tCenterOfGravity.forward * 1000);
+				//rbBody.AddForce(tCenterOfGravity.forward * 100, ForceMode.Acceleration);
+			}
+
+			if (Input.GetAxis("Vertical") < 0) {
+				rbBody.AddForce(tCenterOfGravity.forward * -100, ForceMode.Force);
 			}
 
 //			if (Input.GetAxis("Vertical") != 0) {
