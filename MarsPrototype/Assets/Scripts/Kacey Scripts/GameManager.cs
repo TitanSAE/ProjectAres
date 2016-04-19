@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour {
 
 	public ParticleSystem PackageParticle;
 
+	public GameObject NavMarker;
 
 	public int finishedBuildings = 0;
 
@@ -29,10 +30,31 @@ public class GameManager : MonoBehaviour {
 	void Start () {
 	
 	}
-	
+
+	GameObject GetClosestEnemy(GameObject[] enemies)
+	{
+		GameObject tMin = null;
+		float minDist = Mathf.Infinity;
+		Vector3 currentPos = transform.position;
+		foreach (GameObject t in enemies)
+		{
+			float dist = Vector3.Distance(t.transform.position, currentPos);
+			if (dist < minDist)
+			{
+				tMin = t;
+				minDist = dist;
+			}
+		}
+		return tMin;
+	}
+
 	// Update is called once per frame
 	void Update () {
+		try{
+		NavMarker.transform.position = GetClosestEnemy (GameObject.FindGameObjectsWithTag ("MarsDelivery")).transform.position;
+		}catch{
 
+		}
 		if (Input.GetKey (KeyCode.O)) {
 			roverControl = false;
 			copterControl = true;
