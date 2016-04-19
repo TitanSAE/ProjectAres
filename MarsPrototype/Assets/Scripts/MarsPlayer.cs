@@ -28,6 +28,10 @@ public class MarsPlayer : MonoBehaviour {
 
 	public MarsTowbar towbar;
 
+	public bool bControllingScout;
+	public GameObject goRoverCam;
+	public GameObject goScoutDrone;
+
 	void Start() {
 		towbar = gameObject.GetComponent<MarsTowbar>();
 	}
@@ -40,34 +44,53 @@ public class MarsPlayer : MonoBehaviour {
 		txtHealth.text = ((int)(imgHealthBar.fillAmount * 100)).ToString() + "%";
 		txtEnergy.text = ((int)(imgEnergyBar.fillAmount * 100)).ToString() + "%";
 
-		//Map
-		if (Input.GetButtonDown("ToggleMapSize")) {
-			bFullScreenMap = !bFullScreenMap;
+		if (Input.GetKeyDown(KeyCode.Alpha1)) {
+			bControllingScout = !bControllingScout;
+
+			if (bControllingScout) {
+				this.GetComponent<MarsMovement>().enabled = false;
+				goRoverCam.SetActive(false);
+				goScoutDrone.SetActive(true);
+			}
+
+			if (!bControllingScout) {
+				this.GetComponent<MarsMovement>().enabled = true;
+				goRoverCam.SetActive(true);
+				goScoutDrone.SetActive(false);
+			}
 		}
-			
-		if (bFullScreenMap) {
-			camSky.fieldOfView = 90;
-			tMap.gameObject.SetActive(false);
-			tMaxMap.gameObject.SetActive(true);
+
+		if (bControllingScout) {
+			//Energy
+			if (fEnergy > 0) {
+				fEnergyDrainTimer += Time.deltaTime;
+			}
+
+			if (fEnergyDrainTimer >= fEnergyDrainSeconds) {
+				fEnergyDrainTimer = 0;
+				fEnergy -= 1;
+			}
+
+			if (fHealth <= 0) {
+				GameObject.Destroy(this.gameObject);
+			}
 		}
 		else {
-			camSky.fieldOfView = 30;
-			tMap.gameObject.SetActive(true);
-			tMaxMap.gameObject.SetActive(false);
-		}
+			//Map
+			if (Input.GetButtonDown("ToggleMapSize")) {
+				bFullScreenMap = !bFullScreenMap;
+			}
 
-		//Energy
-		if (fEnergy > 0) {
-			fEnergyDrainTimer += Time.deltaTime;
-		}
-
-		if (fEnergyDrainTimer >= fEnergyDrainSeconds) {
-			fEnergyDrainTimer = 0;
-			fEnergy -= 1;
-		}
-
-		if (fHealth <= 0) {
-			GameObject.Destroy (this.gameObject);
+			if (bFullScreenMap) {
+				camSky.fieldOfView = 90;
+				tMap.gameObject.SetActive(false);
+				tMaxMap.gameObject.SetActive(true);
+			}
+			else {
+				camSky.fieldOfView = 30;
+				tMap.gameObject.SetActive(true);
+				tMaxMap.gameObject.SetActive(false);
+			}
 		}
 	}
 }
