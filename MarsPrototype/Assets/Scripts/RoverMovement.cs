@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 [System.Serializable]
-public class AxleInfo
+public class AxleInfox
 {
     public WheelCollider leftWheel;
     public WheelCollider rightWheel;

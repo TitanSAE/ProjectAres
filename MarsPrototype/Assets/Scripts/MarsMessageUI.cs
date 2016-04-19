@@ -13,6 +13,6 @@ public class MarsMessageUI : MonoBehaviour {
 	}
 
 	void Update() {
-		txtMessages.text = messages.iUnread.ToString() + " unread";
+		txtMessages.text = messages.iUnread.ToString();
 	}
 }

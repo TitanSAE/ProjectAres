@@ -29,6 +29,19 @@ public class MarsMessageManager : MonoBehaviour {
 	}
 
 	void Update() {
-	
+        if(Input.GetKeyDown(KeyCode.P))
+        {
+            string TestTitle = "Main Objective";
+            string TestBody = "Find a suitable area to place your base";
+            AddMessage(TestTitle, TestBody);
+        }
 	}
+
+    void AddMessage(string sTitle, string sBody) {
+        
+        MarsMessage newMessage = new MarsMessage();
+        l_messages.Add(newMessage);
+        newMessage.sTitle = sTitle;
+        newMessage.sBody = sBody;
+    }
 }

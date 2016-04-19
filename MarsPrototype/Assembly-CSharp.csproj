@@ -38,10 +38,10 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="UnityEngine">
-      <HintPath>C:/Program Files/Unity 533f1/Editor/Data/Managed/UnityEngine.dll</HintPath>
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor">
-      <HintPath>C:/Program Files/Unity 533f1/Editor/Data/Managed/UnityEditor.dll</HintPath>
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -50,6 +50,22 @@
      <Compile Include="Assets\ExampleScenes\WrenchesTutorialAssets\TurnOnMagnet.cs" />
      <Compile Include="Assets\ExampleScenes\WrenchesTutorialAssets\TurnOnMagnetCaller.cs" />
      <Compile Include="Assets\Flow\Flow3D.cs" />
+     <Compile Include="Assets\InstantGui\Scripts\Elements\InstantGuiButton.cs" />
+     <Compile Include="Assets\InstantGui\Scripts\Elements\InstantGuiElementsList.cs" />
+     <Compile Include="Assets\InstantGui\Scripts\Elements\InstantGuiGauge.cs" />
+     <Compile Include="Assets\InstantGui\Scripts\Elements\InstantGuiInputText.cs" />
+     <Compile Include="Assets\InstantGui\Scripts\Elements\InstantGuiList.cs" />
+     <Compile Include="Assets\InstantGui\Scripts\Elements\InstantGuiPopup.cs" />
+     <Compile Include="Assets\InstantGui\Scripts\Elements\InstantGuiSlider.cs" />
+     <Compile Include="Assets\InstantGui\Scripts\Elements\InstantGuiTabs.cs" />
+     <Compile Include="Assets\InstantGui\Scripts\Elements\InstantGuiTextArea.cs" />
+     <Compile Include="Assets\InstantGui\Scripts\Elements\InstantGuiToggle.cs" />
+     <Compile Include="Assets\InstantGui\Scripts\Elements\InstantGuiWindow.cs" />
+     <Compile Include="Assets\InstantGui\Scripts\InstantGui.cs" />
+     <Compile Include="Assets\InstantGui\Scripts\InstantGuiElement.cs" />
+     <Compile Include="Assets\InstantGui\Scripts\InstantGuiFrame.cs" />
+     <Compile Include="Assets\InstantGui\Scripts\InstantGuiStyle.cs" />
+     <Compile Include="Assets\InstantGui\Scripts\InstantGuiStyleSet.cs" />
      <Compile Include="Assets\JMO Assets\MatCap Shaders\Demo\Assets\MC_AutoRotate.cs" />
      <Compile Include="Assets\JMO Assets\MatCap Shaders\Demo\Assets\MC_SwitchTexture.cs" />
      <Compile Include="Assets\Magnetodynamics\ObjectsToPlaceInYourScene\_ScriptsThatMakeThemWork\ElectromagneticFieldControllerScript.cs" />
@@ -122,8 +138,11 @@
      <Compile Include="Assets\Prefabs\Particles\Detonator Explosion Framework\System\DetonatorSpray.cs" />
      <Compile Include="Assets\Quad\TextureCreator.cs" />
      <Compile Include="Assets\Scripts\CameraFogSetting.cs" />
+     <Compile Include="Assets\Scripts\CarDamage.cs" />
      <Compile Include="Assets\Scripts\Controller\Thrusters.cs" />
      <Compile Include="Assets\Scripts\DayNightCycle.cs" />
+     <Compile Include="Assets\Scripts\DrawCircle.cs" />
+     <Compile Include="Assets\Scripts\DrawNavMarkers.cs" />
      <Compile Include="Assets\Scripts\FPS_Player.cs" />
      <Compile Include="Assets\Scripts\GameEnums.cs" />
      <Compile Include="Assets\Scripts\Gravity.cs" />
@@ -184,6 +203,8 @@
      <Compile Include="Assets\Scripts\Rover\SmoothFollow.cs" />
      <Compile Include="Assets\Scripts\Rover\TireToWheel.cs" />
      <Compile Include="Assets\Scripts\RoverBody.cs" />
+     <Compile Include="Assets\Scripts\RoverCamera.cs" />
+     <Compile Include="Assets\Scripts\RoverController.cs" />
      <Compile Include="Assets\Scripts\RoverEngineAudio.cs" />
      <Compile Include="Assets\Scripts\RoverModules\BasicCamera.cs" />
      <Compile Include="Assets\Scripts\RoverModules\CaterpillarTracks.cs" />
@@ -198,6 +219,7 @@
      <Compile Include="Assets\Scripts\RoverStatsss.cs" />
      <Compile Include="Assets\Scripts\RoverWheelMovement.cs" />
      <Compile Include="Assets\Scripts\SceneManager.cs" />
+     <Compile Include="Assets\Scripts\SimpleCarController.cs" />
      <Compile Include="Assets\Scripts\SimpleMove.cs" />
      <Compile Include="Assets\Scripts\SimpleSmoothMouseLook.cs" />
      <Compile Include="Assets\Scripts\SkyCamera.cs" />
@@ -212,6 +234,7 @@
      <Compile Include="Assets\Scripts\UI\UIStickToTarget.cs" />
      <Compile Include="Assets\Scripts\UIShowPivot.cs" />
      <Compile Include="Assets\Scripts\Utility\GenericEventArgs.cs" />
+     <Compile Include="Assets\Scripts\WheelManager.cs" />
      <Compile Include="Assets\Surface\SurfaceCreator.cs" />
      <Compile Include="Assets\Surface\SurfaceFlow.cs" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
@@ -306,19 +329,19 @@
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlurAndFlares.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendForBloom.shader" />
  <Reference Include="UnityEngine.UI">
- <HintPath>C:/Program Files/Unity 533f1/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
- <HintPath>C:/Program Files/Unity 533f1/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
  <Reference Include="RAIN">
- <HintPath>C:/Users/Kouta/Documents/Unity Projects/ProjectAres/MarsPrototype/Assets/RAIN/RAIN.dll</HintPath>
+ <HintPath>C:/Users/RockRoad/Documents/ProjectAres New/MarsPrototype/Assets/RAIN/RAIN.dll</HintPath>
  </Reference>
  <Reference Include="RAINMetaform">
- <HintPath>C:/Users/Kouta/Documents/Unity Projects/ProjectAres/MarsPrototype/Assets/RAIN/RAINMetaform.dll</HintPath>
+ <HintPath>C:/Users/RockRoad/Documents/ProjectAres New/MarsPrototype/Assets/RAIN/RAINMetaform.dll</HintPath>
  </Reference>
  <Reference Include="Vectrosity_Unity3">
- <HintPath>C:/Users/Kouta/Documents/Unity Projects/ProjectAres/MarsPrototype/Assets/Vectrosity/Vectrosity_Unity3.dll</HintPath>
+ <HintPath>C:/Users/RockRoad/Documents/ProjectAres New/MarsPrototype/Assets/Vectrosity/Vectrosity_Unity3.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

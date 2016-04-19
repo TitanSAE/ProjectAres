@@ -18,7 +18,7 @@ public class MarsDayCounter : MonoBehaviour {
 	}
 
 	void Update() {
-		txtCounter.text = "Sol " + (daynight.iDayCount + 1).ToString("D4");
+		txtCounter.text = "Sol " + (daynight.iDayCount + 1).ToString("D3");
 		fPercentYearsPassed = (float)((float)daynight.iDayCount / (float)iMaxDay);
 
 		imgDayBar.fillAmount = daynight.fDayPortion;
