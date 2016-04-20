@@ -79,6 +79,9 @@ public class OVRCameraRig : MonoBehaviour
 	private readonly string handAnchorName = "HandAnchor";
 	private readonly string legacyEyeAnchorName = "Camera";
 
+	// Do we track the sensor or just look straight forward, default true
+	public bool bTracking = true;
+
 #if UNITY_ANDROID && !UNITY_EDITOR
     bool correctedTrackingSpace = false;
 #endif
@@ -134,22 +137,28 @@ public class OVRCameraRig : MonoBehaviour
 
 		OVRPose tracker = OVRManager.tracker.GetPose(0d);
 
-		trackerAnchor.localRotation = tracker.orientation;
-		centerEyeAnchor.localRotation = VR.InputTracking.GetLocalRotation(VR.VRNode.CenterEye);
-        leftEyeAnchor.localRotation = monoscopic ? centerEyeAnchor.localRotation : VR.InputTracking.GetLocalRotation(VR.VRNode.LeftEye);
-		rightEyeAnchor.localRotation = monoscopic ? centerEyeAnchor.localRotation : VR.InputTracking.GetLocalRotation(VR.VRNode.RightEye);
-		leftHandAnchor.localRotation = OVRInput.GetLocalHandRotation(OVRInput.Hand.Left);
-		rightHandAnchor.localRotation = OVRInput.GetLocalHandRotation(OVRInput.Hand.Right);
+		if (bTracking) {
+			trackerAnchor.localRotation = tracker.orientation;
 
-		trackerAnchor.localPosition = tracker.position;
-		centerEyeAnchor.localPosition = VR.InputTracking.GetLocalPosition(VR.VRNode.CenterEye);
-		leftEyeAnchor.localPosition = monoscopic ? centerEyeAnchor.localPosition : VR.InputTracking.GetLocalPosition(VR.VRNode.LeftEye);
-		rightEyeAnchor.localPosition = monoscopic ? centerEyeAnchor.localPosition : VR.InputTracking.GetLocalPosition(VR.VRNode.RightEye);
-		leftHandAnchor.localPosition = OVRInput.GetLocalHandPosition(OVRInput.Hand.Left);
-		rightHandAnchor.localPosition = OVRInput.GetLocalHandPosition(OVRInput.Hand.Right);
+			centerEyeAnchor.localRotation = VR.InputTracking.GetLocalRotation(VR.VRNode.CenterEye);
+	        leftEyeAnchor.localRotation = monoscopic ? centerEyeAnchor.localRotation : VR.InputTracking.GetLocalRotation(VR.VRNode.LeftEye);
+			rightEyeAnchor.localRotation = monoscopic ? centerEyeAnchor.localRotation : VR.InputTracking.GetLocalRotation(VR.VRNode.RightEye);
+			leftHandAnchor.localRotation = OVRInput.GetLocalHandRotation(OVRInput.Hand.Left);
+			rightHandAnchor.localRotation = OVRInput.GetLocalHandRotation(OVRInput.Hand.Right);
+
+			trackerAnchor.localPosition = tracker.position;
+			centerEyeAnchor.localPosition = VR.InputTracking.GetLocalPosition(VR.VRNode.CenterEye);
+			leftEyeAnchor.localPosition = monoscopic ? centerEyeAnchor.localPosition : VR.InputTracking.GetLocalPosition(VR.VRNode.LeftEye);
+			rightEyeAnchor.localPosition = monoscopic ? centerEyeAnchor.localPosition : VR.InputTracking.GetLocalPosition(VR.VRNode.RightEye);
+			leftHandAnchor.localPosition = OVRInput.GetLocalHandPosition(OVRInput.Hand.Left);
+			rightHandAnchor.localPosition = OVRInput.GetLocalHandPosition(OVRInput.Hand.Right);
+		}
+		else {
+			centerEyeAnchor.localRotation = Quaternion.identity;
+		}
 
 		if (UpdatedAnchors != null)
-		{
+		{ 
 			UpdatedAnchors(this);
 		}
 	}
