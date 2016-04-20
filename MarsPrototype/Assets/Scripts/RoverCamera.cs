@@ -36,6 +36,10 @@ public class RoverCamera : MonoBehaviour
         transform.rotation = Quaternion.LookRotation(relPlayerPosition, Vector3.up);
     }
 
+	void LateUpdate() {
+		//relCameraPos = camPositionTarget.transform.position;
+	}
+
     void FixedUpdate()
     {
         navCompass.SetActive(true);
@@ -65,19 +69,25 @@ public class RoverCamera : MonoBehaviour
         }
         
         // Lerp the camera's position between it's current position and it's new position.
+
         transform.position = Vector3.Lerp(transform.position, newPos, smooth * Time.deltaTime);
+		//transform.position = newPos;
         // Make sure the camera is looking at the player.
         //SmoothLookAt();
 
         if (Input.GetMouseButton(1))
         {
             navCompass.SetActive(true);
-            RotateCamera(true);
+			if (UnityEngine.VR.VRDevice.isPresent) {
+           		RotateCamera(true);
+			}
         }
         else
         {
             navCompass.SetActive(false);
-            RotateCamera(false);
+			if (UnityEngine.VR.VRDevice.isPresent) {
+            	RotateCamera(false);
+			}
         }
         SmoothLookAt();
     }
