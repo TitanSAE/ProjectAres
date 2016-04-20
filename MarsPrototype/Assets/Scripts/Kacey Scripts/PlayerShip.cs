@@ -58,20 +58,20 @@ public class PlayerShip : MonoBehaviour
     }
 		
 
-    private void OnCollisionEnter(Collision hitInfo)
-    {
-		if (hitInfo.gameObject.name == "LandingPad" && !bTest) {
-			Debug.Log ("Landed");
-			LandingPad landingPad;
-			landingPad = hitInfo.gameObject.GetComponent ("LandingPad") as LandingPad;
-			landingPad.Activate ();
-			padPos = hitInfo.transform;
-			transform.SetParent (landPad.transform.parent);
-			OnPad = true;
-		}
-
-
-    }
+//    private void OnCollisionEnter(Collision hitInfo)
+//    {
+//		if (hitInfo.gameObject.name == "LandingPad" && !bTest) {
+//			Debug.Log ("Landed");
+//			LandingPad landingPad;
+//			landingPad = hitInfo.gameObject.GetComponent ("LandingPad") as LandingPad;
+//			landingPad.Activate ();
+//			padPos = hitInfo.transform;
+//			transform.SetParent (landPad.transform.parent);
+//			OnPad = true;
+//		}
+//
+//
+//    }
 
 
 

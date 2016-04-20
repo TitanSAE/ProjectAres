@@ -94,9 +94,5 @@ public class MarsPlayer : MonoBehaviour {
 		}
 	}
 
-	void OnCollisionEnter(Collision c) {
-		if (c.gameObject.tag == "PlayerDrone") {
-			Debug.Log("Landed");
-		}
-	}
+
 }
