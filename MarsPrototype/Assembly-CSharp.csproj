@@ -209,6 +209,7 @@
      <Compile Include="Assets\Scripts\RoverModules\BasicCamera.cs" />
      <Compile Include="Assets\Scripts\RoverModules\CaterpillarTracks.cs" />
      <Compile Include="Assets\Scripts\RoverModules\NuclearGenerator.cs" />
+     <Compile Include="Assets\Scripts\RoverModules\RechargePad.cs" />
      <Compile Include="Assets\Scripts\RoverModules\RoverModule.cs" />
      <Compile Include="Assets\Scripts\RoverModules\RoverModuleDataHolder.cs" />
      <Compile Include="Assets\Scripts\RoverModules\SolarPanel.cs" />

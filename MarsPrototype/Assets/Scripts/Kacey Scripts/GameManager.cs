@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		try{
-		NavMarker.transform.position = GetClosestEnemy (GameObject.FindGameObjectsWithTag ("MarsDelivery")).transform.position;
+			NavMarker.transform.position = GetClosestEnemy (GameObject.FindGameObjectsWithTag ("MarsDelivery")).transform.position + new Vector3(0,transform.localScale.y,0);
 		}catch{
 
 		}

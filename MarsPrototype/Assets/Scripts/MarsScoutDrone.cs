@@ -61,7 +61,7 @@ public class MarsScoutDrone : MonoBehaviour {
 
 	void OnCollisionEnter(Collision c) {
 		if (c.gameObject.tag == "LandingPad" && !bAttachedToRover) {
-			AttachToRover();
+//			AttachToRover();
 		}
 	}
 

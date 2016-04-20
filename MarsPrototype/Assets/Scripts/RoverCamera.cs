@@ -110,9 +110,9 @@ public class RoverCamera : MonoBehaviour
         // If a raycast from the check position to the player hits something...
         if (Physics.Raycast(checkPos, player.position - checkPos, out hit, relCameraPosMag))
             // ... if it is not the player...
-            if (hit.transform != player)
-                // This position isn't appropriate.
-                return false;
+//            if (hit.transform != player)
+//                // This position isn't appropriate.
+//                return false;
         // If we haven't hit anything or we've hit the player, this is an appropriate position.
         newPos = checkPos;
         return true;
