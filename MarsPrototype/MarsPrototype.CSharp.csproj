@@ -112,6 +112,7 @@
     <Compile Include="Assets\Magnetodynamics\ObjectsToPlaceInYourScene\_ScriptsThatMakeThemWork\SuperconductorSmallSphereScript.cs" />
     <Compile Include="Assets\Magnetodynamics\ScriptsToEnhanceExistingObjects\MagnetizableMaterial.cs" />
     <Compile Include="Assets\Magnetodynamics\ScriptsToEnhanceExistingObjects\PlasmaIonizedGas.cs" />
+    <Compile Include="Assets\MarsScoutDroneLandingCheck.cs" />
     <Compile Include="Assets\Meteor Storm Effects\Scripts\LockRotation.cs" />
     <Compile Include="Assets\Meteor Storm Effects\Scripts\MeteorCrashSound.cs" />
     <Compile Include="Assets\Meteor Storm Effects\Standard Assets\Character Controllers\Sources\Scripts\MouseLook.cs" />
@@ -242,6 +243,7 @@
     <Compile Include="Assets\Scripts\RoverModules\BasicCamera.cs" />
     <Compile Include="Assets\Scripts\RoverModules\CaterpillarTracks.cs" />
     <Compile Include="Assets\Scripts\RoverModules\NuclearGenerator.cs" />
+    <Compile Include="Assets\Scripts\RoverModules\RechargePad.cs" />
     <Compile Include="Assets\Scripts\RoverModules\RoverModule.cs" />
     <Compile Include="Assets\Scripts\RoverModules\RoverModuleDataHolder.cs" />
     <Compile Include="Assets\Scripts\RoverModules\SolarPanel.cs" />

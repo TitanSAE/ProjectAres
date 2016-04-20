@@ -147,6 +147,6 @@ public class MarsMessageManager : MonoBehaviour {
 
     void UpdateUI()
     {
-        tTally.text = "" + (iCurrentMessage +1) + "/" + (l_messages.Count);
+        //tTally.text = "" + (iCurrentMessage +1) + "/" + (l_messages.Count);
     }
 }
