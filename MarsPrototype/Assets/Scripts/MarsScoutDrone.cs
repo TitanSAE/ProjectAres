@@ -15,10 +15,12 @@ public class MarsScoutDrone : MonoBehaviour {
 	public GameObject goUnlocked;
 	public UnityEngine.UI.Text txtHeightCap;
 
+	private bool bAttachedToRover;
+
 	private Vector3 vVel;
 
 	void Start() {
-		rbBody = this.GetComponent<Rigidbody>();
+		rbBody = this.GetComponentInParent<Rigidbody>();
 	}
 
 	void Update() {
@@ -42,20 +44,45 @@ public class MarsScoutDrone : MonoBehaviour {
 		}
 	}
 
+	public void AttachToRover(GameObject rov) {
+		bAttachedToRover = true;
+		rbBody.isKinematic = true;
+		Transform mum = this.transform.parent.transform;
+		mum.SetParent(rov.transform);
+		mum.position = rov.transform.position + rov.transform.up * 5;
+	}
+
+	public void DetachFromRover() {
+		bAttachedToRover = false;
+		rbBody.isKinematic = false;
+		Transform mum = this.transform.parent.transform;
+		mum.SetParent(null);
+	}
+
+	void OnCollisionEnter(Collision c) {
+		if (c.gameObject.tag == "LandingPad" && !bAttachedToRover) {
+			AttachToRover();
+		}
+	}
+
 	void LateUpdate() {
-		if (Input.GetAxis("Horizontal") != 0) {
+		if (Input.GetAxis("Horizontal") != 0 && !bAttachedToRover) {
 			float sign = Mathf.Sign(Input.GetAxis("Horizontal"));
 
 			rbBody.AddTorque(Vector3.up * sign * fRotateSpeed);
 		}
 
-		if (Input.GetAxis("Vertical") != 0) {
+		if (Input.GetAxis("Vertical") != 0 && !bAttachedToRover) {
 			float sign = Mathf.Sign(Input.GetAxis("Vertical"));
 
 			rbBody.AddForce(this.transform.forward * fForwardThrustPower * sign, ForceMode.Acceleration);
 		}
 
 		if (Input.GetKey(KeyCode.Space)) {
+			if (bAttachedToRover) {
+				DetachFromRover();
+			}
+
 			if (!bHolding) {
 				if (this.transform.position.y < fMaxHeight) {
 					rbBody.AddForce(Vector3.up * fVerticalThrustPower, ForceMode.Acceleration);
