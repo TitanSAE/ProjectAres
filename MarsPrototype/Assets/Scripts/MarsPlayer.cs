@@ -32,22 +32,22 @@ public class MarsPlayer : MonoBehaviour {
 	public GameObject goRoverCam;
 	public GameObject goScoutDrone;
 
-	public OVRCameraRig camrig;
-	public OVRCameraRig camrig_drone;
+//	public OVRCameraRig camrig;
+//	public OVRCameraRig camrig_drone;
 	public bool bLockTracking;
 
 	void Start() {
 		towbar = gameObject.GetComponent<MarsTowbar>();
-		camrig.UpdatedAnchors += ResetEyes;
-		camrig_drone.UpdatedAnchors += ResetEyes;
+//		camrig.UpdatedAnchors += ResetEyes;
+//		camrig_drone.UpdatedAnchors += ResetEyes;
 	}
 
-	void ResetEyes(Object obj) {
-		if (bLockTracking) {
-			camrig.trackingSpace.FromOVRPose(camrig.centerEyeAnchor.ToOVRPose(true).Inverse());
-			camrig_drone.trackingSpace.FromOVRPose(camrig_drone.centerEyeAnchor.ToOVRPose(true).Inverse());
-		}
-	}
+//	void ResetEyes(Object obj) {
+//		if (bLockTracking) {
+//			camrig.trackingSpace.FromOVRPose(camrig.centerEyeAnchor.ToOVRPose(true).Inverse());
+//			camrig_drone.trackingSpace.FromOVRPose(camrig_drone.centerEyeAnchor.ToOVRPose(true).Inverse());
+//		}
+//	}
 
 	void Update() {
 		//Bars
@@ -61,7 +61,7 @@ public class MarsPlayer : MonoBehaviour {
 			bControllingScout = !bControllingScout;
 
 			if (bControllingScout) {
-				this.GetComponent<MarsMovement>().enabled = false;
+				this.GetComponent<RoverController>().enabled = false;
 				goRoverCam.SetActive(false);
 				goScoutDrone.SetActive(true);
 				//bLockTracking = true;
@@ -70,7 +70,7 @@ public class MarsPlayer : MonoBehaviour {
 			}
 
 			if (!bControllingScout) {
-				this.GetComponent<MarsMovement>().enabled = true;
+				this.GetComponent<RoverController>().enabled = true;
 				goRoverCam.SetActive(true);
 				goScoutDrone.SetActive(false);
 				//bLockTracking = false;
