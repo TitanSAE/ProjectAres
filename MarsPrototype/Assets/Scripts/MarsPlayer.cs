@@ -76,9 +76,7 @@ public class MarsPlayer : MonoBehaviour {
 				//bLockTracking = false;
 			}
 		}
-
-		if (bControllingScout) {
-			//Energy
+		if (Input.GetAxis("Vertical") != 0) {
 			if (fEnergy > 0) {
 				fEnergyDrainTimer += Time.deltaTime;
 			}
@@ -89,8 +87,13 @@ public class MarsPlayer : MonoBehaviour {
 			}
 
 			if (fHealth <= 0) {
-				GameObject.Destroy(this.gameObject);
+				GameObject.Destroy (this.gameObject);
 			}
+		}
+
+		if (bControllingScout) {
+			//Energy
+
 		}
 		else {
 			//Map

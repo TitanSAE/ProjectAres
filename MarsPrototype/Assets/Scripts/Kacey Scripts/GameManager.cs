@@ -55,19 +55,7 @@ public class GameManager : MonoBehaviour {
 		}catch{
 
 		}
-		if (Input.GetKey (KeyCode.O)) {
-			roverControl = false;
-			copterControl = true;
-			Debug.Log ("Rover Controlled");
-		
-		}
-
-		if (Input.GetKey (KeyCode.P)) {
-			roverControl = true;
-			copterControl = false;
-			Debug.Log ("Copter Controlled");
-		}
-
+	
 		if (Input.GetKey (KeyCode.T)) {
 			
 			enabled = !enabled;
