@@ -83,6 +83,22 @@
     <Compile Include="Assets\ExampleScenes\WrenchesTutorialAssets\TurnOnMagnet.cs" />
     <Compile Include="Assets\ExampleScenes\WrenchesTutorialAssets\TurnOnMagnetCaller.cs" />
     <Compile Include="Assets\Flow\Flow3D.cs" />
+    <Compile Include="Assets\InstantGui\Scripts\Elements\InstantGuiButton.cs" />
+    <Compile Include="Assets\InstantGui\Scripts\Elements\InstantGuiElementsList.cs" />
+    <Compile Include="Assets\InstantGui\Scripts\Elements\InstantGuiGauge.cs" />
+    <Compile Include="Assets\InstantGui\Scripts\Elements\InstantGuiInputText.cs" />
+    <Compile Include="Assets\InstantGui\Scripts\Elements\InstantGuiList.cs" />
+    <Compile Include="Assets\InstantGui\Scripts\Elements\InstantGuiPopup.cs" />
+    <Compile Include="Assets\InstantGui\Scripts\Elements\InstantGuiSlider.cs" />
+    <Compile Include="Assets\InstantGui\Scripts\Elements\InstantGuiTabs.cs" />
+    <Compile Include="Assets\InstantGui\Scripts\Elements\InstantGuiTextArea.cs" />
+    <Compile Include="Assets\InstantGui\Scripts\Elements\InstantGuiToggle.cs" />
+    <Compile Include="Assets\InstantGui\Scripts\Elements\InstantGuiWindow.cs" />
+    <Compile Include="Assets\InstantGui\Scripts\InstantGui.cs" />
+    <Compile Include="Assets\InstantGui\Scripts\InstantGuiElement.cs" />
+    <Compile Include="Assets\InstantGui\Scripts\InstantGuiFrame.cs" />
+    <Compile Include="Assets\InstantGui\Scripts\InstantGuiStyle.cs" />
+    <Compile Include="Assets\InstantGui\Scripts\InstantGuiStyleSet.cs" />
     <Compile Include="Assets\JMO Assets\MatCap Shaders\Demo\Assets\MC_AutoRotate.cs" />
     <Compile Include="Assets\JMO Assets\MatCap Shaders\Demo\Assets\MC_SwitchTexture.cs" />
     <Compile Include="Assets\Magnetodynamics\ObjectsToPlaceInYourScene\_ScriptsThatMakeThemWork\ElectromagneticFieldControllerScript.cs" />
@@ -155,8 +171,11 @@
     <Compile Include="Assets\Prefabs\Particles\Detonator Explosion Framework\System\DetonatorSpray.cs" />
     <Compile Include="Assets\Quad\TextureCreator.cs" />
     <Compile Include="Assets\Scripts\CameraFogSetting.cs" />
+    <Compile Include="Assets\Scripts\CarDamage.cs" />
     <Compile Include="Assets\Scripts\Controller\Thrusters.cs" />
     <Compile Include="Assets\Scripts\DayNightCycle.cs" />
+    <Compile Include="Assets\Scripts\DrawCircle.cs" />
+    <Compile Include="Assets\Scripts\DrawNavMarkers.cs" />
     <Compile Include="Assets\Scripts\FPS_Player.cs" />
     <Compile Include="Assets\Scripts\GameEnums.cs" />
     <Compile Include="Assets\Scripts\Gravity.cs" />
@@ -190,6 +209,7 @@
     <Compile Include="Assets\Scripts\MarsMovement.cs" />
     <Compile Include="Assets\Scripts\MarsPlayer.cs" />
     <Compile Include="Assets\Scripts\MarsResource.cs" />
+    <Compile Include="Assets\Scripts\MarsScoutDrone.cs" />
     <Compile Include="Assets\Scripts\MarsSponsor.cs" />
     <Compile Include="Assets\Scripts\MarsTowbar.cs" />
     <Compile Include="Assets\Scripts\MaterialLerp.cs" />
@@ -216,6 +236,8 @@
     <Compile Include="Assets\Scripts\Rover\SmoothFollow.cs" />
     <Compile Include="Assets\Scripts\Rover\TireToWheel.cs" />
     <Compile Include="Assets\Scripts\RoverBody.cs" />
+    <Compile Include="Assets\Scripts\RoverCamera.cs" />
+    <Compile Include="Assets\Scripts\RoverController.cs" />
     <Compile Include="Assets\Scripts\RoverEngineAudio.cs" />
     <Compile Include="Assets\Scripts\RoverModules\BasicCamera.cs" />
     <Compile Include="Assets\Scripts\RoverModules\CaterpillarTracks.cs" />
@@ -230,6 +252,7 @@
     <Compile Include="Assets\Scripts\RoverStatsss.cs" />
     <Compile Include="Assets\Scripts\RoverWheelMovement.cs" />
     <Compile Include="Assets\Scripts\SceneManager.cs" />
+    <Compile Include="Assets\Scripts\SimpleCarController.cs" />
     <Compile Include="Assets\Scripts\SimpleMove.cs" />
     <Compile Include="Assets\Scripts\SimpleSmoothMouseLook.cs" />
     <Compile Include="Assets\Scripts\SkyCamera.cs" />
@@ -244,6 +267,7 @@
     <Compile Include="Assets\Scripts\UI\UIStickToTarget.cs" />
     <Compile Include="Assets\Scripts\UIShowPivot.cs" />
     <Compile Include="Assets\Scripts\Utility\GenericEventArgs.cs" />
+    <Compile Include="Assets\Scripts\WheelManager.cs" />
     <Compile Include="Assets\Surface\SurfaceCreator.cs" />
     <Compile Include="Assets\Surface\SurfaceFlow.cs" />
   </ItemGroup>
@@ -299,9 +323,13 @@
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\NoiseAndGrainDX11.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderYUV.shader" />
+    <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\PrepareSunShaftsBlur.shader" />
+    <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\RadialBlur.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\SSAOShader.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\ScreenSpaceAmbientObscurance.shader" />
+    <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\ScreenSpaceRaytrace.cginc" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\SepiaToneEffect.shader" />
+    <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\ShowAlphaChannel.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\SimpleClear.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\SunShaftsComposite.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\Tonemapper.shader" />
@@ -326,6 +354,7 @@
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\MobileBlur.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\MultiPassHollywoodFlares.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\SeparableBlurPlus.shader" />
+    <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\VignetteShader.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\Bokeh34.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\DepthOfField34.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\DepthOfFieldDX11.shader" />
@@ -333,6 +362,7 @@
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\SeparableBlur.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\SeparableWeightedBlurDof34.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\TiltShiftHdrLensBlur.shader" />
+    <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\frag_ao.cginc" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

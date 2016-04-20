@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class MarsMessage : MonoBehaviour {
 
-	public string sTitle = "Untitled";
-	public string sBody;
+    public Text tTitle;
+	public Text tBody;
 	public bool bRead;
 
 	//public MarsEvent eventOnOpen;
