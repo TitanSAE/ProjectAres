@@ -17,6 +17,10 @@ public class MarsMessageManager : MonoBehaviour {
     private Vector3 vMessageSize;
     private Color colTransparent = new Color(255, 255, 255, 0);
 
+    [Header("Add Goals here")]
+    public string sTitle;
+    public string sBody;
+
     public int iUnread {
 		get {
 			if (l_messages.Count == 0) {
@@ -63,51 +67,54 @@ public class MarsMessageManager : MonoBehaviour {
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.L))
+        if (l_messages.Count >= 1)
         {
-            if(iCurrentMessage == (l_messages.Count-1))
+            if (Input.GetKeyDown(KeyCode.L))
             {
-                iCurrentMessage = 0;
-                l_messages[(l_messages.Count-1)].gameObject.SetActive(false);
-            }
-            else
-            {
-                iCurrentMessage++;
-                l_messages[(iCurrentMessage - 1)].gameObject.SetActive(false);
+                if (iCurrentMessage == (l_messages.Count - 1))
+                {
+                    iCurrentMessage = 0;
+                    l_messages[(l_messages.Count - 1)].gameObject.SetActive(false);
+                }
+                else
+                {
+                    iCurrentMessage++;
+                    l_messages[(iCurrentMessage - 1)].gameObject.SetActive(false);
+                }
+
+                if (bIsPanelOpen)
+                {
+                    l_messages[iCurrentMessage].gameObject.SetActive(true);
+                    l_messages[iCurrentMessage].bRead = true;
+                }
+                else
+                {
+                    l_messages[iCurrentMessage].gameObject.SetActive(false);
+                }
             }
 
-            if(bIsPanelOpen)
+            if (Input.GetKeyDown(KeyCode.J))
             {
-                l_messages[iCurrentMessage].gameObject.SetActive(true);
-                l_messages[iCurrentMessage].bRead = true;
-            }
-            else
-            {
-                l_messages[iCurrentMessage].gameObject.SetActive(false);
-            }
-        }
+                if (iCurrentMessage == 0)
+                {
+                    iCurrentMessage = (l_messages.Count - 1);
+                    l_messages[0].gameObject.SetActive(false);
+                }
+                else
+                {
+                    iCurrentMessage--;
+                    l_messages[(iCurrentMessage + 1)].gameObject.SetActive(false);
+                }
 
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            if (iCurrentMessage == 0)
-            {
-                iCurrentMessage = (l_messages.Count-1);
-                l_messages[0].gameObject.SetActive(false);
-            }
-            else
-            {
-                iCurrentMessage--;
-                l_messages[(iCurrentMessage + 1)].gameObject.SetActive(false);
-            }
-
-            if (bIsPanelOpen)
-            {
-                l_messages[iCurrentMessage].gameObject.SetActive(true);
-                l_messages[iCurrentMessage].bRead = true;
-            }
-            else
-            {
-                l_messages[iCurrentMessage].gameObject.SetActive(false);
+                if (bIsPanelOpen)
+                {
+                    l_messages[iCurrentMessage].gameObject.SetActive(true);
+                    l_messages[iCurrentMessage].bRead = true;
+                }
+                else
+                {
+                    l_messages[iCurrentMessage].gameObject.SetActive(false);
+                }
             }
         }
 
@@ -133,6 +140,29 @@ public class MarsMessageManager : MonoBehaviour {
         }
     }
 
+    public void AddMessageWithoutAddingToList()
+    {
+        MarsMessage newMessage = Instantiate(goMessage.GetComponent<MarsMessage>()) as MarsMessage;
+        newMessage.GetComponent<RectTransform>().SetParent(GameObject.Find("MessagesPanel").transform);
+        newMessage.GetComponent<RectTransform>().localPosition = vMessagePos;
+        newMessage.GetComponent<RectTransform>().rotation = new Quaternion(0, 0, 0, 0);
+        newMessage.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
+        newMessage.tTitle.text = sTitle;
+        newMessage.tBody.text = sBody;
+
+        if (bIsPanelOpen && l_messages.Count == 1)
+        {
+            newMessage.gameObject.SetActive(true);
+        }
+        else
+        {
+            newMessage.gameObject.SetActive(false);
+        }
+
+        sTitle = "";
+        sBody = "";
+    }
+
     void AddMessage(string sTitle, string sBody) {
         MarsMessage newMessage = Instantiate(goMessage.GetComponent<MarsMessage>()) as MarsMessage;
         newMessage.GetComponent<RectTransform>().SetParent(GameObject.Find("MessagesPanel").transform);
@@ -142,11 +172,26 @@ public class MarsMessageManager : MonoBehaviour {
         newMessage.tTitle.text = sTitle;
         newMessage.tBody.text = sBody;
         l_messages.Add(newMessage);
-        newMessage.gameObject.SetActive(false);
+
+        if(bIsPanelOpen && l_messages.Count == 1)
+        {
+            newMessage.gameObject.SetActive(true);
+        }
+        else
+        {
+            newMessage.gameObject.SetActive(false);
+        }
     }
 
     void UpdateUI()
     {
-        //tTally.text = "" + (iCurrentMessage +1) + "/" + (l_messages.Count);
+        if(l_messages.Count == 0)
+        {
+            tTally.text = "" + (iCurrentMessage) + "/" + (l_messages.Count);
+        }
+        else
+        {
+            tTally.text = "" + (iCurrentMessage + 1) + "/" + (l_messages.Count);
+        }
     }
 }

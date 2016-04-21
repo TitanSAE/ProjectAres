@@ -6,7 +6,7 @@ public class MarsMessageUI : MonoBehaviour {
 
 	private Text txtMessages;
 	private MarsMessageManager messages;
-    private Color colRegular = new Color(255, 255, 255, 255);
+    private Color colRegular = new Color(0, 0, 0, 255);
     private Color colTransparent = new Color(255, 255, 255, 0);
 
     void Start() {
