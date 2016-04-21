@@ -47,6 +47,8 @@ public class UIListItem : MonoBehaviour {
 		uiMng.imgSponsorPic.sprite = Sprite.Create(sponsor.texSponsorAvatar, new Rect(0, 0, sponsor.texSponsorAvatar.width, sponsor.texSponsorAvatar.height), uiMng.imgSponsorPic.rectTransform.pivot);
 		uiMng.txtRoverInfo.text = sponsor.sRoverDescription;
 		uiMng.txtSponsorInfo.text = sponsor.sSponsorDescription;
+		uiMng.sRoverName = sponsor.sRoverName;
+		uiMng.sSponsorName = sponsor.sSponsorName;
 	}
 
 	void Update() {

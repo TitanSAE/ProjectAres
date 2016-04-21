@@ -79,6 +79,7 @@
      <Compile Include="Assets\Magnetodynamics\ObjectsToPlaceInYourScene\_ScriptsThatMakeThemWork\SuperconductorSmallSphereScript.cs" />
      <Compile Include="Assets\Magnetodynamics\ScriptsToEnhanceExistingObjects\MagnetizableMaterial.cs" />
      <Compile Include="Assets\Magnetodynamics\ScriptsToEnhanceExistingObjects\PlasmaIonizedGas.cs" />
+     <Compile Include="Assets\MarsPlayerSettings.cs" />
      <Compile Include="Assets\MarsScoutDroneLandingCheck.cs" />
      <Compile Include="Assets\Meteor Storm Effects\Scripts\LockRotation.cs" />
      <Compile Include="Assets\Meteor Storm Effects\Scripts\MeteorCrashSound.cs" />
@@ -229,6 +230,7 @@
      <Compile Include="Assets\Scripts\SmoothFollow.cs" />
      <Compile Include="Assets\Scripts\TimedDelivery.cs" />
      <Compile Include="Assets\Scripts\UI\Debug_Clickable.cs" />
+     <Compile Include="Assets\Scripts\UI\GoalBuilderEditor.cs" />
      <Compile Include="Assets\Scripts\UI\SponsorUI.cs" />
      <Compile Include="Assets\Scripts\UI\UIContentSpawner.cs" />
      <Compile Include="Assets\Scripts\UI\UIListItem.cs" />
@@ -237,11 +239,13 @@
      <Compile Include="Assets\Scripts\UIShowPivot.cs" />
      <Compile Include="Assets\Scripts\Utility\GenericEventArgs.cs" />
      <Compile Include="Assets\Scripts\WheelManager.cs" />
+     <Compile Include="Assets\SponsorSceneManager.cs" />
      <Compile Include="Assets\Surface\SurfaceCreator.cs" />
      <Compile Include="Assets\Surface\SurfaceFlow.cs" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\SeparableWeightedBlurDof34.shader" />
+     <None Include="Assets\Resources\Old\Goat Rocket.xml" />
      <None Include="Assets\RAIN\Editor\Shaders\AspectSphereShader.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\ShowAlphaChannel.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\SunShaftsComposite.shader" />
@@ -268,6 +272,7 @@
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\Contrast Stretch\Apply.shader" />
      <None Include="Assets\Shaders\SphereShader.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\frag_ao.cginc" />
+     <None Include="Assets\Resources\Sponsors\Mars First.xml" />
      <None Include="Assets\Shaders\BlendTransitionPanorama.shader" />
      <None Include="Assets\Resources\Rovers\test.xml" />
      <None Include="Assets\RAIN\Editor\Shaders\NavMeshContourShader.shader" />
@@ -299,6 +304,7 @@
      <None Include="Assets\RAIN\Editor\Shaders\VisualSensorRingShader.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\NoiseAndGrainDX11.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BrightPassFilter2.shader" />
+     <None Include="Assets\Resources\Sponsors\Freedom Flights.xml" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\SeparableBlur.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\MotionBlurClear.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrectionEffect.shader" />
@@ -326,7 +332,6 @@
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\SimpleClear.shader" />
      <None Include="Assets\Shaders\Default-OverAll.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAA3Console.shader" />
-     <None Include="Assets\Resources\Sponsors\Goat Rocket.xml" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAAPreset2.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlurAndFlares.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendForBloom.shader" />
