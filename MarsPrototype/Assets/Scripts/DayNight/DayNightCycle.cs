@@ -17,6 +17,7 @@ public class DayNightCycle : MonoBehaviour {
 //	public bool bHold = false;
 //
 	public Light sun;
+	public Light torch;
 //
 //	public Color colDay = Color.white;
 //	public Color colNight = Color.white;
@@ -36,8 +37,12 @@ public class DayNightCycle : MonoBehaviour {
 //	public Color colAmbientGroundDay = Color.white;
 //	public Color colAmbientGroundNight = Color.white;
 
-	public float fSunLerp;
-	public float fSunLerpTime = 300;
+//	public float fSunLerp;
+//	public float fSunLerpTime = 300;
+
+	public bool bNewDay;
+
+	public AutoIntensity sunmover;
 
 	void Start() {
 		sun = GameObject.FindGameObjectWithTag("DayNight_Sun").GetComponent<Light>();
@@ -48,18 +53,36 @@ public class DayNightCycle : MonoBehaviour {
 	}
 
 	void Update() {
-		fDayPortion = (fSunLerp / fSunLerpTime);
-
-		if (fSunLerp < fSunLerpTime) {
-			fSunLerp += Time.deltaTime;
-
-			if (fSunLerp >= fSunLerpTime) {
-				iDayCount++;
-				fSunLerp = 0;
-			}
-
-			sun.transform.rotation = Quaternion.Euler(new Vector3 (360.0f * fDayPortion, 0, 0));
+		if (sun.intensity > sunmover.minIntensity + 0.25f) {
+			torch.gameObject.SetActive(false);
 		}
+		else {
+			torch.gameObject.SetActive(true);
+		}
+		//fDayPortion = sun.transform.rotation.eulerAngles.x / 360;
+
+		//Leeway in case of fast-moving days
+//		if (sun.transform.rotation.eulerAngles.x > 0 && sun.transform.rotation.eulerAngles.x < 30 && !bNewDay) {
+//			bNewDay = true;
+//			iDayCount++;
+//		}
+//
+//		if (bNewDay && sun.transform.rotation.eulerAngles.x > 30) {
+//			bNewDay = false;
+//		}
+
+		//fDayPortion = (fSunLerp / fSunLerpTime);
+
+//		if (fSunLerp < fSunLerpTime) {
+//			fSunLerp += Time.deltaTime;
+//
+//			if (fSunLerp >= fSunLerpTime) {
+//				iDayCount++;
+//				fSunLerp = 0;
+//			}
+//
+//			sun.transform.rotation = Quaternion.Euler(new Vector3 (360.0f * fDayPortion, 0, 0));
+//		}
 
 //		//Transition from day to night, or vice-versa
 //		if (!bHold) {
