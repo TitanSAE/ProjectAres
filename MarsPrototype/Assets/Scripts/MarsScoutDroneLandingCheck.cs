@@ -15,7 +15,7 @@ public class MarsScoutDroneLandingCheck : MonoBehaviour {
 
 	void OnCollisionEnter(Collision c) {
 		if (c.gameObject.tag == "LandingPad" && !drone.bTakeoff) {
-			drone.AttachToRover(c.gameObject);
+			drone.AttachToRover(c.transform);
 		}
 	}
 }

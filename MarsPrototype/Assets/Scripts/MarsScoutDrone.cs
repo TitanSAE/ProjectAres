@@ -8,7 +8,9 @@ public class MarsScoutDrone : MonoBehaviour {
 	public float fVerticalThrustPower = 10.0f;
 	public float fForwardThrustPower = 10.0f;
 	public float fRotateSpeed = 0.1f;
+	[SerializeField]
 	private Rigidbody rbBody;
+	[SerializeField]
 	private Transform tTrans;
 	private bool bHolding;
 	public float fVelocityLockLimit = 50.0f;
@@ -25,8 +27,8 @@ public class MarsScoutDrone : MonoBehaviour {
 	private Vector3 vVel;
 
 	void Start() {
-		rbBody = this.GetComponentInParent<Rigidbody>();
-		tTrans = this.transform.parent.transform;
+		//rbBody = this.GetComponentInParent<Rigidbody>();
+		//tTrans = this.transform.parent.transform;
 	}
 
 	void Update() {
@@ -67,14 +69,14 @@ public class MarsScoutDrone : MonoBehaviour {
 		}
 	}
 
-	public void AttachToRover(GameObject rov) {
+	public void AttachToRover(Transform rov) {
 		bAttachedToRover = true;
 		rbBody.isKinematic = true;
 		rbBody.useGravity = false;
 		tTrans.GetComponent<BoxCollider>().isTrigger = true;
-		tTrans.SetParent(rov.transform);
+		tTrans.SetParent(rov);
 		bHolding = false;
-		tTrans.position = rov.transform.position + rov.transform.up * 0.5f + rov.transform.right * -0.5f;
+		tTrans.position = rov.position + rov.up * 0.5f + rov.right * -0.5f;
 	}
 
 	public void DetachFromRover() {
