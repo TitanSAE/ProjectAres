@@ -85,7 +85,7 @@ public class AutoIntensity : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.F5)) skySpeed *= 0.5f;
 		if (Input.GetKeyDown (KeyCode.F6)) skySpeed *= 2f;
 
-		Debug.Log(dot.ToString() + " ||| " + fDay.ToString() + " /// " + fNight.ToString());
+		//Debug.Log(dot.ToString() + " ||| " + fDay.ToString() + " /// " + fNight.ToString());
 
 		if (fDay > 0) {
 			//(fDay / dayRotateSpeed.x * -94)

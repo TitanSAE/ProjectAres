@@ -28,9 +28,28 @@ public class SimpleSmoothMouseLook : MonoBehaviour {
 	public float frameCounter = 20;
  
 	Quaternion originalRotation;
+
+	bool bEnableLook = true;
+	bool bLockMouse;
  
 	void Update() {
-		if (!UnityEngine.VR.VRDevice.isPresent) {
+		if (Input.GetKeyDown(KeyCode.F10)) {
+			bLockMouse = !bLockMouse;
+		}
+
+		if (Input.GetKeyDown(KeyCode.Slash)) {
+			bEnableLook = !bEnableLook;
+		}
+
+		if (bLockMouse) {
+			Cursor.lockState = CursorLockMode.Locked;
+		}
+		else {
+			Cursor.lockState = CursorLockMode.None;
+			Cursor.visible = true;
+		}
+
+		if (!UnityEngine.VR.VRDevice.isPresent && bEnableLook) {
 			if (axes == RotationAxes.MouseXAndY) {			
 				rotAverageY = 0f;
 				rotAverageX = 0f;
