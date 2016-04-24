@@ -50,6 +50,7 @@
      <Compile Include="Assets\Editor\DropdownList.cs" />
      <Compile Include="Assets\Editor\FlowsheetEditorWindow.cs" />
      <Compile Include="Assets\Editor\FlowsheetNode.cs" />
+     <Compile Include="Assets\Editor\GoalBuilderEditor.cs" />
      <Compile Include="Assets\Editor\ImageEffects\AntialiasingEditor.cs" />
      <Compile Include="Assets\Editor\ImageEffects\BloomAndFlaresEditor.cs" />
      <Compile Include="Assets\Editor\ImageEffects\BloomEditor.cs" />

@@ -2,18 +2,17 @@
 using System.Collections;
 
 public class RechargePad : MonoBehaviour {
+	
 	bool onPad = false;
-	// Use this for initialization
-	void Start () {
-	
+	private DayNightCycle daynight;
+
+	void Start() {
+		daynight = GameObject.FindGameObjectWithTag("DayNight").GetComponent<DayNightCycle>();
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+	void Update() {
 		if (Input.GetButton("ConfirmRepair") && onPad) {
-			GameObject.Find ("SceneManager").GetComponent<Fading> ().ResetFade ();
-			GameObject.Find ("SceneManager").GetComponent<Fading> ().BeginFade (-1);
-			Debug.Log ("hit");
+			daynight.SkipDay();
 		}
 	}
 

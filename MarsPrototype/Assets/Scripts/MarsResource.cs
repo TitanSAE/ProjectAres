@@ -10,14 +10,42 @@ public enum MARS_RESOURCE_TYPE {
 public class MarsResource : MonoBehaviour {
 
 	public MARS_RESOURCE_TYPE eType;
+	[SerializeField]
+	private bool bHarvested = false;
 
-	// Use this for initialization
-	void Start () {
-	
+	[SerializeField]
+	private bool bOverlap;
+
+	private DayNightCycle daynight;
+	private MarsPlayer ply;
+
+	void Start() {
+		daynight = GameObject.FindGameObjectWithTag("DayNight").GetComponent<DayNightCycle>();
+		ply = GameObject.FindGameObjectWithTag("Player").GetComponent<MarsPlayer>();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+	void Update() {
+		if (Input.GetButton("ConfirmRepair") && bOverlap && !bHarvested) {
+			daynight.SkipDay();
+			Harvest();
+			GameObject.Destroy(this.gameObject);
+		}
+	}
+
+	public void Harvest() {
+		ply.iRocksCarried++;
+		bHarvested = true;
+	}
+
+	void OnTriggerEnter(Collider col) {
+		if (col.gameObject.tag == "Harvester") {
+			bOverlap = true;
+		}
+	}
+
+	void OnTriggerExit(Collider col) {
+		if (col.gameObject.tag == "Harvester") {
+			bOverlap = false;
+		}
 	}
 }

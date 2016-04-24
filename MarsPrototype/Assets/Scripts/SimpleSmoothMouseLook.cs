@@ -37,7 +37,9 @@ public class SimpleSmoothMouseLook : MonoBehaviour {
 
 		if (Input.GetJoystickNames().Length != 0) {
 			for (int i = 0; i < Input.GetJoystickNames().Length; i++) {
-				if (!Input.GetJoystickNames()[i].ToUpper().Contains("VIRTUAL")) {
+				//Debug.Log(Input.GetJoystickNames()[i].Length);
+
+				if (!Input.GetJoystickNames()[i].ToUpper().Contains("VIRTUAL") && Input.GetJoystickNames()[i].Length > 3) {
 					joy = true;
 				}
 			}

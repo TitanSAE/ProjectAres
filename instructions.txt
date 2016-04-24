@@ -1,0 +1,11 @@
+(see controls.txt for controls)
+Harvest minerals from the Mars surface and soil by scouting out extraction sites (marked by a rock symbol on the map).
+Find packages from Earth by scouting, too. They are delivered periodically.
+You can carry multiple extraction samples at a time, but only 1 Earth package.
+You can also use the remote helicopter to scout for either.
+
+To win, build all the buildings at home base.
+To build, have at least 1 Mars extraction sample and an Earth package, then run over one of the building pads at home base. Then the astronauts that are coming can successfully colonize Mars!
+
+If you are too damaged, or 6 Mars years pass, you will have lost. The astronauts will not be able to colonize Mars.
+To repair yourself, visit the repair centre at home base.

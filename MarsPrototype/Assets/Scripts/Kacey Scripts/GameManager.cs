@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour {
 		}
 
 		if (finishedBuildings == 6) {
-			Debug.Log ("Win");
+			UnityEngine.SceneManagement.SceneManager.LoadScene("win");
 		}
 
 

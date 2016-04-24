@@ -4,7 +4,7 @@ using System.Collections;
 public class SkyCamera : MonoBehaviour {
 
 	public Transform target;
-	public bool bSpinToFace;
+	private bool bSpinToFace = true;
     public LayerMask WorldMapMask;
     public LayerMask TopographicalMapMask;
     private Camera camSelf;

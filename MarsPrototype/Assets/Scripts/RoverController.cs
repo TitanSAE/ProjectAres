@@ -32,6 +32,10 @@ public class RoverController : MonoBehaviour
     public float carMinHealth = 0.6f;
     public float damageAmount = 0.005f;
     public float damageRollMultiplier = 10.0f;
+
+	public float fNeoDamageAmount = 5;
+	public float fNeoRollDamageMutliplier = 3;
+
     [Header("Audio Data")]
     public GameObject secondaryAudioSource;
     public GameObject tertiaryAudioSource;
@@ -41,6 +45,7 @@ public class RoverController : MonoBehaviour
     public AudioClip roverFlipped;
     public AudioClip roverWheelGravel;
 
+	MarsPlayer ply;
 
     bool steeringActive = false;
 
@@ -129,6 +134,10 @@ public class RoverController : MonoBehaviour
             }
         }
     }
+
+	void Start() {
+		ply = GameObject.FindGameObjectWithTag("Player").GetComponent<MarsPlayer>();
+	}
     
     public void Update()
     {
@@ -149,6 +158,7 @@ public class RoverController : MonoBehaviour
             currentTransform.y = 1.0f;
             transform.up = currentTransform;
             DamageHealth(damageAmount* damageRollMultiplier);
+			NeoDamageHealth(fNeoDamageAmount * fNeoRollDamageMutliplier);
             secondaryAudioSource.GetComponentInChildren<AudioSource>().clip = roverFlipped;
             secondaryAudioSource.GetComponentInChildren<AudioSource>().Play();
             //print("CORRECTED!");
@@ -180,6 +190,7 @@ public class RoverController : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         DamageHealth(damageAmount);
+		NeoDamageHealth(fNeoDamageAmount);
         AudioSource audio = secondaryAudioSource.GetComponentInChildren<AudioSource>();
         audio.clip = roverDamage;
         audio.Play();
@@ -192,9 +203,15 @@ public class RoverController : MonoBehaviour
         {
             carMaxHealth = carMaxHealth - damage;
             if (carMaxHealth < carMinHealth) { carMaxHealth = carMinHealth; }
+
+
             //print(carMaxHealth);
         }
     }
+
+	void NeoDamageHealth(float damage) {
+		ply.fHealth -= damage;
+	}
     
     void OnCollisionExit(Collision collision)
     {

@@ -44,6 +44,12 @@ public class DayNightCycle : MonoBehaviour {
 
 	public AutoIntensity sunmover;
 
+	public void SkipDay() {
+		GameObject.Find("SceneManager").GetComponent<Fading>().ResetFade();
+		GameObject.Find("SceneManager").GetComponent<Fading>().BeginFade(-1);
+		iDayCount++;
+	}
+
 	void Start() {
 		sun = GameObject.FindGameObjectWithTag("DayNight_Sun").GetComponent<Light>();
 

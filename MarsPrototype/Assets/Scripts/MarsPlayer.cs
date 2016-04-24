@@ -32,6 +32,9 @@ public class MarsPlayer : MonoBehaviour {
 	public GameObject goRoverCam;
 	public GameObject goScoutDrone;
 
+	public int iRocksCarried;
+	public Text txtRocks;
+
 //	public OVRCameraRig camrig;
 //	public OVRCameraRig camrig_drone;
 	public bool bLockTracking;
@@ -60,6 +63,9 @@ public class MarsPlayer : MonoBehaviour {
 //	}
 
 	void Update() {
+		//Rocks
+		txtRocks.text = "Rocks: " + iRocksCarried.ToString();
+
 		//Bars
 		imgHealthBar.fillAmount = fHealth / fMaxHealth;
 		imgEnergyBar.fillAmount = fEnergy / fMaxEnergy;
@@ -93,11 +99,18 @@ public class MarsPlayer : MonoBehaviour {
 
 			if (fEnergyDrainTimer >= fEnergyDrainSeconds) {
 				fEnergyDrainTimer = 0;
-				fEnergy -= 1;
+				if (fEnergy > 0) {
+					fEnergy--;
+				}
+				else {
+					fHealth -= 5;
+				}
 			}
 
 			if (fHealth <= 0) {
 				GameObject.Destroy (this.gameObject);
+				//temp loss
+				UnityEngine.SceneManagement.SceneManager.LoadScene("loss");
 			}
 		}
 

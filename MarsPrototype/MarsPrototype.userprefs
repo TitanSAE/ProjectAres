@@ -1,14 +1,11 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\MarsPlayerSettings.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\MarsPlayer.cs">
     <Files>
-      <File FileName="Assets\Scripts\MarsPlayerSettings.cs" Line="26" Column="88" />
-      <File FileName="Assets\Scripts\MarsSponsor.cs" Line="9" Column="19" />
-      <File FileName="Assets\Scripts\UI\UIListItem.cs" Line="45" Column="3" />
-      <File FileName="Assets\Editor\SponsorEditorWindow.cs" Line="177" Column="87" />
-      <File FileName="Assets\Scripts\SponsorSceneManager.cs" Line="21" Column="4" />
-      <File FileName="Assets\Scripts\MarsPlayer.cs" Line="12" Column="18" />
-      <File FileName="Assets\Scripts\SimpleSmoothMouseLook.cs" Line="31" Column="2" />
+      <File FileName="Assets\Scripts\MarsResource.cs" Line="35" Column="25" />
+      <File FileName="Assets\Scripts\MarsPlayer.cs" Line="106" Column="18" />
+      <File FileName="Assets\Scripts\RoverModules\RechargePad.cs" Line="14" Column="51" />
+      <File FileName="Assets\Scripts\DayNight\DayNightCycle.cs" Line="6" Column="13" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

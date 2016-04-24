@@ -43,6 +43,7 @@ public class MarsMessageManager : MonoBehaviour {
         vMessagePos = goMessage.GetComponent<RectTransform>().position;
         vMessageSize = goMessage.GetComponent<RectTransform>().localScale;
 
+		AddMessage("Main Objective", "Build all base structures");
 		AddMessage("Misc Objective", "Gather minerals from rocks");
 	}
 
@@ -120,26 +121,26 @@ public class MarsMessageManager : MonoBehaviour {
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            string TestTitle = "Misc Objective";
-            string TestBody = "Drill into surface to draw out water";
-            AddMessage(TestTitle, TestBody);
-        }
-
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            string TestTitle = "Main Objective";
-            string TestBody = "Find a suitable area to place your base";
-            AddMessage(TestTitle, TestBody);
-        }
-
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            string TestTitle = "Misc Objective";
-            string TestBody = "Gather minerals from rocks";
-            AddMessage(TestTitle, TestBody);
-        }
+//        if (Input.GetKeyDown(KeyCode.I))
+//        {
+//            string TestTitle = "Misc Objective";
+//            string TestBody = "Drill into surface to draw out water";
+//            AddMessage(TestTitle, TestBody);
+//        }
+//
+//        if (Input.GetKeyDown(KeyCode.P))
+//        {
+//            string TestTitle = "Main Objective";
+//            string TestBody = "Find a suitable area to place your base";
+//            AddMessage(TestTitle, TestBody);
+//        }
+//
+//        if (Input.GetKeyDown(KeyCode.O))
+//        {
+//            string TestTitle = "Misc Objective";
+//            string TestBody = "Gather minerals from rocks";
+//            AddMessage(TestTitle, TestBody);
+//        }
     }
 
     public void AddMessageWithoutAddingToList()

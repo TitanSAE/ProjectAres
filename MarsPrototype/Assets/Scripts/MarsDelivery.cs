@@ -34,7 +34,7 @@ public class MarsDelivery : MonoBehaviour {
 		if (!bImpact) {
 			bImpact = true;
 		}
-		if (c.gameObject.tag == "Player" && !bAttachedToPlayer && !c.gameObject.GetComponent<MarsTowbar>().bTowing && !bDelivered) {
+		if (c.gameObject.tag == "Player" && !bAttachedToPlayer && !c.gameObject.GetComponent<MarsTowbar>().bTowing && !bDelivered && c.gameObject.GetComponent<MarsPlayer>().iRocksCarried > 0) {
 			bAttachedToPlayer = true;
 			this.GetComponent<BoxCollider>().isTrigger = true;
 			goPlayerTowbar = c.gameObject;
@@ -46,7 +46,8 @@ public class MarsDelivery : MonoBehaviour {
 			this.transform.SetParent(c.gameObject.transform);
 			this.GetComponent<Rigidbody>().isKinematic = true;
 			this.GetComponent<Rigidbody>().useGravity = false;
-			Debug.Log ("Hit C");
+
+			c.gameObject.GetComponent<MarsPlayer>().iRocksCarried--;
 
 			if (eDeliveryType == BASE_ATTACHMENT.Level1) {
 				Level1 = GameObject.Find ("SceneManager").GetComponent<GameManager> ().Level1;

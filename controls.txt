@@ -8,7 +8,7 @@ Left stick navigates UI items, A button selects
 
 In-Game Controls:
 (Mouse)
-Arrow keys to drive
+Arrow keys or WASD to drive
 The 1 key (above Q) switches to/from the Scout Drone
 
 M to toggle large map
@@ -20,11 +20,12 @@ J for prev message
 L for next message
 
 C on repair pad to repair
+C on a rock to harvest
 
 As the scout drone:
-Arrow keys to move
+Arrow keys or WASD to move
 Space to fly higher
-LeftShift to lock/unlock height limit
+Tab to lock/unlock height limit
 
 (Xbox)
 Left stick to drive
@@ -41,6 +42,7 @@ LBumper for prev message
 RBumper for next message
 
 Start on repair pad to repair
+Start on a rock to harvest
 
 As the scout drone:
 Left stick keys to move
