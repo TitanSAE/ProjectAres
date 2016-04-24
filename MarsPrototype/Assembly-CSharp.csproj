@@ -45,6 +45,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\DroneRotors.cs" />
      <Compile Include="Assets\ExampleScenes\PenningTrapTutorialAssets\ExternalFieldElectricQuadrupoleScript.cs" />
      <Compile Include="Assets\ExampleScenes\VanDeGraaffExampleAssets\TurnOnTurnOff.cs" />
      <Compile Include="Assets\ExampleScenes\WrenchesTutorialAssets\TurnOnMagnet.cs" />
@@ -247,6 +248,7 @@
      <Compile Include="Assets\Scripts\WinSceneManager.cs" />
      <Compile Include="Assets\Surface\SurfaceCreator.cs" />
      <Compile Include="Assets\Surface\SurfaceFlow.cs" />
+     <Compile Include="Assets\WorldCanvasFaceUp.cs" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\SeparableWeightedBlurDof34.shader" />

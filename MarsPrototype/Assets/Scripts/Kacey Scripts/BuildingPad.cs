@@ -8,8 +8,10 @@ public class BuildingPad : MonoBehaviour {
 	bool bBuilt = false;
 	public BASE_ATTACHMENT buildingType;
 
+	private MarsPlayer ply;
+
 	void Start() {
-	
+		ply = GameObject.FindGameObjectWithTag("Player").GetComponent<MarsPlayer>();
 	}
 	
 
@@ -44,11 +46,13 @@ public class BuildingPad : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider col) {
-		if (col.gameObject.tag == "MarsDelivery" && !bBuilt) {
+		if (col.gameObject.tag == "MarsDelivery" && !bBuilt && ply.iRocksCarried > 0) {
 			if (buildingType == col.gameObject.GetComponent<MarsDelivery> ().eDeliveryType) {
 				GameObject.Find ("SceneManager").GetComponent<GameManager> ().finishedBuildings += 1;
 				Debug.Log (GameObject.Find ("SceneManager").GetComponent<GameManager> ().finishedBuildings);
 				bBuilt = true;
+
+				ply.iRocksCarried--;
 
 				if (building.bGhosted && !building.bLerping) {
 					building.bLerping = true;

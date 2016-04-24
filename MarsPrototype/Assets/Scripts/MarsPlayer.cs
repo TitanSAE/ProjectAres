@@ -128,11 +128,13 @@ public class MarsPlayer : MonoBehaviour {
 				camSky.fieldOfView = 90;
 				tMap.gameObject.SetActive(false);
 				tMaxMap.gameObject.SetActive(true);
+				txtRocks.gameObject.SetActive(false);
 			}
 			else {
 				camSky.fieldOfView = 30;
 				tMap.gameObject.SetActive(true);
 				tMaxMap.gameObject.SetActive(false);
+				txtRocks.gameObject.SetActive(true);
 			}
 		}
 	}
