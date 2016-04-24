@@ -1,0 +1,54 @@
+Main Menus Controls:
+(Mouse)
+Click or Spacebar (use in-game cursor, not actual mouse cursor)
+(Oculus)
+Look at the UI element and press Spacebar or A (Xbox)
+(Xbox)
+Left stick navigates UI items, A button selects
+
+In-Game Controls:
+(Mouse)
+Arrow keys to drive
+The 1 key (above Q) switches to/from the Scout Drone
+
+M to toggle large map
+R for regular map
+T for topographical map
+
+O to to open messages
+J for prev message
+L for next message
+
+C on repair pad to repair
+
+As the scout drone:
+Arrow keys to move
+Space to fly higher
+LeftShift to lock/unlock height limit
+
+(Xbox)
+Left stick to drive
+Right stick for camera
+
+Select key switches to/from scout drone
+
+A button to toggle map
+X for normal map
+Y for topographical map
+
+B to to toggle messages
+LBumper for prev message
+RBumper for next message
+
+Start on repair pad to repair
+
+As the scout drone:
+Left stick keys to move
+A to fly higher
+LBumper to lock/unlock height limit
+
+Debug:
+F5 - slow down time
+F6 - speed up time
+F10 - toggle looking with mouse
+/ - toggle locked mouse cursor
