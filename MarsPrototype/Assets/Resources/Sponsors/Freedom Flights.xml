@@ -2,5 +2,10 @@
 	<name>Freedom Flights</name>
 	<description>Established in xxxx, Freedom Flights has been yyyy.</description>
 	<avatar>FreedomFlights</avatar>
-	<rover>Lil Scrapper</rover>
+	<rover>Commuter IV</rover>
+	<torque>300</torque>
+	<steeringangle>17</steeringangle>
+	<mass>1400</mass>
+	<health>300</health>
+	<energy>300</energy>
 </MarsSponsor>

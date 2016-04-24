@@ -1,0 +1,7 @@
+<MarsRover>
+	<name>Commuter IV</name>
+	<description>The Commuter IV was designed to be nimble. It covers a lot of terrain very quickly but has limited energy reserves. It relies on solar power.</description>
+	<avatar>rover-preview-dish</avatar>
+	<modules>
+	</modules>
+</MarsRover>

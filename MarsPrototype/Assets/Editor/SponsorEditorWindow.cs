@@ -28,6 +28,13 @@ public class SponsorEditorWindow : EditorWindow {
 	string sRoverDescription = "";
 	Texture2D texRoverPreview;
 
+	//Rover data
+	float fMaxTorque = 200;
+	float fMaxSteeringAngle = 17;
+	float fMass = 1600;
+	float fMaxHealth = 100;
+	float fMaxEnergy = 100;
+
 	RoverBuilder builder = new RoverBuilder();
 	ROVER_MODULE_SLOT eCurSlot;
 
@@ -238,6 +245,16 @@ public class SponsorEditorWindow : EditorWindow {
 
 			GUILayout.Space(10.0f);
 
+			GUILayout.BeginVertical("box");
+			fMaxTorque = EditorGUILayout.FloatField("Max Motor Torque", fMaxTorque);
+			fMaxSteeringAngle = EditorGUILayout.FloatField("Max Steering Angle", fMaxSteeringAngle);
+			fMass = EditorGUILayout.FloatField("Chassis Mass", fMass);
+			fMaxHealth = EditorGUILayout.FloatField("Max Health", fMaxHealth);
+			fMaxEnergy = EditorGUILayout.FloatField("Max Energy", fMaxEnergy);
+			GUILayout.EndVertical();
+
+			GUILayout.Space(10.0f);
+
 			GUILayout.BeginVertical(EditorStyles.helpBox);
 			GUILayout.BeginHorizontal();
 			eCurSlot = (ROVER_MODULE_SLOT)EditorGUILayout.EnumPopup(eCurSlot);
@@ -358,6 +375,41 @@ public class SponsorEditorWindow : EditorWindow {
 		writer.WriteWhitespace("\t");
 		writer.WriteStartElement("rover");
 		writer.WriteValue(sCurRover);
+		writer.WriteEndElement();
+		writer.WriteWhitespace("\n");
+
+		//Torque
+		writer.WriteWhitespace("\t");
+		writer.WriteStartElement("torque");
+		writer.WriteValue(fMaxTorque);
+		writer.WriteEndElement();
+		writer.WriteWhitespace("\n");
+
+		//SteeringAngle
+		writer.WriteWhitespace("\t");
+		writer.WriteStartElement("steeringangle");
+		writer.WriteValue(fMaxSteeringAngle);
+		writer.WriteEndElement();
+		writer.WriteWhitespace("\n");
+
+		//Mass
+		writer.WriteWhitespace("\t");
+		writer.WriteStartElement("mass");
+		writer.WriteValue(fMass);
+		writer.WriteEndElement();
+		writer.WriteWhitespace("\n");
+
+		//Health
+		writer.WriteWhitespace("\t");
+		writer.WriteStartElement("health");
+		writer.WriteValue(fMaxTorque);
+		writer.WriteEndElement();
+		writer.WriteWhitespace("\n");
+
+		//Energy
+		writer.WriteWhitespace("\t");
+		writer.WriteStartElement("energy");
+		writer.WriteValue(fMaxTorque);
 		writer.WriteEndElement();
 		writer.WriteWhitespace("\n");
 
@@ -521,6 +573,26 @@ public class SponsorEditorWindow : EditorWindow {
 				else if (xlayer1.Name == "rover") {
 					string stemp = xlayer1.Value;
 					sCurRover = stemp;
+				}
+				else if (xlayer1.Name == "torque") {
+					float ftemp = float.Parse(xlayer1.Value);
+					fMaxTorque = ftemp;
+				}
+				else if (xlayer1.Name == "steeringangle") {
+					float ftemp = float.Parse(xlayer1.Value);
+					fMaxSteeringAngle = ftemp;
+				}
+				else if (xlayer1.Name == "mass") {
+					float ftemp = float.Parse(xlayer1.Value);
+					fMass = ftemp;
+				}
+				else if (xlayer1.Name == "health") {
+					float ftemp = float.Parse(xlayer1.Value);
+					fMaxHealth = ftemp;
+				}
+				else if (xlayer1.Name == "energy") {
+					float ftemp = float.Parse(xlayer1.Value);
+					fMaxEnergy = ftemp;
 				}
 			}
 		}

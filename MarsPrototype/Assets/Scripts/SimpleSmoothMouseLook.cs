@@ -30,7 +30,7 @@ public class SimpleSmoothMouseLook : MonoBehaviour {
 	Quaternion originalRotation;
 
 	bool bEnableLook = true;
-	bool bLockMouse;
+	bool bLockMouse = true;
  
 	void Update() {
 		if (Input.GetKeyDown(KeyCode.F10)) {

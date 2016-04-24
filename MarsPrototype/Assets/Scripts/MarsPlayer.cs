@@ -42,6 +42,16 @@ public class MarsPlayer : MonoBehaviour {
 //		camrig_drone.UpdatedAnchors += ResetEyes;
 	}
 
+	public void SetMaxHealth(float health) {
+		fMaxHealth = health;
+		fHealth = fMaxHealth;
+	}
+
+	public void SetMaxEnergy(float energy) {
+		fMaxEnergy = energy;
+		fEnergy = fMaxEnergy;
+	}
+
 //	void ResetEyes(Object obj) {
 //		if (bLockTracking) {
 //			camrig.trackingSpace.FromOVRPose(camrig.centerEyeAnchor.ToOVRPose(true).Inverse());

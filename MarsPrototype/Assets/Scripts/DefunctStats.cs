@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class RoverStatsss : MonoBehaviour {
+public class DefunctStats : MonoBehaviour {
 
     [Header("Stats")]
     public float fTimeDuration = 5;

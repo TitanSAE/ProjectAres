@@ -2,5 +2,10 @@
 	<name>Mars First</name>
 	<description>Established in xxxx, Mars First has been yyyy.</description>
 	<avatar>MarsFirst</avatar>
-	<rover>Lil Scrapper</rover>
+	<rover>Sojourner II</rover>
+	<torque>200</torque>
+	<steeringangle>17</steeringangle>
+	<mass>1600</mass>
+	<health>200</health>
+	<energy>200</energy>
 </MarsSponsor>

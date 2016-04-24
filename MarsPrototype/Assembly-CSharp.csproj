@@ -144,6 +144,7 @@
      <Compile Include="Assets\Scripts\DayNight\DayNightCycle.cs" />
      <Compile Include="Assets\Scripts\DayNight\LightWall.cs" />
      <Compile Include="Assets\Scripts\DayNight\SetSunLight.cs" />
+     <Compile Include="Assets\Scripts\DefunctStats.cs" />
      <Compile Include="Assets\Scripts\DrawCircle.cs" />
      <Compile Include="Assets\Scripts\DrawNavMarkers.cs" />
      <Compile Include="Assets\Scripts\FPS_Player.cs" />
@@ -222,7 +223,6 @@
      <Compile Include="Assets\Scripts\RoverMovement.cs" />
      <Compile Include="Assets\Scripts\RoverPlayerController.cs" />
      <Compile Include="Assets\Scripts\RoverStatistics.cs" />
-     <Compile Include="Assets\Scripts\RoverStatsss.cs" />
      <Compile Include="Assets\Scripts\RoverWheelMovement.cs" />
      <Compile Include="Assets\Scripts\SceneManager.cs" />
      <Compile Include="Assets\Scripts\SimpleCarController.cs" />
@@ -275,6 +275,7 @@
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\Contrast Stretch\Apply.shader" />
      <None Include="Assets\Shaders\SphereShader.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\frag_ao.cginc" />
+     <None Include="Assets\Resources\Rovers\Commuter IV.xml" />
      <None Include="Assets\Resources\Sponsors\Mars First.xml" />
      <None Include="Assets\Shaders\BlendTransitionPanorama.shader" />
      <None Include="Assets\Resources\Rovers\test.xml" />
@@ -330,6 +331,7 @@
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\PrepareSunShaftsBlur.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\Blend.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\BlendModesOverlay.shader" />
+     <None Include="Assets\Resources\Rovers\Sojourner II.xml" />
      <None Include="Assets\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
      <None Include="Assets\Shaders\Particle Alpha Blend-AfterTrans.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\SimpleClear.shader" />

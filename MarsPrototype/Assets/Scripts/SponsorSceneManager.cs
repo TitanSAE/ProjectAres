@@ -22,7 +22,7 @@ public class SponsorSceneManager : MonoBehaviour {
 	}
 
 	public void SaveData() {
-		mps.SetAndSaveRoverName(uism.sRoverName);
+		//mps.SetAndSaveRoverName(uism.sRoverName);
 		mps.SetAndSaveSponsorName(uism.sSponsorName);
 	}
 

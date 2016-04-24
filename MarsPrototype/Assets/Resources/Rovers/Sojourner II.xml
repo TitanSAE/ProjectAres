@@ -1,0 +1,7 @@
+<MarsRover>
+	<name>Sojourner II</name>
+	<description>The Sojourner II was designed to be slow and steady. It handles rough terrain well and has great structural integrity. It relies on solar power.</description>
+	<avatar>rover-preview-default</avatar>
+	<modules>
+	</modules>
+</MarsRover>
