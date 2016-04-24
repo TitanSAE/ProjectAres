@@ -1,8 +1,8 @@
 <MarsSponsor>
 	<name>Mars First</name>
-	<description>Established in xxxx, Mars First has been yyyy.</description>
+	<description>Mars First is a government funded research group whose goal is to settle Mars before another group gets there. With funding being reduced to space exploration, they must make do with whatever equipment they have. They hope that a successful mission to Mars will increase the funding they have.</description>
 	<avatar>MarsFirst</avatar>
-	<rover>Sojourner II</rover>
+	<rover>Commuter IV</rover>
 	<torque>200</torque>
 	<steeringangle>17</steeringangle>
 	<mass>1600</mass>

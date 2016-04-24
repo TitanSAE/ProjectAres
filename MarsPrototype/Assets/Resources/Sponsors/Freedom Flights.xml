@@ -1,8 +1,8 @@
 <MarsSponsor>
 	<name>Freedom Flights</name>
-	<description>Established in xxxx, Freedom Flights has been yyyy.</description>
+	<description>Freedom Flights is owned, operated, financed and sponsored by an eccentric billionaire, Tronald Dump. While he has very little knowledge about space colonization, he does believe, correctly for once, that he can make even more money from it. Somehow. He has far more money at his disposal and uses it to create tougher rovers that can survive the harsh conditions of Mars.</description>
 	<avatar>FreedomFlights</avatar>
-	<rover>Commuter IV</rover>
+	<rover>Sojourner II</rover>
 	<torque>300</torque>
 	<steeringangle>17</steeringangle>
 	<mass>1400</mass>

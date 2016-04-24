@@ -12,6 +12,7 @@ public class UIListItem : MonoBehaviour {
 	public TextAsset taSource;
 	public Text txtDisplay;
 	public BoxCollider boxcol2d;
+	private Button butt;
 
 	public MarsSponsor sponsor;
 
@@ -27,6 +28,7 @@ public class UIListItem : MonoBehaviour {
 		txtDisplay = this.GetComponent<Text>();
 		boxcol2d = this.GetComponent<BoxCollider>();
 		sponsor = this.GetComponent<MarsSponsor>();
+		butt = this.GetComponent<Button>();
 
 		uiMng = GameObject.FindGameObjectWithTag("GameController").GetComponent<UISceneManager>();
 	}

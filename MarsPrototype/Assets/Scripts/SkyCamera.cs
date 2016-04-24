@@ -16,12 +16,12 @@ public class SkyCamera : MonoBehaviour {
 	void Update() {
 		this.transform.position = new Vector3(target.position.x, this.transform.position.y, target.position.z);
 
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetButtonDown("MapRegular"))
         {
             camSelf.cullingMask = WorldMapMask;
         }
 
-        if (Input.GetKeyDown(KeyCode.T))
+        if (Input.GetButtonDown("MapTopo"))
         {
             camSelf.cullingMask = TopographicalMapMask;
         }

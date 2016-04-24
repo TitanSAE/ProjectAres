@@ -88,13 +88,32 @@ public class OVRMousePointer : MonoBehaviour {
             mousePos += new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y")) * mouseMoveSpeed;
             float currentPanelWidth = GetComponent<RectTransform>().rect.width;
             float currentPanelHeight = GetComponent<RectTransform>().rect.height;
-            mousePos.x = Mathf.Clamp(mousePos.x, -currentPanelWidth / 2, currentPanelWidth / 2);
-            mousePos.y = Mathf.Clamp(mousePos.y, -currentPanelHeight / 2, currentPanelHeight / 2);
+            
+//			if (IsJoystickConnected()) {
+//				mousePos += new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")) * mouseMoveSpeed * 0.05f;
+//			}
+
+			mousePos.x = Mathf.Clamp(mousePos.x, -currentPanelWidth / 2, currentPanelWidth / 2);
+			mousePos.y = Mathf.Clamp(mousePos.y, -currentPanelHeight / 2, currentPanelHeight / 2);
 
             // Position mouse pointer
             SetLocalPosition(mousePos);
         }
 	
+	}
+
+	public bool IsJoystickConnected() {
+		bool joy = false;
+
+		if (Input.GetJoystickNames().Length != 0) {
+			for (int i = 0; i < Input.GetJoystickNames().Length; i++) {
+				if (!Input.GetJoystickNames()[i].ToUpper().Contains("VIRTUAL")) {
+					joy = true;
+				}
+			}
+		}
+
+		return joy;
 	}
 
     public bool HasMovedRecently()

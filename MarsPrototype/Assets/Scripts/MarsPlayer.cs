@@ -67,7 +67,7 @@ public class MarsPlayer : MonoBehaviour {
 		txtHealth.text = ((int)(imgHealthBar.fillAmount * 100)).ToString() + "%";
 		txtEnergy.text = ((int)(imgEnergyBar.fillAmount * 100)).ToString() + "%";
 
-		if (Input.GetKeyDown(KeyCode.Alpha1)) {
+		if (Input.GetButtonDown("ToggleCopter")) {
 			bControllingScout = !bControllingScout;
 
 			if (bControllingScout) {

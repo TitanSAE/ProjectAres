@@ -42,13 +42,15 @@ public class MarsMessageManager : MonoBehaviour {
 	void Start() {
         vMessagePos = goMessage.GetComponent<RectTransform>().position;
         vMessageSize = goMessage.GetComponent<RectTransform>().localScale;
+
+		AddMessage("Misc Objective", "Gather minerals from rocks");
 	}
 
 	void Update() {
 
         UpdateUI();
 
-        if (Input.GetKeyDown(KeyCode.K))
+        if (Input.GetButtonDown("OpenMessages"))
         {
             if(bIsPanelOpen)
             {
@@ -69,7 +71,7 @@ public class MarsMessageManager : MonoBehaviour {
 
         if (l_messages.Count >= 1)
         {
-            if (Input.GetKeyDown(KeyCode.L))
+			if (Input.GetButtonDown("NextMessage"))
             {
                 if (iCurrentMessage == (l_messages.Count - 1))
                 {
@@ -93,7 +95,7 @@ public class MarsMessageManager : MonoBehaviour {
                 }
             }
 
-            if (Input.GetKeyDown(KeyCode.J))
+			if (Input.GetButtonDown("PrevMessage"))
             {
                 if (iCurrentMessage == 0)
                 {

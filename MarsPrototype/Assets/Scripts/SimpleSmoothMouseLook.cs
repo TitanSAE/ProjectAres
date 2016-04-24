@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
  
-[AddComponentMenu("Camera-Control/Smooth Mouse Look")]
 public class SimpleSmoothMouseLook : MonoBehaviour {
  
 	public enum RotationAxes { MouseXAndY = 0, MouseX = 1, MouseY = 2 }
@@ -31,6 +30,21 @@ public class SimpleSmoothMouseLook : MonoBehaviour {
 
 	bool bEnableLook = true;
 	bool bLockMouse = true;
+
+	//Find the first non-virtual (fake) joystick/gamepad
+	public bool IsJoystickConnected() {
+		bool joy = false;
+
+		if (Input.GetJoystickNames().Length != 0) {
+			for (int i = 0; i < Input.GetJoystickNames().Length; i++) {
+				if (!Input.GetJoystickNames()[i].ToUpper().Contains("VIRTUAL")) {
+					joy = true;
+				}
+			}
+		}
+
+		return joy;
+	}
  
 	void Update() {
 		if (Input.GetKeyDown(KeyCode.F10)) {
@@ -54,8 +68,15 @@ public class SimpleSmoothMouseLook : MonoBehaviour {
 				rotAverageY = 0f;
 				rotAverageX = 0f;
 	 
-				rotationY += Input.GetAxis("Mouse Y") * sensitivityY;
-				rotationX += Input.GetAxis("Mouse X") * sensitivityX;
+				if (!IsJoystickConnected()) {
+					rotationY += Input.GetAxis("Mouse Y") * sensitivityY;
+					rotationX += Input.GetAxis("Mouse X") * sensitivityX;
+				}
+				else {
+					rotationY += Input.GetAxis("XboxRightStickY") * sensitivityY;
+					rotationX += Input.GetAxis("XboxRightStickX") * sensitivityX;
+				}
+				//Debug.Log("X: " + Input.GetAxisRaw("XboxRightStickX").ToString() + "|" + "Y: " + Input.GetAxisRaw("XboxRightStickY").ToString());
 	 
 				rotArrayY.Add(rotationY);
 				rotArrayX.Add(rotationX);

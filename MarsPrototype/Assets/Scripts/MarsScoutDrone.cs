@@ -32,14 +32,14 @@ public class MarsScoutDrone : MonoBehaviour {
 	}
 
 	void Update() {
-		if (Input.GetKey(KeyCode.Space)) {
+		if (Input.GetButton("ThrustCopter")) {
 			bTakeoff = true;
 		}
 		else {
 			bTakeoff = false;
 		}
 
-		if (Input.GetKeyDown(KeyCode.LeftShift) && !bAttachedToRover) {
+		if (Input.GetButtonDown("LockCopter") && !bAttachedToRover) {
 			bHolding = !bHolding;
 
 			if (bHolding) {
@@ -105,7 +105,7 @@ public class MarsScoutDrone : MonoBehaviour {
 			bHolding = false;
 		}
 
-		if (Input.GetKey(KeyCode.Space)) {
+		if (Input.GetButton("ThrustCopter")) {
 			if (bAttachedToRover) {
 				DetachFromRover();
 			}
