@@ -27,7 +27,7 @@
     <IntermediateOutputPath>Temp\UnityVS_obj\Debug\</IntermediateOutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DefineConstants>DEBUG;TRACE;UNITY_5_3_3;UNITY_5_3;UNITY_5;ENABLE_NEW_BUGREPORTER;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_SPRITE_POLYGON;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;INCLUDE_DIRECTX12;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_LOCALIZATION;ENABLE_ANDROID_ATLAS_ETC1_COMPRESSION;ENABLE_EDITOR_TESTS_RUNNER;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_TEXTUREID_MAP;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_LOG_MIXED_STACKTRACE;ENABLE_UNITYWEBREQUEST;ENABLE_EVENT_QUEUE;ENABLE_CLUSTERINPUT;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;CROSS_PLATFORM_INPUT</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_3;UNITY_5_3;UNITY_5;ENABLE_NEW_BUGREPORTER;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_SPRITE_POLYGON;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;INCLUDE_DIRECTX12;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_LOCALIZATION;ENABLE_ANDROID_ATLAS_ETC1_COMPRESSION;ENABLE_EDITOR_TESTS_RUNNER;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_TEXTUREID_MAP;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_LOG_MIXED_STACKTRACE;ENABLE_UNITYWEBREQUEST;ENABLE_EVENT_QUEUE;ENABLE_CLUSTERINPUT;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE;UNITY_PRO_LICENSE;CROSS_PLATFORM_INPUT</DefineConstants>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -37,7 +37,7 @@
     <IntermediateOutputPath>Temp\UnityVS_obj\Release\</IntermediateOutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DefineConstants>TRACE;UNITY_5_3_3;UNITY_5_3;UNITY_5;ENABLE_NEW_BUGREPORTER;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_SPRITE_POLYGON;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;INCLUDE_DIRECTX12;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_LOCALIZATION;ENABLE_ANDROID_ATLAS_ETC1_COMPRESSION;ENABLE_EDITOR_TESTS_RUNNER;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_TEXTUREID_MAP;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_LOG_MIXED_STACKTRACE;ENABLE_UNITYWEBREQUEST;ENABLE_EVENT_QUEUE;ENABLE_CLUSTERINPUT;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;CROSS_PLATFORM_INPUT</DefineConstants>
+    <DefineConstants>TRACE;UNITY_5_3_3;UNITY_5_3;UNITY_5;ENABLE_NEW_BUGREPORTER;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_SPRITE_POLYGON;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;INCLUDE_DIRECTX12;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_LOCALIZATION;ENABLE_ANDROID_ATLAS_ETC1_COMPRESSION;ENABLE_EDITOR_TESTS_RUNNER;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_TEXTUREID_MAP;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_LOG_MIXED_STACKTRACE;ENABLE_UNITYWEBREQUEST;ENABLE_EVENT_QUEUE;ENABLE_CLUSTERINPUT;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE;UNITY_PRO_LICENSE;CROSS_PLATFORM_INPUT</DefineConstants>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
@@ -78,6 +78,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\DroneRotors.cs" />
     <Compile Include="Assets\ExampleScenes\PenningTrapTutorialAssets\ExternalFieldElectricQuadrupoleScript.cs" />
     <Compile Include="Assets\ExampleScenes\VanDeGraaffExampleAssets\TurnOnTurnOff.cs" />
     <Compile Include="Assets\ExampleScenes\WrenchesTutorialAssets\TurnOnMagnet.cs" />
@@ -112,7 +113,6 @@
     <Compile Include="Assets\Magnetodynamics\ObjectsToPlaceInYourScene\_ScriptsThatMakeThemWork\SuperconductorSmallSphereScript.cs" />
     <Compile Include="Assets\Magnetodynamics\ScriptsToEnhanceExistingObjects\MagnetizableMaterial.cs" />
     <Compile Include="Assets\Magnetodynamics\ScriptsToEnhanceExistingObjects\PlasmaIonizedGas.cs" />
-    <Compile Include="Assets\MarsScoutDroneLandingCheck.cs" />
     <Compile Include="Assets\Meteor Storm Effects\Scripts\LockRotation.cs" />
     <Compile Include="Assets\Meteor Storm Effects\Scripts\MeteorCrashSound.cs" />
     <Compile Include="Assets\Meteor Storm Effects\Standard Assets\Character Controllers\Sources\Scripts\MouseLook.cs" />
@@ -157,6 +157,7 @@
     <Compile Include="Assets\OVR\Scripts\Util\OVRSceneSampleController.cs" />
     <Compile Include="Assets\OVR\Scripts\Util\OVRScreenFade.cs" />
     <Compile Include="Assets\OVR\Scripts\Util\OVRTrackerBounds.cs" />
+    <Compile Include="Assets\ObjectiveMarker.cs" />
     <Compile Include="Assets\Prefabs\Particles\Detonator Explosion Framework\System\Detonator.cs" />
     <Compile Include="Assets\Prefabs\Particles\Detonator Explosion Framework\System\DetonatorBurstEmitter.cs" />
     <Compile Include="Assets\Prefabs\Particles\Detonator Explosion Framework\System\DetonatorCloudRing.cs" />
@@ -171,10 +172,14 @@
     <Compile Include="Assets\Prefabs\Particles\Detonator Explosion Framework\System\DetonatorSparks.cs" />
     <Compile Include="Assets\Prefabs\Particles\Detonator Explosion Framework\System\DetonatorSpray.cs" />
     <Compile Include="Assets\Quad\TextureCreator.cs" />
-    <Compile Include="Assets\Scripts\CameraFogSetting.cs" />
     <Compile Include="Assets\Scripts\CarDamage.cs" />
     <Compile Include="Assets\Scripts\Controller\Thrusters.cs" />
-    <Compile Include="Assets\Scripts\DayNightCycle.cs" />
+    <Compile Include="Assets\Scripts\DayNight\AutoIntensity.cs" />
+    <Compile Include="Assets\Scripts\DayNight\CameraFogSetting.cs" />
+    <Compile Include="Assets\Scripts\DayNight\DayNightCycle.cs" />
+    <Compile Include="Assets\Scripts\DayNight\LightWall.cs" />
+    <Compile Include="Assets\Scripts\DayNight\SetSunLight.cs" />
+    <Compile Include="Assets\Scripts\DefunctStats.cs" />
     <Compile Include="Assets\Scripts\DrawCircle.cs" />
     <Compile Include="Assets\Scripts\DrawNavMarkers.cs" />
     <Compile Include="Assets\Scripts\FPS_Player.cs" />
@@ -197,6 +202,7 @@
     <Compile Include="Assets\Scripts\LevelGen\LandingPads.cs" />
     <Compile Include="Assets\Scripts\LevelGen\MeshBuilder.cs" />
     <Compile Include="Assets\Scripts\Magnet.cs" />
+    <Compile Include="Assets\Scripts\MainMenuSceneManager.cs" />
     <Compile Include="Assets\Scripts\MarsBase.cs" />
     <Compile Include="Assets\Scripts\MarsBaseAttachmentPoint.cs" />
     <Compile Include="Assets\Scripts\MarsBuilding.cs" />
@@ -209,8 +215,10 @@
     <Compile Include="Assets\Scripts\MarsMessageUI.cs" />
     <Compile Include="Assets\Scripts\MarsMovement.cs" />
     <Compile Include="Assets\Scripts\MarsPlayer.cs" />
+    <Compile Include="Assets\Scripts\MarsPlayerSettings.cs" />
     <Compile Include="Assets\Scripts\MarsResource.cs" />
     <Compile Include="Assets\Scripts\MarsScoutDrone.cs" />
+    <Compile Include="Assets\Scripts\MarsScoutDroneLandingCheck.cs" />
     <Compile Include="Assets\Scripts\MarsSponsor.cs" />
     <Compile Include="Assets\Scripts\MarsTowbar.cs" />
     <Compile Include="Assets\Scripts\MaterialLerp.cs" />
@@ -219,6 +227,7 @@
     <Compile Include="Assets\Scripts\Model\Globals.cs" />
     <Compile Include="Assets\Scripts\Model\PlayerPrefKey.cs" />
     <Compile Include="Assets\Scripts\Model\Setting.cs" />
+    <Compile Include="Assets\Scripts\NaturalResourceSpawner.cs" />
     <Compile Include="Assets\Scripts\Noise.cs" />
     <Compile Include="Assets\Scripts\NoiseSample.cs" />
     <Compile Include="Assets\Scripts\OVR\OVRGazePointer.cs" />
@@ -251,7 +260,6 @@
     <Compile Include="Assets\Scripts\RoverMovement.cs" />
     <Compile Include="Assets\Scripts\RoverPlayerController.cs" />
     <Compile Include="Assets\Scripts\RoverStatistics.cs" />
-    <Compile Include="Assets\Scripts\RoverStatsss.cs" />
     <Compile Include="Assets\Scripts\RoverWheelMovement.cs" />
     <Compile Include="Assets\Scripts\SceneManager.cs" />
     <Compile Include="Assets\Scripts\SimpleCarController.cs" />
@@ -260,9 +268,9 @@
     <Compile Include="Assets\Scripts\SkyCamera.cs" />
     <Compile Include="Assets\Scripts\SmoothCameraFPS.cs" />
     <Compile Include="Assets\Scripts\SmoothFollow.cs" />
+    <Compile Include="Assets\Scripts\SponsorSceneManager.cs" />
     <Compile Include="Assets\Scripts\TimedDelivery.cs" />
     <Compile Include="Assets\Scripts\UI\Debug_Clickable.cs" />
-    <Compile Include="Assets\Scripts\UI\GoalBuilderEditor.cs" />
     <Compile Include="Assets\Scripts\UI\SponsorUI.cs" />
     <Compile Include="Assets\Scripts\UI\UIContentSpawner.cs" />
     <Compile Include="Assets\Scripts\UI\UIListItem.cs" />
@@ -271,8 +279,10 @@
     <Compile Include="Assets\Scripts\UIShowPivot.cs" />
     <Compile Include="Assets\Scripts\Utility\GenericEventArgs.cs" />
     <Compile Include="Assets\Scripts\WheelManager.cs" />
+    <Compile Include="Assets\Scripts\WinSceneManager.cs" />
     <Compile Include="Assets\Surface\SurfaceCreator.cs" />
     <Compile Include="Assets\Surface\SurfaceFlow.cs" />
+    <Compile Include="Assets\WorldCanvasFaceUp.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\JMO Assets\MatCap Shaders\Shaders\MatCap_Plain_Additive.shader" />
@@ -289,12 +299,18 @@
     <None Include="Assets\RAIN\Editor\Shaders\VisualSensorRingShader.shader" />
     <None Include="Assets\RAIN\Editor\Shaders\WaypointShader.shader" />
     <None Include="Assets\RAIN\ReleaseNotes.txt" />
+    <None Include="Assets\Resources\Old\Goat Rocket.xml" />
+    <None Include="Assets\Resources\Rovers\Commuter IV.xml" />
     <None Include="Assets\Resources\Rovers\Lil Scrapper.xml" />
+    <None Include="Assets\Resources\Rovers\Sojourner II.xml" />
     <None Include="Assets\Resources\Rovers\test.xml" />
-    <None Include="Assets\Resources\Sponsors\Goat Rocket.xml" />
+    <None Include="Assets\Resources\Sponsors\Freedom Flights.xml" />
+    <None Include="Assets\Resources\Sponsors\Mars First.xml" />
     <None Include="Assets\Shaders\AlphaBlendTransition.shader" />
     <None Include="Assets\Shaders\BlendTransitionPanorama.shader" />
     <None Include="Assets\Shaders\Default-OverAll.shader" />
+    <None Include="Assets\Shaders\Default_OverlayNoZTest.shader" />
+    <None Include="Assets\Shaders\HeightShader.shader" />
     <None Include="Assets\Shaders\Particle Alpha Blend-AfterTrans.shader" />
     <None Include="Assets\Shaders\Particle-Alpha-Premultiply-AfterTrans.shader" />
     <None Include="Assets\Shaders\SphereShader.shader" />
