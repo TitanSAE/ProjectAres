@@ -35,6 +35,8 @@ public class MarsPlayer : MonoBehaviour {
 	public int iRocksCarried;
 	public Text txtRocks;
 
+	public bool bCopterEnabled;
+
 //	public OVRCameraRig camrig;
 //	public OVRCameraRig camrig_drone;
 	public bool bLockTracking;
@@ -43,6 +45,10 @@ public class MarsPlayer : MonoBehaviour {
 		towbar = gameObject.GetComponent<MarsTowbar>();
 //		camrig.UpdatedAnchors += ResetEyes;
 //		camrig_drone.UpdatedAnchors += ResetEyes;
+
+		if (!bCopterEnabled) {
+			goScoutDrone.transform.parent.gameObject.SetActive(false);
+		}
 	}
 
 	public void SetMaxHealth(float health) {

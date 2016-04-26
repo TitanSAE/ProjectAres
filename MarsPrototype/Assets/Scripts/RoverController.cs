@@ -26,6 +26,13 @@ public class RoverController : MonoBehaviour
     public float maxSteeringAngle = 17; // maximum steer angle the wheel can have
     public Vector3 centreOfMass = new Vector3(0f, -0.5f, 0f);
     Rigidbody rigidBody;
+	public bool enableAutoGear = true;
+	public float torgueGearMultiplier = 2.0f;
+	public float minGearRPM = 50.0f;
+	public float minGearTorgue = 0.9f;
+	public bool enableAutoBrake = true;
+	public float RPMBrakeRange = 6.0f;
+
     [Header("Rover Damage")]
     public bool allowDamage = true;
     public float carMaxHealth = 1.0f;
@@ -44,6 +51,12 @@ public class RoverController : MonoBehaviour
     public AudioClip roverDamage;
     public AudioClip roverFlipped;
     public AudioClip roverWheelGravel;
+
+	public GameObject dmgEmitter01;
+	public GameObject dmgEmitter02;
+	public GameObject dmgEmitter03;
+
+	//public int iGear;
 
 	MarsPlayer ply;
 
@@ -121,6 +134,16 @@ public class RoverController : MonoBehaviour
                 axleInfo.leftWheel.motorTorque = motor;
                 axleInfo.rightWheel.motorTorque = motor;
                 //print(axleInfo.rightWheel.rpm);
+
+				if (enableAutoGear)
+				{
+					if (motor > (maxMotorTorque * carMaxHealth) * minGearTorgue && (axleInfo.leftWheel.rpm < minGearRPM || axleInfo.rightWheel.rpm < minGearRPM))
+					{
+						axleInfo.leftWheel.motorTorque = motor * torgueGearMultiplier;
+						axleInfo.rightWheel.motorTorque = motor * torgueGearMultiplier;
+					}
+				}
+				//print(motor);
             }
             if (axleInfo.rearSteer)
             {
@@ -185,7 +208,57 @@ public class RoverController : MonoBehaviour
         // for if steering active check above
         if (Input.GetButton("Horizontal")) steeringActive = true;
         else steeringActive = false;
+
+		//Gears
+		//float totalrpm = GetAverageWheelsRPM();
+		//float totaltorque = GetAverageWheelsTorque();
+
+		//Debug.Log("RPM: " + totalrpm.ToString() + " | TORQUE: " + totaltorque.ToString());
+
+		if (allowDamage) { RenderDamage(); }  
     }
+
+
+	void LateUpdate()
+	{
+
+		float currentTorque = 0f;
+		float rpm = 0f;
+		foreach (AxleWheelInfo axleInfo in axleWheels)
+		{        
+			currentTorque = axleInfo.leftWheel.motorTorque;
+			rpm = axleInfo.leftWheel.rpm;
+			currentTorque = axleInfo.rightWheel.motorTorque;
+			rpm = axleInfo.rightWheel.rpm;
+		}
+		//print(currentTorque + " | " + rpm);
+
+		if (enableAutoBrake == true && currentTorque == 0f && rpm > -RPMBrakeRange && rpm < RPMBrakeRange)
+		{
+			rigidBody.velocity = new Vector3(0f, 0f, 0f);
+		}
+	}
+
+	float GetAverageWheelsRPM() {
+		float totalrpm = 0;
+		foreach (AxleWheelInfo axleInfo in axleWheels) {
+			//Debug.Log(axleInfo.leftWheel.rpm.ToString() + " | " + axleInfo.rightWheel.rpm.ToString());
+			totalrpm += ((axleInfo.leftWheel.rpm + axleInfo.rightWheel.rpm) / 2);
+		}
+		totalrpm = totalrpm / axleWheels.Count;
+
+		return totalrpm;
+	}
+
+	float GetAverageWheelsTorque() {
+		float totaltorque = 0;
+		foreach (AxleWheelInfo axleInfo in axleWheels) {
+			totaltorque += ((axleInfo.leftWheel.motorTorque + axleInfo.rightWheel.motorTorque) / 2);
+		}
+		totaltorque = totaltorque / axleWheels.Count;
+
+		return totaltorque;
+	}
     
     void OnCollisionEnter(Collision collision)
     {
@@ -211,6 +284,18 @@ public class RoverController : MonoBehaviour
 
 	void NeoDamageHealth(float damage) {
 		ply.fHealth -= damage;
+	}
+
+	void RenderDamage() {
+		if (carMaxHealth <= 0.85f && dmgEmitter01 != null) {
+			dmgEmitter01.SetActive(true);
+		}
+		if (carMaxHealth <= 0.75f && dmgEmitter02 != null) {
+			dmgEmitter02.SetActive(true);
+		}
+		if (carMaxHealth <= 0.65f && dmgEmitter03 != null) {
+			dmgEmitter03.SetActive(true);
+		}
 	}
     
     void OnCollisionExit(Collision collision)
