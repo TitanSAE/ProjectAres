@@ -179,6 +179,7 @@
     <None Include="Assets\Shaders\BlendTransitionPanorama.shader" />
     <None Include="Assets\Shaders\Default-OverAll.shader" />
     <None Include="Assets\Shaders\Default_OverlayNoZTest.shader" />
+    <None Include="Assets\Shaders\HeightShader.shader" />
     <None Include="Assets\Shaders\Particle Alpha Blend-AfterTrans.shader" />
     <None Include="Assets\Shaders\Particle-Alpha-Premultiply-AfterTrans.shader" />
     <None Include="Assets\Shaders\SphereShader.shader" />
