@@ -7,7 +7,7 @@ public class MarsMessageManager : MonoBehaviour {
 
 	public List<MarsMessage> l_messages = new List<MarsMessage>();
     public int iCurrentMessage = 0;
-    private bool bIsPanelOpen;
+    public bool bIsPanelOpen;
 
 	public GameObject goMessageScreen;
 	public Text txtHeader;

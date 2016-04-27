@@ -31,6 +31,9 @@ public class MarsPlayer : MonoBehaviour {
 	public bool bControllingScout;
 	public GameObject goRoverCam;
 	public GameObject goScoutDrone;
+	public GameObject goClock;
+
+	public Canvas cnvPlyMarker;
 
 	public int iRocksCarried;
 	public Text txtRocks;
@@ -39,6 +42,8 @@ public class MarsPlayer : MonoBehaviour {
 
 	public Light ligTorch;
 	public Light ligNotify;
+
+	public SkyCamera data_skycam;
 
 //	public OVRCameraRig camrig;
 //	public OVRCameraRig camrig_drone;
@@ -155,16 +160,27 @@ public class MarsPlayer : MonoBehaviour {
 			}
 
 			if (bFullScreenMap) {
-				camSky.fieldOfView = 90;
+				camSky.fieldOfView = 55;
 				tMap.gameObject.SetActive(false);
 				tMaxMap.gameObject.SetActive(true);
 				txtRocks.gameObject.SetActive(false);
+				goClock.SetActive(false);
+				mngMessages.bIsPanelOpen = false;
+				data_skycam.fHoverHeight = 896.0f;
+				data_skycam.bSpinToFace = false;
+				data_skycam.bLockToCentre = true;
+				cnvPlyMarker.gameObject.transform.localScale = new Vector3(0.1f, 0.0425f, 0);
 			}
 			else {
 				camSky.fieldOfView = 30;
 				tMap.gameObject.SetActive(true);
 				tMaxMap.gameObject.SetActive(false);
 				txtRocks.gameObject.SetActive(true);
+				goClock.SetActive(true);
+				data_skycam.fHoverHeight = 72.1f;
+				data_skycam.bSpinToFace = true;
+				data_skycam.bLockToCentre = false;
+				cnvPlyMarker.gameObject.transform.localScale = new Vector3(0.023f, 0.0094f, 0);
 			}
 		}
 	}
