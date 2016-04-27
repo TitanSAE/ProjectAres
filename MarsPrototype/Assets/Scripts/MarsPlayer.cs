@@ -46,6 +46,11 @@ public class MarsPlayer : MonoBehaviour {
 
 	public MarsMessageManager mngMessages;
 
+	public void Repair(){
+		fEnergy = fMaxEnergy;
+		fHealth = fMaxHealth;
+	}
+
 	void Start() {
 		towbar = gameObject.GetComponent<MarsTowbar>();
 //		camrig.UpdatedAnchors += ResetEyes;

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class RechargePad : MonoBehaviour {
 	
-	bool onPad = false;
+	public bool onPad = false;
 	private DayNightCycle daynight;
 
 	void Start() {
@@ -13,6 +13,7 @@ public class RechargePad : MonoBehaviour {
 	void Update() {
 		if (Input.GetButton("ConfirmRepair") && onPad) {
 			daynight.SkipDay();
+			GameObject.Find ("Player").GetComponent<MarsPlayer> ().Repair ();
 		}
 	}
 
