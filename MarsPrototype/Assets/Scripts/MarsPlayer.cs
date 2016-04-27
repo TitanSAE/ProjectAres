@@ -41,6 +41,11 @@ public class MarsPlayer : MonoBehaviour {
 //	public OVRCameraRig camrig_drone;
 	public bool bLockTracking;
 
+	public void Repair(){
+		fEnergy = fMaxEnergy;
+		fHealth = fMaxHealth;
+	}
+
 	void Start() {
 		towbar = gameObject.GetComponent<MarsTowbar>();
 //		camrig.UpdatedAnchors += ResetEyes;
