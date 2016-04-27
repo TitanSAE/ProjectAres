@@ -60,10 +60,10 @@ public class DayNightCycle : MonoBehaviour {
 
 	void Update() {
 		if (sun.intensity > sunmover.minIntensity + 0.25f) {
-			torch.gameObject.SetActive(false);
+			//torch.gameObject.SetActive(false);
 		}
 		else {
-			torch.gameObject.SetActive(true);
+			//torch.gameObject.SetActive(true);
 		}
 		//fDayPortion = sun.transform.rotation.eulerAngles.x / 360;
 

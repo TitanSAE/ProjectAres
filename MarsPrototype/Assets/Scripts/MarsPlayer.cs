@@ -37,9 +37,14 @@ public class MarsPlayer : MonoBehaviour {
 
 	public bool bCopterEnabled;
 
+	public Light ligTorch;
+	public Light ligNotify;
+
 //	public OVRCameraRig camrig;
 //	public OVRCameraRig camrig_drone;
-	public bool bLockTracking;
+	//public bool bLockTracking;
+
+	public MarsMessageManager mngMessages;
 
 	void Start() {
 		towbar = gameObject.GetComponent<MarsTowbar>();
@@ -69,8 +74,20 @@ public class MarsPlayer : MonoBehaviour {
 //	}
 
 	void Update() {
+		if (Input.GetButtonDown("ToggleTorch")) {
+			ligTorch.gameObject.SetActive(!ligTorch.gameObject.activeInHierarchy);
+		}
+
+		if (ligTorch.gameObject.activeInHierarchy) {
+			fEnergyDrainTimer += Time.deltaTime;
+		}
+
+		if (mngMessages.iUnread > 0) {
+			//
+		}
+
 		//Rocks
-		txtRocks.text = "Rocks: " + iRocksCarried.ToString();
+		txtRocks.text = "Minerals: " + iRocksCarried.ToString();
 
 		//Bars
 		imgHealthBar.fillAmount = fHealth / fMaxHealth;
@@ -79,6 +96,7 @@ public class MarsPlayer : MonoBehaviour {
 		txtHealth.text = ((int)(imgHealthBar.fillAmount * 100)).ToString() + "%";
 		txtEnergy.text = ((int)(imgEnergyBar.fillAmount * 100)).ToString() + "%";
 
+		//Copter
 		if (Input.GetButtonDown("ToggleCopter") && goScoutDrone.transform.parent.gameObject.activeInHierarchy) {
 			bControllingScout = !bControllingScout;
 
@@ -98,6 +116,7 @@ public class MarsPlayer : MonoBehaviour {
 				//bLockTracking = false;
 			}
 		}
+
 		if (Input.GetAxis("Vertical") != 0) {
 			if (fEnergy > 0) {
 				fEnergyDrainTimer += Time.deltaTime;

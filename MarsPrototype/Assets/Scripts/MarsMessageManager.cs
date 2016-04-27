@@ -6,20 +6,16 @@ using System.Collections.Generic;
 public class MarsMessageManager : MonoBehaviour {
 
 	public List<MarsMessage> l_messages = new List<MarsMessage>();
-    public Image imMarsMessagesPanel;
-    public Text tTally;
-    public GameObject goMessage;
-    public Color colWhiteRegular;
-    private Color colBlackRegular = new Color(0, 0, 0, 255);
     public int iCurrentMessage = 0;
     private bool bIsPanelOpen;
-    private Vector3 vMessagePos;
-    private Vector3 vMessageSize;
-    private Color colTransparent = new Color(255, 255, 255, 0);
 
-    [Header("Add Goals here")]
-    public string sTitle;
-    public string sBody;
+	public GameObject goMessageScreen;
+	public Text txtHeader;
+	public Text txtFooter;
+	public Image imgAvatar;
+	public Text txtBody;
+
+	private MarsPlayerSettings mps;
 
     public int iUnread {
 		get {
@@ -40,161 +36,90 @@ public class MarsMessageManager : MonoBehaviour {
 	}
 
 	void Start() {
-        vMessagePos = goMessage.GetComponent<RectTransform>().position;
-        vMessageSize = goMessage.GetComponent<RectTransform>().localScale;
+		mps = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<MarsPlayerSettings>();
 
-		AddMessage("Main Objective", "Build all base structures");
-		AddMessage("Misc Objective", "Gather minerals from rocks");
+		AddMessage("Main Objective", "Build all base structures", "sponsor", true);
+		AddMessage("Misc Objective", "Gather minerals from rocks", "Mineral", true);
+	}
+
+	public void LoadMessageAvatar() {
+		if (l_messages.Count != 0) {
+			if (l_messages[iCurrentMessage].texAvatar != null) {
+				imgAvatar.sprite = Sprite.Create(l_messages[iCurrentMessage].texAvatar, 
+					new Rect(0, 0, l_messages[iCurrentMessage].texAvatar.width, 
+						l_messages[iCurrentMessage].texAvatar.height), 
+					imgAvatar.rectTransform.pivot);
+			}
+			else {
+				imgAvatar.sprite = null;
+				Debug.Log("There was no avatar for the current message. Intentional?");
+			}
+		}
+		else {
+			imgAvatar.sprite = null;
+		}
 	}
 
 	void Update() {
+    	if (Input.GetButtonDown("OpenMessages")) {
+			bIsPanelOpen = !bIsPanelOpen;
 
-        UpdateUI();
+			goMessageScreen.SetActive(bIsPanelOpen);
 
-        if (Input.GetButtonDown("OpenMessages"))
-        {
-            if(bIsPanelOpen)
-            {
-                imMarsMessagesPanel.color = colTransparent;
-                tTally.color = colTransparent;
-                bIsPanelOpen = false;
-                l_messages[iCurrentMessage].gameObject.SetActive(false);
-            }
-            else
-            {
-                imMarsMessagesPanel.color = colWhiteRegular;
-                tTally.color = colBlackRegular;
-                bIsPanelOpen = true;
-                l_messages[iCurrentMessage].gameObject.SetActive(true);
-                l_messages[iCurrentMessage].bRead = true;
+            if (bIsPanelOpen) {
+				LoadMessageAvatar();
+
+				if (l_messages.Count == 0) {
+					txtHeader.text = "No messages";
+					txtFooter.text = "0/0 (0 unread)";
+					txtBody.text = "You have no messages.";
+				}
             }
         }
 
-        if (l_messages.Count >= 1)
-        {
-			if (Input.GetButtonDown("NextMessage"))
-            {
-                if (iCurrentMessage == (l_messages.Count - 1))
-                {
-                    iCurrentMessage = 0;
-                    l_messages[(l_messages.Count - 1)].gameObject.SetActive(false);
-                }
-                else
-                {
-                    iCurrentMessage++;
-                    l_messages[(iCurrentMessage - 1)].gameObject.SetActive(false);
-                }
+		//Navigate
+		if (bIsPanelOpen) {
+			if (Input.GetButtonDown("NextMessage")) {
+				iCurrentMessage = Mathf.Clamp(iCurrentMessage + 1, 0, l_messages.Count - 1);
 
-                if (bIsPanelOpen)
-                {
-                    l_messages[iCurrentMessage].gameObject.SetActive(true);
-                    l_messages[iCurrentMessage].bRead = true;
-                }
-                else
-                {
-                    l_messages[iCurrentMessage].gameObject.SetActive(false);
-                }
-            }
+				LoadMessageAvatar();
+			}
 
-			if (Input.GetButtonDown("PrevMessage"))
-            {
-                if (iCurrentMessage == 0)
-                {
-                    iCurrentMessage = (l_messages.Count - 1);
-                    l_messages[0].gameObject.SetActive(false);
-                }
-                else
-                {
-                    iCurrentMessage--;
-                    l_messages[(iCurrentMessage + 1)].gameObject.SetActive(false);
-                }
+			if (Input.GetButtonDown("PrevMessage")) {
+				iCurrentMessage = Mathf.Clamp(iCurrentMessage - 1, 0, l_messages.Count - 1);
 
-                if (bIsPanelOpen)
-                {
-                    l_messages[iCurrentMessage].gameObject.SetActive(true);
-                    l_messages[iCurrentMessage].bRead = true;
-                }
-                else
-                {
-                    l_messages[iCurrentMessage].gameObject.SetActive(false);
-                }
-            }
-        }
+				LoadMessageAvatar();
+			}
+		}
 
-//        if (Input.GetKeyDown(KeyCode.I))
-//        {
-//            string TestTitle = "Misc Objective";
-//            string TestBody = "Drill into surface to draw out water";
-//            AddMessage(TestTitle, TestBody);
-//        }
-//
-//        if (Input.GetKeyDown(KeyCode.P))
-//        {
-//            string TestTitle = "Main Objective";
-//            string TestBody = "Find a suitable area to place your base";
-//            AddMessage(TestTitle, TestBody);
-//        }
-//
-//        if (Input.GetKeyDown(KeyCode.O))
-//        {
-//            string TestTitle = "Misc Objective";
-//            string TestBody = "Gather minerals from rocks";
-//            AddMessage(TestTitle, TestBody);
-//        }
+		//Render
+		if (bIsPanelOpen && l_messages.Count > 0) {
+			l_messages[iCurrentMessage].bRead = true;
+
+			txtHeader.text = l_messages[iCurrentMessage].sTitle;
+			txtFooter.text = (iCurrentMessage + 1).ToString() + "/" + (l_messages.Count).ToString() + "(" + iUnread.ToString() + " unread)";
+			txtBody.text = l_messages[iCurrentMessage].sBody;
+			if (l_messages[iCurrentMessage].iDayReceived >= 0) {
+				txtBody.text += "\n\nSent on Sol " + l_messages[iCurrentMessage].iDayReceived.ToString();
+			}
+		}
     }
 
-    public void AddMessageWithoutAddingToList()
-    {
-        MarsMessage newMessage = Instantiate(goMessage.GetComponent<MarsMessage>()) as MarsMessage;
-        newMessage.GetComponent<RectTransform>().SetParent(GameObject.Find("MessagesPanel").transform);
-        newMessage.GetComponent<RectTransform>().localPosition = vMessagePos;
-        newMessage.GetComponent<RectTransform>().rotation = new Quaternion(0, 0, 0, 0);
-        newMessage.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
-        newMessage.tTitle.text = sTitle;
-        newMessage.tBody.text = sBody;
+	public void AddMessage(string sTitle, string sBody, string avatar = "", bool preread = false) {
+		MarsMessage newMessage = new MarsMessage();
+        newMessage.sTitle = sTitle;
+        newMessage.sBody = sBody;
+		if (avatar != "") {
+			if (avatar == "sponsor") {
+				newMessage.texAvatar = mps.texSponsorAvatar;
+			}
+			else {
+				newMessage.LoadAvatar(avatar);
+			}
+		}
+		newMessage.iDayReceived = GameObject.FindGameObjectWithTag("DayNight").GetComponent<DayNightCycle>().iDayCount;
+		newMessage.bRead = preread;
 
-        if (bIsPanelOpen && l_messages.Count == 1)
-        {
-            newMessage.gameObject.SetActive(true);
-        }
-        else
-        {
-            newMessage.gameObject.SetActive(false);
-        }
-
-        sTitle = "";
-        sBody = "";
-    }
-
-    void AddMessage(string sTitle, string sBody) {
-        MarsMessage newMessage = Instantiate(goMessage.GetComponent<MarsMessage>()) as MarsMessage;
-        newMessage.GetComponent<RectTransform>().SetParent(GameObject.Find("MessagesPanel").transform);
-        newMessage.GetComponent<RectTransform>().localPosition = vMessagePos;
-        newMessage.GetComponent<RectTransform>().rotation = new Quaternion (0, 0, 0, 0);
-        newMessage.GetComponent<RectTransform>().localScale = vMessageSize;
-        newMessage.tTitle.text = sTitle;
-        newMessage.tBody.text = sBody;
         l_messages.Add(newMessage);
-
-        if(bIsPanelOpen && l_messages.Count == 1)
-        {
-            newMessage.gameObject.SetActive(true);
-        }
-        else
-        {
-            newMessage.gameObject.SetActive(false);
-        }
-    }
-
-    void UpdateUI()
-    {
-        if(l_messages.Count == 0)
-        {
-            tTally.text = "" + (iCurrentMessage) + "/" + (l_messages.Count);
-        }
-        else
-        {
-            tTally.text = "" + (iCurrentMessage + 1) + "/" + (l_messages.Count);
-        }
     }
 }

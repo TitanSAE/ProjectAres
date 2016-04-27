@@ -80,6 +80,7 @@
      <Compile Include="Assets\Magnetodynamics\ObjectsToPlaceInYourScene\_ScriptsThatMakeThemWork\SuperconductorSmallSphereScript.cs" />
      <Compile Include="Assets\Magnetodynamics\ScriptsToEnhanceExistingObjects\MagnetizableMaterial.cs" />
      <Compile Include="Assets\Magnetodynamics\ScriptsToEnhanceExistingObjects\PlasmaIonizedGas.cs" />
+     <Compile Include="Assets\MessageAlerter.cs" />
      <Compile Include="Assets\Meteor Storm Effects\Scripts\LockRotation.cs" />
      <Compile Include="Assets\Meteor Storm Effects\Scripts\MeteorCrashSound.cs" />
      <Compile Include="Assets\Meteor Storm Effects\Standard Assets\Character Controllers\Sources\Scripts\MouseLook.cs" />

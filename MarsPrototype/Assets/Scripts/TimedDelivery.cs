@@ -5,26 +5,55 @@ public class TimedDelivery : MonoBehaviour {
 
 	public MarsDeliveryManager mngDelivery;
 
-	public float fCounter;
+	//public float fCounter;
 	public float fDeliveryTime = 30.0f;
 
 	public bool bActive;
 	int count = 0;
+
+	private MarsMessageManager mngMessages;
+
+	public float fCountdown;
+	public GAME_QUESTS eMission = GAME_QUESTS.INITIAL_PACKAGE;
+
 	void Start() {
-	
+		mngMessages = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<MarsMessageManager>();
+
+		fCountdown = 6.0f;
 	}
 
 	void Update() {
-		if (mngDelivery.st_ePackages.Count > 0) {
-			fCounter += Time.deltaTime;
-		}
-		if (count < 6) {
-			if (fCounter >= fDeliveryTime) {
-				fCounter = 0;
-				GameObject.Find ("SceneManager").GetComponent<GameManager> ().PackageParticle.Clear ();
-				GameObject.Find ("SceneManager").GetComponent<GameManager> ().PackageParticle.Play ();
-				count += 1;
+		if (fCountdown > 0) {
+			fCountdown -= Time.deltaTime;
+
+			if (fCountdown <= 0) {
+				int mis = (int)eMission;
+				mis++;
+				eMission = (GAME_QUESTS)mis;
+
+				if (eMission == GAME_QUESTS.INITIAL_PACKAGE) {
+					mngMessages.AddMessage("Delivery Notification", "We've sent some building supplies to start you off. Have a look around for them!", "sponsor");
+					fCountdown = 60.0f;
+				}
+				else if (eMission == GAME_QUESTS.PACKAGE_2) {
+					mngMessages.AddMessage("Delivery Notification", "We've sent some more building supplies. Hopefully they land nearby!", "sponsor");
+				}
+				else {
+					//
+				}
 			}
 		}
+
+//		if (mngDelivery.st_ePackages.Count > 0) {
+//			fCounter += Time.deltaTime;
+//		}
+//		if (count < 6) {
+//			if (fCounter >= fDeliveryTime) {
+//				fCounter = 0;
+//				GameObject.Find ("SceneManager").GetComponent<GameManager> ().PackageParticle.Clear ();
+//				GameObject.Find ("SceneManager").GetComponent<GameManager> ().PackageParticle.Play ();
+//				count += 1;
+//			}
+//		}
 	}
 }
