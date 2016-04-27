@@ -38,7 +38,7 @@ public class MarsMessageManager : MonoBehaviour {
 	void Start() {
 		mps = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<MarsPlayerSettings>();
 
-		AddMessage("Main Objective", "Build all base structures", "sponsor", true);
+		AddMessage("Main Objective", "Build all base structures", "Mineral", true);
 		AddMessage("Misc Objective", "Gather minerals from rocks", "Mineral", true);
 	}
 
