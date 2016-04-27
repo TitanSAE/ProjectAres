@@ -84,7 +84,7 @@ public class MarsPlayer : MonoBehaviour {
 		txtHealth.text = ((int)(imgHealthBar.fillAmount * 100)).ToString() + "%";
 		txtEnergy.text = ((int)(imgEnergyBar.fillAmount * 100)).ToString() + "%";
 
-		if (Input.GetButtonDown("ToggleCopter")) {
+		if (Input.GetButtonDown("ToggleCopter") && goScoutDrone.transform.parent.gameObject.activeInHierarchy) {
 			bControllingScout = !bControllingScout;
 
 			if (bControllingScout) {
