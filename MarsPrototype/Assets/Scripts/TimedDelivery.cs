@@ -26,6 +26,14 @@ public class TimedDelivery : MonoBehaviour {
 		GameObject.Find("SceneManager").GetComponent<GameManager>().PackageParticle.Clear();
 		GameObject.Find("SceneManager").GetComponent<GameManager>().PackageParticle.Play();
 	}
+	public void SendPackage1() {
+		GameObject.Find("SceneManager").GetComponent<GameManager>().PackageParticle1.Clear();
+		GameObject.Find("SceneManager").GetComponent<GameManager>().PackageParticle1.Play();
+	}
+	public void SendPackage2() {
+		GameObject.Find("SceneManager").GetComponent<GameManager>().PackageParticle2.Clear();
+		GameObject.Find("SceneManager").GetComponent<GameManager>().PackageParticle2.Play();
+	}
 
 	void Update() {
 		if (fCountdown > 0) {
@@ -46,13 +54,13 @@ public class TimedDelivery : MonoBehaviour {
 					mngMessages.AddMessage("Delivery Notification", "We've sent some more building supplies. Hopefully they land nearby!", "sponsor");
 					fCountdown = 60.0f;
 
-					SendPackage();
+					SendPackage1();
 				}
 				else if (eMission == GAME_QUESTS.PACKAGE_3) {
 					mngMessages.AddMessage("Delivery Notification", "We've sent some more building supplies. Hopefully they land nearby!", "sponsor");
 					fCountdown = 120.0f;
 
-					SendPackage();
+					SendPackage2();
 				}
 				else if (eMission == GAME_QUESTS.PACKAGE_4) {
 					mngMessages.AddMessage("Delivery Notification", "We've sent some more building supplies. Hopefully they land nearby!", "sponsor");
@@ -64,13 +72,13 @@ public class TimedDelivery : MonoBehaviour {
 					mngMessages.AddMessage("Delivery Notification", "We've sent some more building supplies. Hopefully they land nearby!", "sponsor");
 					fCountdown = 300.0f;
 
-					SendPackage();
+					SendPackage1();
 				}
 				else if (eMission == GAME_QUESTS.PACKAGE_6) {
 					mngMessages.AddMessage("Delivery Notification", "We've sent some more building supplies. Hopefully they land nearby!", "sponsor");
 					fCountdown = 300.0f;
 
-					SendPackage();
+					SendPackage2();
 				}
 				else {
 					//
