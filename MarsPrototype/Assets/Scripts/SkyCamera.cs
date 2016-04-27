@@ -7,6 +7,7 @@ public class SkyCamera : MonoBehaviour {
 	private bool bSpinToFace = true;
     public LayerMask WorldMapMask;
     public LayerMask TopographicalMapMask;
+    public Shader TopographicalShader;
     private Camera camSelf;
 
 	void Start() {
@@ -24,6 +25,7 @@ public class SkyCamera : MonoBehaviour {
         if (Input.GetButtonDown("MapTopo"))
         {
             camSelf.cullingMask = TopographicalMapMask;
+            camSelf.RenderWithShader(TopographicalShader, "Topographical");
         }
 
         if (bSpinToFace) {
