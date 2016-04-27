@@ -1,15 +1,16 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\MarsPlayer.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\TimedDelivery.cs">
     <Files>
-      <File FileName="Assets\Scripts\NaturalResourceSpawner.cs" Line="1" Column="1" />
-      <File FileName="Assets\ObjectiveMarker.cs" Line="1" Column="1" />
-      <File FileName="Assets\WorldCanvasFaceUp.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\MarsDelivery.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Kacey Scripts\BuildingPad.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\MarsPlayer.cs" Line="82" Column="87" />
-      <File FileName="Assets\Scripts\RoverController.cs" Line="142" Column="58" />
-      <File FileName="Assets\Scripts\UI\UIListItem.cs" Line="53" Column="24" />
+      <File FileName="Assets\Scripts\MarsPlayer.cs" Line="91" Column="3" />
+      <File FileName="Assets\Scripts\MarsMessageManager.cs" Line="103" Column="26" />
+      <File FileName="Assets\Scripts\MarsMessage.cs" Line="31" Column="4" />
+      <File FileName="Assets\MessageAlerter.cs" Line="11" Column="33" />
+      <File FileName="Assets\WorldCanvasFaceUp.cs" Line="16" Column="1" />
+      <File FileName="Assets\Scripts\TimedDelivery.cs" Line="39" Column="11" />
+      <File FileName="Assets\Scripts\NaturalResourceSpawner.cs" Line="23" Column="19" />
+      <File FileName="Assets\Scripts\MarsPlayerSettings.cs" Line="156" Column="25" />
+      <File FileName="Assets\Scripts\GameEnums.cs" Line="103" Column="11" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
