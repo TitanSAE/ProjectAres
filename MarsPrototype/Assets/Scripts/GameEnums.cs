@@ -98,3 +98,13 @@ public enum HelicopterMovement {
 	ForwardThruster,
 	BackwardsThruster,
 }
+
+public enum GAME_QUESTS {
+	NONE = 0,
+	INITIAL_PACKAGE,
+	PACKAGE_2,
+	PACKAGE_3,
+	PACKAGE_4,
+	PACKAGE_5,
+	PACKAGE_6
+}

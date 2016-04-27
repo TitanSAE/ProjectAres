@@ -17,7 +17,7 @@ public class MarsPlayerSettings : MonoBehaviour {
 	private float fMaxHealth;
 	private float fMaxEnergy;
 
-	private Texture2D texSponsorAvatar;
+	public Texture2D texSponsorAvatar;
 
 	private RoverController player;
 

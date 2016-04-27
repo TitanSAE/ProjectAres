@@ -31,15 +31,30 @@ public class MarsPlayer : MonoBehaviour {
 	public bool bControllingScout;
 	public GameObject goRoverCam;
 	public GameObject goScoutDrone;
+	public GameObject goClock;
+
+	public Canvas cnvPlyMarker;
 
 	public int iRocksCarried;
 	public Text txtRocks;
 
 	public bool bCopterEnabled;
 
+	public Light ligTorch;
+	public Light ligNotify;
+
+	public SkyCamera data_skycam;
+
 //	public OVRCameraRig camrig;
 //	public OVRCameraRig camrig_drone;
-	public bool bLockTracking;
+	//public bool bLockTracking;
+
+	public MarsMessageManager mngMessages;
+
+	public void Repair(){
+		fEnergy = fMaxEnergy;
+		fHealth = fMaxHealth;
+	}
 
 	void Start() {
 		towbar = gameObject.GetComponent<MarsTowbar>();
@@ -69,8 +84,20 @@ public class MarsPlayer : MonoBehaviour {
 //	}
 
 	void Update() {
+		if (Input.GetButtonDown("ToggleTorch")) {
+			ligTorch.gameObject.SetActive(!ligTorch.gameObject.activeInHierarchy);
+		}
+
+		if (ligTorch.gameObject.activeInHierarchy) {
+			fEnergyDrainTimer += Time.deltaTime;
+		}
+
+		if (mngMessages.iUnread > 0) {
+			//
+		}
+
 		//Rocks
-		txtRocks.text = "Rocks: " + iRocksCarried.ToString();
+		txtRocks.text = "Minerals: " + iRocksCarried.ToString();
 
 		//Bars
 		imgHealthBar.fillAmount = fHealth / fMaxHealth;
@@ -79,6 +106,7 @@ public class MarsPlayer : MonoBehaviour {
 		txtHealth.text = ((int)(imgHealthBar.fillAmount * 100)).ToString() + "%";
 		txtEnergy.text = ((int)(imgEnergyBar.fillAmount * 100)).ToString() + "%";
 
+		//Copter
 		if (Input.GetButtonDown("ToggleCopter") && goScoutDrone.transform.parent.gameObject.activeInHierarchy) {
 			bControllingScout = !bControllingScout;
 
@@ -98,6 +126,7 @@ public class MarsPlayer : MonoBehaviour {
 				//bLockTracking = false;
 			}
 		}
+
 		if (Input.GetAxis("Vertical") != 0) {
 			if (fEnergy > 0) {
 				fEnergyDrainTimer += Time.deltaTime;
@@ -131,16 +160,27 @@ public class MarsPlayer : MonoBehaviour {
 			}
 
 			if (bFullScreenMap) {
-				camSky.fieldOfView = 90;
+				camSky.fieldOfView = 55;
 				tMap.gameObject.SetActive(false);
 				tMaxMap.gameObject.SetActive(true);
 				txtRocks.gameObject.SetActive(false);
+				goClock.SetActive(false);
+				mngMessages.bIsPanelOpen = false;
+				data_skycam.fHoverHeight = 896.0f;
+				data_skycam.bSpinToFace = false;
+				data_skycam.bLockToCentre = true;
+				cnvPlyMarker.gameObject.transform.localScale = new Vector3(0.1f, 0.0425f, 0);
 			}
 			else {
 				camSky.fieldOfView = 30;
 				tMap.gameObject.SetActive(true);
 				tMaxMap.gameObject.SetActive(false);
 				txtRocks.gameObject.SetActive(true);
+				goClock.SetActive(true);
+				data_skycam.fHoverHeight = 72.1f;
+				data_skycam.bSpinToFace = true;
+				data_skycam.bLockToCentre = false;
+				cnvPlyMarker.gameObject.transform.localScale = new Vector3(0.023f, 0.0094f, 0);
 			}
 		}
 	}

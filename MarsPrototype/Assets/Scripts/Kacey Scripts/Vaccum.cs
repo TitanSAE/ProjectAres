@@ -33,7 +33,7 @@ public class Vaccum : MonoBehaviour {
 			VacuumItems();
 		}
 
-		transform.position = new Vector3(Mathf.PingPong(Time.time * 10, 20)-10, transform.position.y, Mathf.PingPong(Time.time, 20)-10);
+	//	transform.position = new Vector3(Mathf.PingPong(Time.time * 10, 20)-10, transform.position.y, Mathf.PingPong(Time.time, 20)-10);
 	}
 	void VacuumItems(){
 		foreach(GameObject pulledObject in ItemsToVacuum){

@@ -2,19 +2,33 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class MarsMessage : MonoBehaviour {
+public class MarsMessage {
 
-    public Text tTitle;
-	public Text tBody;
+    public string sTitle;
+	public string sBody;
 	public bool bRead;
+	public bool bCompleted;
 
-	//public MarsEvent eventOnOpen;
+	public Texture2D texAvatar;
 
-	void Start() {
-	
-	}
+	public int iDayReceived;
 
-	void Update() {
-	
+	public GameObject goQuestObject;
+	public float fProximityToFinish = 5.0f;
+
+//	void Start() {
+//	
+//	}
+//
+//	void Update() {
+//	
+//	}
+
+	public void LoadAvatar(string name) {
+		texAvatar = Resources.Load<Texture2D>("Sponsors/Images/" + name);
+		if (texAvatar == null) {
+			Debug.LogError(sTitle + " loaded a null image!");
+		}
+		//Debug.Log("Loaded " + texAvatar.name);
 	}
 }

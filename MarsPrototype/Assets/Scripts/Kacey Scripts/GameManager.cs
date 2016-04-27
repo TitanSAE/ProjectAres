@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour {
 	public GameObject largePanel;
 
 	public ParticleSystem PackageParticle;
+	public ParticleSystem PackageParticle1;
+	public ParticleSystem PackageParticle2;
 
 	public GameObject NavMarker;
 
@@ -28,7 +30,7 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+		
 	}
 
 	GameObject GetClosestEnemy(GameObject[] enemies)
