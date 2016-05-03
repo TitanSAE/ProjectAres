@@ -5,12 +5,10 @@ using System.Collections;
 public class MarsPlayer : MonoBehaviour {
 
 	public float fHealth = 100;
-	[SerializeField]
-	private float fMaxHealth = 100;
+	public float fMaxHealth = 100;
 
 	public float fEnergy = 100;
-	[SerializeField]
-	private float fMaxEnergy = 100;
+	public float fMaxEnergy = 100;
 
 	public Image imgHealthBar;
 	public Image imgEnergyBar;
