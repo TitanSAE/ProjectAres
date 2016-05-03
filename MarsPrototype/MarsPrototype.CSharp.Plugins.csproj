@@ -184,6 +184,7 @@
     <None Include="Assets\Shaders\Particle Alpha Blend-AfterTrans.shader" />
     <None Include="Assets\Shaders\Particle-Alpha-Premultiply-AfterTrans.shader" />
     <None Include="Assets\Shaders\SphereShader.shader" />
+    <None Include="Assets\Shaders\TestShader.shader" />
     <None Include="Assets\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\BlendModesOverlay.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\BlurEffectConeTaps.shader" />

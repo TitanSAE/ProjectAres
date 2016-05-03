@@ -7,9 +7,9 @@
 	_HeightMin("Height Min", Float) = -1
 		_HeightMax("Height Max", Float) = 1
 
-		_ColorOne("Tint Color At Band 1", Color) = (0,0,0,1)
-		_ColorTwo("Tint Color At Band 2", Color) = (1,1,1,1)
-		_ColorThree("Tint Color At Band 3", Color) = (0,0,0,1)
+		_ColorOne("Tint Color At Band 1", Color) = (1,0,0,1)
+		_ColorTwo("Tint Color At Band 2", Color) = (1,0,0,1)
+		_ColorThree("Tint Color At Band 3", Color) = (1,1,1,1)
 		_ColorFour("Tint Color At Band 4", Color) = (1,1,1,1)
 	}
 
@@ -37,6 +37,7 @@
 	{
 		float2 uv_MainTex;
 		float3 worldPos;
+		float3 localPos;
 	};
 
 	void surf(Input IN, inout SurfaceOutput o)

@@ -28,12 +28,13 @@ public class SkyCamera : MonoBehaviour {
         if (Input.GetButtonDown("MapRegular"))
         {
             camSelf.cullingMask = WorldMapMask;
+            camSelf.ResetReplacementShader();
         }
 
         if (Input.GetButtonDown("MapTopo"))
         {
             camSelf.cullingMask = TopographicalMapMask;
-            camSelf.RenderWithShader(TopographicalShader, "Topographical");
+            camSelf.SetReplacementShader(TopographicalShader, "Opaque");
         }
 
         if (bSpinToFace) {
