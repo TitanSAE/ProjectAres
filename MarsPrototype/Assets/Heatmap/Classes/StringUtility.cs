@@ -35,7 +35,7 @@ public class StringUtility : MonoBehaviour {
 	{
 #if !UNITY_WEBPLAYER
 		string str = StringUtility.StringWithVector3Array(pos);
-		System.IO.File.WriteAllText(path, str);	
+		System.IO.File.AppendAllText(path, str);	
 #endif
 	}
 

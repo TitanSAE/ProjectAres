@@ -1,16 +1,8 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\TimedDelivery.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Heatmap\Scripts\Tracker.cs">
     <Files>
-      <File FileName="Assets\Scripts\MarsPlayer.cs" Line="91" Column="3" />
-      <File FileName="Assets\Scripts\MarsMessageManager.cs" Line="103" Column="26" />
-      <File FileName="Assets\Scripts\MarsMessage.cs" Line="31" Column="4" />
-      <File FileName="Assets\MessageAlerter.cs" Line="11" Column="33" />
-      <File FileName="Assets\WorldCanvasFaceUp.cs" Line="16" Column="1" />
-      <File FileName="Assets\Scripts\TimedDelivery.cs" Line="39" Column="11" />
-      <File FileName="Assets\Scripts\NaturalResourceSpawner.cs" Line="23" Column="19" />
-      <File FileName="Assets\Scripts\MarsPlayerSettings.cs" Line="156" Column="25" />
-      <File FileName="Assets\Scripts\GameEnums.cs" Line="103" Column="11" />
+      <File FileName="Assets\Heatmap\Scripts\Tracker.cs" Line="28" Column="15" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
