@@ -1,16 +1,12 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\TimedDelivery.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\RoverController.cs">
     <Files>
-      <File FileName="Assets\Scripts\MarsPlayer.cs" Line="91" Column="3" />
-      <File FileName="Assets\Scripts\MarsMessageManager.cs" Line="103" Column="26" />
-      <File FileName="Assets\Scripts\MarsMessage.cs" Line="31" Column="4" />
-      <File FileName="Assets\MessageAlerter.cs" Line="11" Column="33" />
-      <File FileName="Assets\WorldCanvasFaceUp.cs" Line="16" Column="1" />
-      <File FileName="Assets\Scripts\TimedDelivery.cs" Line="39" Column="11" />
-      <File FileName="Assets\Scripts\NaturalResourceSpawner.cs" Line="23" Column="19" />
-      <File FileName="Assets\Scripts\MarsPlayerSettings.cs" Line="156" Column="25" />
-      <File FileName="Assets\Scripts\GameEnums.cs" Line="103" Column="11" />
+      <File FileName="Assets\Scripts\MarsPlayer.cs" Line="183" Column="38" />
+      <File FileName="Assets\Scripts\SkyCamera.cs" Line="24" Column="64" />
+      <File FileName="Assets\OculusStopMouse.cs" Line="8" Column="3" />
+      <File FileName="Assets\OculusMoveBack.cs" Line="9" Column="55" />
+      <File FileName="Assets\Scripts\RoverController.cs" Line="191" Column="74" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
