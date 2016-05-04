@@ -249,6 +249,7 @@
      <Compile Include="Assets\Scripts\UI\Debug_Clickable.cs" />
      <Compile Include="Assets\Scripts\UI\SponsorUI.cs" />
      <Compile Include="Assets\Scripts\UI\UIContentSpawner.cs" />
+     <Compile Include="Assets\Scripts\UI\UIFollowObject.cs" />
      <Compile Include="Assets\Scripts\UI\UIListItem.cs" />
      <Compile Include="Assets\Scripts\UI\UISceneManager.cs" />
      <Compile Include="Assets\Scripts\UI\UIStickToTarget.cs" />
