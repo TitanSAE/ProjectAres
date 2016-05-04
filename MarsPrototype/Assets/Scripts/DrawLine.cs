@@ -17,32 +17,40 @@ public class DrawLine : MonoBehaviour {
 
 	Vector3[] points;
 	public TextAsset presetCoordinatesFile;
-
 	void Start()
 	{
-
-		lineRenderer = gameObject.GetComponent<LineRenderer>();
+		
 
 		Vector3[] positionArray = StringUtility.Vector3ArrayWithFile(presetCoordinatesFile);
+		points = positionArray;
+//
 
-		points = MakeSmoothCurve(positionArray,3.0f);
-
-		lineRenderer.SetColors (lineColor, lineColor);
-		lineRenderer.SetWidth(0.5f,0.5f);
-		lineRenderer.SetVertexCount(points.Length);
 		int counter = 0;
 
 
+			foreach (Vector3 i in points) {
 
-		foreach(Vector3 i in points){
-			Vector3 pos = i;
-			pos.y = Terrain.activeTerrain.SampleHeight(i);
+				Vector3 pos = i;
+				pos.y = Terrain.activeTerrain.SampleHeight (i);
 
-			lineRenderer.SetPosition(counter,i + new Vector3(0,pos.y,0));
+				Material newMaterial = new Material(Shader.Find("Oculus/Unlit Transparent Color"));
+				
+				newMaterial.color = Heatmap.colorizedArray[counter] ;
+				cube.GetComponent<Renderer> ().material = newMaterial;
+				Instantiate(cube, i+ new Vector3(0,pos.y - 2.5f,0), Quaternion.identity);
+				++counter;
+			}
+		Debug.Log ("first");
+//				
+			
+	}
 
-			Instantiate(cube, i+ new Vector3(0,pos.y,0), Quaternion.identity);
-			++counter;
-		}
+
+
+	IEnumerator Spawn3DHeatmap(float waitTime) {
+		
+		yield return new WaitForSeconds(waitTime);
+		print("WaitAndPrint " + Time.time);
 	}
 
 
