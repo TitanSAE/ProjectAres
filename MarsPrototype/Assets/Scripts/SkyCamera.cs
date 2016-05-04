@@ -10,14 +10,24 @@ public class SkyCamera : MonoBehaviour {
     public LayerMask TopographicalMapMask;
     public Shader TopographicalShader;
     private Camera camSelf;
+	public Shader skycamshader;
 
 	public float fHoverHeight = 72.1f;
+	private float fLastShadowDist;
+
+	public Light sun;
+	public Light seeall;
 
 	void Start() {
         camSelf = GetComponent<Camera>();
+		//camSelf.SetReplacementShader(skycamshader, "RenderType");
 	}
 
 	void Update() {
+		if (Input.GetKeyDown(KeyCode.F12)) {
+			camSelf.SetReplacementShader(skycamshader, "RenderType");
+		}
+
 		if (!bLockToCentre) {
 			this.transform.position = new Vector3(target.position.x, fHoverHeight, target.position.z);
 		}
@@ -47,4 +57,25 @@ public class SkyCamera : MonoBehaviour {
 			this.transform.rotation = Quaternion.Euler(new Vector3(90, 0, 0));
 		}
 	}
+
+	void OnPreCull() {
+		sun.enabled = false;
+		seeall.enabled = true;
+	}
+
+	void OnPreRender() {
+		sun.enabled = false;
+		seeall.enabled = true;
+
+		//fLastShadowDist = QualitySettings.shadowDistance;
+		//QualitySettings.shadowDistance = 0;
+	}
+
+	void OnPostRender() {
+		sun.enabled = true;
+		seeall.enabled = false;
+
+		//QualitySettings.shadowDistance = fLastShadowDist;
+	}
+
 }

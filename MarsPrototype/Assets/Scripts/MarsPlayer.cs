@@ -5,12 +5,10 @@ using System.Collections;
 public class MarsPlayer : MonoBehaviour {
 
 	public float fHealth = 100;
-	[SerializeField]
-	private float fMaxHealth = 100;
+	public float fMaxHealth = 100;
 
 	public float fEnergy = 100;
-	[SerializeField]
-	private float fMaxEnergy = 100;
+	public float fMaxEnergy = 100;
 
 	public Image imgHealthBar;
 	public Image imgEnergyBar;
@@ -155,8 +153,12 @@ public class MarsPlayer : MonoBehaviour {
 		}
 		else {
 			//Map
-			if (Input.GetButtonDown("ToggleMapSize")) {
+			if (Input.GetButtonDown("ToggleMapSize") && !mngMessages.bIsPanelOpen) {
 				bFullScreenMap = !bFullScreenMap;
+			}
+
+			if (mngMessages.bIsPanelOpen) {
+				bFullScreenMap = false;
 			}
 
 			if (bFullScreenMap) {
@@ -185,5 +187,18 @@ public class MarsPlayer : MonoBehaviour {
 		}
 	}
 
+	//Find the first non-virtual (fake) joystick/gamepad
+	public bool IsJoystickConnected() {
+		bool joy = false;
 
+		if (Input.GetJoystickNames().Length != 0) {
+			for (int i = 0; i < Input.GetJoystickNames().Length; i++) {
+				if (!Input.GetJoystickNames()[i].ToUpper().Contains("VIRTUAL") && Input.GetJoystickNames()[i].Length > 3) {
+					joy = true;
+				}
+			}
+		}
+
+		return joy;
+	}
 }

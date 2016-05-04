@@ -17,6 +17,20 @@ public class MarsMessageManager : MonoBehaviour {
 
 	private MarsPlayerSettings mps;
 
+	[Header("Trigger Targets")]
+	public MarsPlayer ply;
+
+	[Header("Triggers")]
+	public bool bFirstAdvice;
+	public bool bFirstPackageFind;
+	public bool bFirstLowEnergy;
+	public bool bFirstMineral;
+	public bool bFirstWater;
+	public bool bFirstLowHealth;
+	public bool bFirstMessage;
+	public bool bFirstBuilt;
+	public bool bFirstPackageCollect;
+
     public int iUnread {
 		get {
 			if (l_messages.Count == 0) {
@@ -35,11 +49,50 @@ public class MarsMessageManager : MonoBehaviour {
 		}
 	}
 
+	private void PollMessages() {
+		//Initial How-to-play help
+		if (!bFirstAdvice && Time.timeSinceLevelLoad > 5) {
+			bFirstAdvice = true;
+			if (ply.IsJoystickConnected()) {
+				AddMessage("Information", "Use the left stick to control the rover. " +
+					"Press the left stick to toggle your torch. " +
+					"Press A to toggle the map size. " +
+					"Press B to open and close this message panel.", "Info");
+			}
+			else {
+				AddMessage("Information", "Use the WASD keys to control the rover. " +
+					"Press the F key to toggle your torch. " + 
+					"Press the M key to toggle the map size. " +
+					"Press the O key to open and close this message panel.", "Info");
+			}
+			bIsPanelOpen = true;
+			goMessageScreen.SetActive(bIsPanelOpen);
+			LoadMessageAvatar();
+		}
+
+		//Low energy
+		if (!bFirstLowEnergy && ply.fEnergy < (ply.fMaxEnergy * 0.75f)) {
+			bFirstLowEnergy = true;
+			AddMessage("Information", "Your energy appears to be running out. Energy is used to move, especially climbing hills." +
+				"It is recharged back at the recharge pad at home base. If it runs out, your rover will be stranded.", "Info");
+		}
+
+		//Low health
+		if (!bFirstLowHealth && ply.fHealth < (ply.fMaxHealth * 0.75f)) {
+			bFirstLowHealth = true;
+			AddMessage("Information", "Your chassis integrity appears to be running out. As it becomes damaged, it will become harder to climb hills and go fast" +
+				"It is repaired back at the recharge pad at home base. If it runs out, your rover will be stranded.", "Info");
+		}
+	}
+
 	void Start() {
 		mps = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<MarsPlayerSettings>();
+		ply = GameObject.FindGameObjectWithTag("Player").GetComponent<MarsPlayer>();
 
-		AddMessage("Main Objective", "Build all base structures", "Mineral", true);
-		AddMessage("Misc Objective", "Gather minerals from rocks", "Mineral", true);
+
+		AddMessage("Misc Objective", "Gather minerals from certain rocks to further production.", "Mineral", true);
+		AddMessage("Misc Objective", "Gather water from excavation sites for future colonists.", "Water", true);
+		AddMessage("Main Objective", "Build all base structures so that future astronauts can colonise Mars.", "Trophy", true);
 	}
 
 	public void LoadMessageAvatar() {
@@ -61,6 +114,8 @@ public class MarsMessageManager : MonoBehaviour {
 	}
 
 	void Update() {
+		PollMessages();
+
     	if (Input.GetButtonDown("OpenMessages")) {
 			bIsPanelOpen = !bIsPanelOpen;
 
@@ -105,7 +160,7 @@ public class MarsMessageManager : MonoBehaviour {
 		}
     }
 
-	public void AddMessage(string sTitle, string sBody, string avatar = "", bool preread = false) {
+	public void AddMessage(string sTitle, string sBody, string avatar = "Info", bool preread = false) {
 		MarsMessage newMessage = new MarsMessage();
         newMessage.sTitle = sTitle;
         newMessage.sBody = sBody;
@@ -118,8 +173,16 @@ public class MarsMessageManager : MonoBehaviour {
 			}
 		}
 		newMessage.iDayReceived = GameObject.FindGameObjectWithTag("DayNight").GetComponent<DayNightCycle>().iDayCount;
+		if (newMessage.iDayReceived == 0) {
+			newMessage.iDayReceived = 1;
+		}
 		newMessage.bRead = preread;
 
-        l_messages.Add(newMessage);
+		List<MarsMessage> bup = new List<MarsMessage>();
+		bup.AddRange(l_messages);
+		l_messages.Clear();
+		l_messages.Add(newMessage);
+		l_messages.AddRange(bup);
+        //l_messages.Add(newMessage);
     }
 }

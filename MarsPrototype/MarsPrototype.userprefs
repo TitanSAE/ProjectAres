@@ -1,12 +1,23 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\RoverController.cs">
+<<<<<<< HEAD
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\DrawLine.cs">
     <Files>
-      <File FileName="Assets\Scripts\MarsPlayer.cs" Line="183" Column="38" />
-      <File FileName="Assets\Scripts\SkyCamera.cs" Line="24" Column="64" />
-      <File FileName="Assets\OculusStopMouse.cs" Line="8" Column="3" />
-      <File FileName="Assets\OculusMoveBack.cs" Line="9" Column="55" />
-      <File FileName="Assets\Scripts\RoverController.cs" Line="191" Column="74" />
+      <File FileName="Assets\Scripts\DrawCircle.cs" Line="17" Column="56" />
+      <File FileName="Assets\Heatmap\Classes\StringUtility.cs" Line="1" Column="1" />
+      <File FileName="Assets\Heatmap\Scripts\Tracker.cs" Line="1" Column="1" />
+      <File FileName="Assets\Heatmap\Classes\Heatmap.cs" Line="104" Column="5" />
+      <File FileName="Assets\Scripts\DrawLine.cs" Line="36" Column="3" />
+      <File FileName="Assets\Heatmap\Scripts\3DHeatmap.cs" Line="7" Column="17" />
+=======
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\MarsMessageManager.cs">
+    <Files>
+      <File FileName="Assets\Scripts\RoverController.cs" Line="152" Column="3" />
+      <File FileName="Assets\Scripts\WheelManager.cs" Line="176" Column="1" />
+      <File FileName="Assets\UIButtonSwitcher.cs" Line="11" Column="33" />
+      <File FileName="Assets\Scripts\MarsMessageManager.cs" Line="70" Column="103" />
+      <File FileName="Assets\Scripts\MarsPlayer.cs" Line="10" Column="29" />
+>>>>>>> 060f70a6e2c62bee854f9535e47d5d6d416bf5df
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
