@@ -53,6 +53,7 @@
      <Compile Include="Assets\Flow\Flow3D.cs" />
      <Compile Include="Assets\Heatmap\Classes\Heatmap.cs" />
      <Compile Include="Assets\Heatmap\Classes\StringUtility.cs" />
+     <Compile Include="Assets\Heatmap\Scripts\3DHeatmap.cs" />
      <Compile Include="Assets\Heatmap\Scripts\HeatMap.cs" />
      <Compile Include="Assets\Heatmap\Scripts\Tracker.cs" />
      <Compile Include="Assets\InstantGui\Scripts\Elements\InstantGuiButton.cs" />
@@ -155,6 +156,7 @@
      <Compile Include="Assets\Scripts\DayNight\SetSunLight.cs" />
      <Compile Include="Assets\Scripts\DefunctStats.cs" />
      <Compile Include="Assets\Scripts\DrawCircle.cs" />
+     <Compile Include="Assets\Scripts\DrawLine.cs" />
      <Compile Include="Assets\Scripts\DrawNavMarkers.cs" />
      <Compile Include="Assets\Scripts\FPS_Player.cs" />
      <Compile Include="Assets\Scripts\GameEnums.cs" />

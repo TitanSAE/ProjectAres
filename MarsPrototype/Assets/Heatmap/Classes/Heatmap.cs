@@ -34,8 +34,14 @@ public class Heatmap : ScriptableObject {
 	*	<param name="radius">Raidus in pixels that each point should create.  Larger radii produce denser heatmaps, and vice-versa.</param>
 	*	<returns>Returns a new Texture2D containing a transparent overlay of the heatmap.</returns>
 	*/
-	public static Texture2D CreateHeatmap(Vector3[] worldPoints, Camera cam, int radius) {
 
+
+
+
+	public static Texture2D CreateHeatmap(Vector3[] worldPoints, Camera cam, int radius) {
+		
+
+	
 		if(cam == null) {
 			if(Camera.main == null) {
 				Debug.LogWarning("No camera found.  Returning an empty texture.");
@@ -69,6 +75,13 @@ public class Heatmap : ScriptableObject {
 
 			for(int i = 0; i < points.Length; i++)			// generate alpha add for each point and a specified circumference
 			{
+				
+
+
+
+
+
+
 				pixelAlpha.Clear();
 				for(int r = 0; r < radius; r+=lineWidth)	// draw and fill them circles
 				{
@@ -114,6 +127,37 @@ public class Heatmap : ScriptableObject {
 		map.Apply();
 
 		return map;
+	}
+
+	public Vector3[] MakeSmoothCurve(Vector3[] arrayToCurve,float smoothness){
+		List<Vector3> points;
+		List<Vector3> curvedPoints;
+		int pointsLength = 0;
+		int curvedLength = 0;
+
+		if(smoothness < 1.0f) smoothness = 1.0f;
+
+		pointsLength = arrayToCurve.Length;
+
+		curvedLength = (pointsLength*Mathf.RoundToInt(smoothness))-1;
+		curvedPoints = new List<Vector3>(curvedLength);
+
+		float t = 0.0f;
+		for(int pointInTimeOnCurve = 0;pointInTimeOnCurve < curvedLength+1;pointInTimeOnCurve++){
+			t = Mathf.InverseLerp(0,curvedLength,pointInTimeOnCurve);
+
+			points = new List<Vector3>(arrayToCurve);
+
+			for(int j = pointsLength-1; j > 0; j--){
+				for (int i = 0; i < j; i++){
+					points[i] = (1-t)*points[i] + t*points[i+1];
+				}
+			}
+
+			curvedPoints.Add(points[0]);
+		}
+
+		return(curvedPoints.ToArray());
 	}
 
 	/*!	<summary>
