@@ -53,7 +53,21 @@ public class MarsMessageManager : MonoBehaviour {
 		//Initial How-to-play help
 		if (!bFirstAdvice && Time.timeSinceLevelLoad > 5) {
 			bFirstAdvice = true;
-			AddMessage("Information", "l2play n00b", "Info");
+			if (ply.IsJoystickConnected()) {
+				AddMessage("Information", "Use the left stick to control the rover. " +
+					"Press the left stick to toggle your torch. " +
+					"Press A to toggle the map size. " +
+					"Press B to open and close this message panel.", "Info");
+			}
+			else {
+				AddMessage("Information", "Use the WASD keys to control the rover. " +
+					"Press the F key to toggle your torch. " + 
+					"Press the M key to toggle the map size. " +
+					"Press the O key to open and close this message panel.", "Info");
+			}
+			bIsPanelOpen = true;
+			goMessageScreen.SetActive(bIsPanelOpen);
+			LoadMessageAvatar();
 		}
 
 		//Low energy
@@ -76,9 +90,9 @@ public class MarsMessageManager : MonoBehaviour {
 		ply = GameObject.FindGameObjectWithTag("Player").GetComponent<MarsPlayer>();
 
 
-		AddMessage("Misc Objective", "Gather minerals from certain rocks", "Mineral", true);
-		AddMessage("Misc Objective", "Gather water from excavation sites", "Water", true);
-		AddMessage("Main Objective", "Build all base structures", "Info", true);
+		AddMessage("Misc Objective", "Gather minerals from certain rocks to further production.", "Mineral", true);
+		AddMessage("Misc Objective", "Gather water from excavation sites for future colonists.", "Water", true);
+		AddMessage("Main Objective", "Build all base structures so that future astronauts can colonise Mars.", "Trophy", true);
 	}
 
 	public void LoadMessageAvatar() {
@@ -169,7 +183,6 @@ public class MarsMessageManager : MonoBehaviour {
 		l_messages.Clear();
 		l_messages.Add(newMessage);
 		l_messages.AddRange(bup);
-
         //l_messages.Add(newMessage);
     }
 }
