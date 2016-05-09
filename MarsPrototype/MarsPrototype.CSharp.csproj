@@ -58,12 +58,6 @@
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Networking">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
@@ -288,6 +282,7 @@
     <Compile Include="Assets\Scripts\UI\Debug_Clickable.cs" />
     <Compile Include="Assets\Scripts\UI\SponsorUI.cs" />
     <Compile Include="Assets\Scripts\UI\UIContentSpawner.cs" />
+    <Compile Include="Assets\Scripts\UI\UIFollow.cs" />
     <Compile Include="Assets\Scripts\UI\UIFollowObject.cs" />
     <Compile Include="Assets\Scripts\UI\UIListItem.cs" />
     <Compile Include="Assets\Scripts\UI\UISceneManager.cs" />
@@ -332,6 +327,7 @@
     <None Include="Assets\Shaders\HeightShader.shader" />
     <None Include="Assets\Shaders\Particle Alpha Blend-AfterTrans.shader" />
     <None Include="Assets\Shaders\Particle-Alpha-Premultiply-AfterTrans.shader" />
+    <None Include="Assets\Shaders\SkyMap.shader" />
     <None Include="Assets\Shaders\SphereShader.shader" />
     <None Include="Assets\Shaders\TestShader.shader" />
     <None Include="Assets\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
