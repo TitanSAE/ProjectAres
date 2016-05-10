@@ -171,8 +171,7 @@ public class MarsPlayer : MonoBehaviour {
 				data_skycam.fHoverHeight = 896.0f;
 				data_skycam.bSpinToFace = false;
 				data_skycam.bLockToCentre = true;
-                data_skycam.SizeUpUI();
-				cnvPlyMarker.gameObject.transform.localScale = new Vector3(0.1f, 0.0425f, 0);
+				//cnvPlyMarker.gameObject.transform.localScale = new Vector3(0.1f, 0.0425f, 0);
 			}
 			else {
 				camSky.fieldOfView = 30;
@@ -183,8 +182,7 @@ public class MarsPlayer : MonoBehaviour {
 				data_skycam.fHoverHeight = 72.1f;
 				data_skycam.bSpinToFace = true;
 				data_skycam.bLockToCentre = false;
-                data_skycam.SizeDownUI();
-				cnvPlyMarker.gameObject.transform.localScale = new Vector3(0.023f, 0.0094f, 0);
+				//cnvPlyMarker.gameObject.transform.localScale = new Vector3(0.023f, 0.0094f, 0);
 			}
 		}
 	}
