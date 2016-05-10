@@ -8,8 +8,12 @@ public class UIFollow : MonoBehaviour {
     public bool bFollowPosition = true;
     public bool bFollowRotation = false;
     public Transform tObjectToFollow;
-    public Rect RectTMyOwn;
+    private RectTransform RectTMyOwn;
     
+    void Start()
+    {
+        RectTMyOwn = this.GetComponent<RectTransform>();
+    }
 
     void Update()
     {

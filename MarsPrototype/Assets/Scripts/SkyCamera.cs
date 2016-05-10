@@ -20,12 +20,16 @@ public class SkyCamera : MonoBehaviour {
 	public Light seeall;
 
     public Image imPlayer;
+    private Vector3 vPlayerSize;
     public Image imHomeBase;
+    private Vector3 vHomeBaseSize;
     public Image[] imDrops;
 
 	void Start() {
         camSelf = GetComponent<Camera>();
-		//camSelf.SetReplacementShader(skycamshader, "RenderType");
+        //camSelf.SetReplacementShader(skycamshader, "RenderType");
+        vPlayerSize = imPlayer.rectTransform.localScale;
+        vHomeBaseSize = imHomeBase.rectTransform.localScale;
 	}
 
 	void Update() {
@@ -63,9 +67,16 @@ public class SkyCamera : MonoBehaviour {
 		}
 	}
 
-    void SizeUpUI()
+    public void SizeUpUI()
     {
+        imPlayer.rectTransform.localScale = 8 * vPlayerSize;
+        imHomeBase.rectTransform.localScale = 4 * vHomeBaseSize;
+    }
 
+    public void SizeDownUI()
+    {
+        imPlayer.rectTransform.localScale = vPlayerSize;
+        imHomeBase.rectTransform.localScale = vHomeBaseSize;
     }
 
 	void OnPreCull() {
