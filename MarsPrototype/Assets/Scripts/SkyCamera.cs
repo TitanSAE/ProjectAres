@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class SkyCamera : MonoBehaviour {
@@ -17,6 +18,10 @@ public class SkyCamera : MonoBehaviour {
 
 	public Light sun;
 	public Light seeall;
+
+    public Image imPlayer;
+    public Image imHomeBase;
+    public Image[] imDrops;
 
 	void Start() {
         camSelf = GetComponent<Camera>();
@@ -57,6 +62,11 @@ public class SkyCamera : MonoBehaviour {
 			this.transform.rotation = Quaternion.Euler(new Vector3(90, 0, 0));
 		}
 	}
+
+    void SizeUpUI()
+    {
+
+    }
 
 	void OnPreCull() {
 		sun.enabled = false;

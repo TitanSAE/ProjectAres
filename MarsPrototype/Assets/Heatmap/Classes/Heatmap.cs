@@ -35,13 +35,14 @@ public class Heatmap : ScriptableObject {
 	*	<returns>Returns a new Texture2D containing a transparent overlay of the heatmap.</returns>
 	*/
 
+	public static List<Color> colorList;
 
-
+	public static Color[] colorizedArray;
 
 	public static Texture2D CreateHeatmap(Vector3[] worldPoints, Camera cam, int radius) {
 		
-
-	
+		colorList = new List<Color> ();
+		colorizedArray = new Color[worldPoints.Length];
 		if(cam == null) {
 			if(Camera.main == null) {
 				Debug.LogWarning("No camera found.  Returning an empty texture.");
@@ -102,7 +103,9 @@ public class Heatmap : ScriptableObject {
 							}		
 						}
 					}
+
 					color = new Color(color.r, color.g, color.b, color.a - (pointAlpha/( (float)radius/lineWidth)) );
+
 				}
 
 				// Since the radial fill code overwrites it's own pixels, make sure to only add finalized alpha to
@@ -113,6 +116,7 @@ public class Heatmap : ScriptableObject {
 					Color previousColor = map.GetPixel((int)coord.x, (int)coord.y);
 					Color newColor = keyval.Value;
 					map.SetPixel((int)coord.x, (int)coord.y, new Color(newColor.r, newColor.b, newColor.g, newColor.a + previousColor.a));
+					colorList.Add (new Color(newColor.r, newColor.b, newColor.g, newColor.a + previousColor.a));
 				}
 
 				// Reset color for next point
@@ -121,10 +125,12 @@ public class Heatmap : ScriptableObject {
 		}
 
 		map.Apply();
-
+		colorizedArray = Colorize3D (colorList.ToArray ());
 		map.SetPixels( Colorize(map.GetPixels(0)), 0);
 
 		map.Apply();
+
+	
 
 		return map;
 	}
@@ -351,6 +357,42 @@ public class Heatmap : ScriptableObject {
 				b = 255;
 			} else
 				b = 255;
+			pixels[i] = new Color(r, g, b, alpha / 2f);
+			pixels[i] = NormalizeColor(pixels[i]);
+		}
+
+		return pixels;
+	}
+	public static Color[] Colorize3D(Color[] pixels) {
+		for (int i = 0; i < pixels.Length; i++) {
+
+			float r = 0, g = 0, b = 0, tmp = 0;
+			pixels[i] *= 255f;
+
+			float alpha = pixels[i].a;
+
+			if (alpha == 0) {
+				continue;
+			}
+
+			if (alpha <= 255 && alpha >= RED_THRESHOLD) {
+				tmp = 255 - alpha;
+				r = 255 - tmp;
+				//g = tmp * 12f;
+			} else if (alpha <= (RED_THRESHOLD - 1) && alpha >= GREEN_THRESHOLD) {
+				tmp = (RED_THRESHOLD - 1) - alpha;
+				r = 255 - (tmp * 8f);
+				//g = 255;
+			} else if (alpha <= (GREEN_THRESHOLD - 1) && alpha >= BLUE_THRESHOLD) {
+				tmp = (GREEN_THRESHOLD - 1) - alpha;
+				r = 255;
+				//g = tmp * 5;
+			} else if (alpha <= (BLUE_THRESHOLD - 1) && alpha >= MINIMUM_THRESHOLD) {
+				tmp = (BLUE_THRESHOLD - 1) - alpha;
+				g = 255 - (tmp * 5f);
+				b = 255;
+			} else
+				g = 255;
 			pixels[i] = new Color(r, g, b, alpha / 2f);
 			pixels[i] = NormalizeColor(pixels[i]);
 		}
