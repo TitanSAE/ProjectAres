@@ -1,19 +1,15 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
-public class UIFollowObject : MonoBehaviour
-{
+public class UIFollow : MonoBehaviour {
+
     [Header("Position")]
     public bool bFollowPosition = true;
     public bool bFollowRotation = false;
-    public Vector3 vPositionOffset = new Vector3(0, 0, 0);
-
-    [Header("UI References")]
-    public RectTransform RectTMainCanvas;
-    private RectTransform RectTMyOwn;
     public Transform tObjectToFollow;
-    public Camera camToRenderTo;
-
+    private RectTransform RectTMyOwn;
+    
     void Start()
     {
         RectTMyOwn = this.GetComponent<RectTransform>();
@@ -22,18 +18,16 @@ public class UIFollowObject : MonoBehaviour
     void Update()
     {
         //This is used to make the object follow the object of your choice.
-        if(bFollowPosition)
+        if (bFollowPosition)
         {
-            Vector2 screenPoint = RectTransformUtility.WorldToScreenPoint(camToRenderTo, tObjectToFollow.position + vPositionOffset);
-
-            RectTMyOwn.anchoredPosition = (screenPoint - RectTMainCanvas.sizeDelta / 2f);
+            
         }
 
         //This is used to make the object rotate in sync with the object of your chocie.
-        if(bFollowRotation)
+        if (bFollowRotation)
         {
             Vector3 ZRotOnly = new Vector3(0, 0, -tObjectToFollow.localRotation.eulerAngles.y);
-            RectTMyOwn.rotation = Quaternion.Euler(ZRotOnly);
+            //RectTMyOwn.rotation = Quaternion.Euler(ZRotOnly);
         }
     }
 }
