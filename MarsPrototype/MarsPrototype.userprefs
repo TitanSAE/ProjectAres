@@ -1,8 +1,12 @@
-﻿<Properties StartupItem="Assembly-CSharp.csproj">
+﻿<Properties StartupItem="MarsPrototype.CSharp.Plugins.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\MarsMessageManager.cs">
     <Files>
-      <File FileName="Assets\Scripts\MarsMessageManager.cs" Line="15" Column="25" />
+      <File FileName="Assets\Scripts\MarsMessageManager.cs" Line="140" Column="25" />
+      <File FileName="Assets\Scripts\MarsDelivery.cs" Line="42" Column="44" />
+      <File FileName="Assets\Scripts\MarsResource.cs" Line="45" Column="4" />
+      <File FileName="Assets\Scripts\RoverModules\RechargePad.cs" Line="25" Column="38" />
+      <File FileName="Assets\Scripts\TimedDelivery.cs" Line="48" Column="51" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
