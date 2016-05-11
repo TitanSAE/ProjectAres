@@ -9,7 +9,6 @@ public class SkyCamera : MonoBehaviour {
 	public bool bLockToCentre = false;
     public LayerMask WorldMapMask;
     public LayerMask TopographicalMapMask;
-    public Shader TopographicalShader;
     private Camera camSelf;
 	public Shader skycamshader;
 
@@ -47,13 +46,11 @@ public class SkyCamera : MonoBehaviour {
         if (Input.GetButtonDown("MapRegular"))
         {
             camSelf.cullingMask = WorldMapMask;
-            camSelf.ResetReplacementShader();
         }
 
         if (Input.GetButtonDown("MapTopo"))
         {
             camSelf.cullingMask = TopographicalMapMask;
-            camSelf.SetReplacementShader(TopographicalShader, "Opaque");
         }
 
         if (bSpinToFace) {

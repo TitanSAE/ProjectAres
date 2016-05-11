@@ -22,7 +22,9 @@ public class SkyCamMarker : MonoBehaviour {
 				this.transform.rotation = Quaternion.Euler(0, tTarget.rotation.y, 0);
 			}
 			else {
-				this.transform.rotation = Quaternion.Euler(0, 0, 0);
+                //this.transform.rotation = Quaternion.Euler(0, tTarget.rotation.y, 0);
+                this.transform.rotation = ply.transform.rotation;
+                this.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
 			}
 		}
 		this.transform.localPosition = tTarget.position;

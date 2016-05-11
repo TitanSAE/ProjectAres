@@ -14,7 +14,8 @@ public class WorldCanvasFaceUp : MonoBehaviour {
 	void Update () {
 		this.transform.position = this.transform.parent.transform.position + new Vector3(0, 1, 0);
 
-		//this.transform.rotation = Quaternion.Euler(new Vector3(90, 0, 0));
-		this.transform.rotation = Quaternion.Euler(ply.transform.right * 90);
+        //this.transform.rotation = Quaternion.Euler(new Vector3(90, 0, 0));
+        //this.transform.rotation = Quaternion.Euler(ply.transform.right * 90);
+        this.transform.rotation = Quaternion.Euler(new Vector3(326, 30, 269));
 	}
 }
