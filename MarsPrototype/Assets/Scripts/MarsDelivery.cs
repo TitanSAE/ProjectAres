@@ -15,14 +15,14 @@ public class MarsDelivery : MonoBehaviour {
 	GameObject largePanel;
 
 	private bool bImpact;
+	private MarsMessageManager mngMsg;
 
 	//public bool bAttachedToBase;
 
 
 	// Use this for initialization
 	void Start () {
-	
-
+		mngMsg = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<MarsMessageManager>();
 	}
 	
 	// Update is called once per frame
@@ -37,49 +37,54 @@ public class MarsDelivery : MonoBehaviour {
 
 		//Debug.Log(c.gameObject.tag);
 
-		if (c.gameObject.tag == "Player" && !bAttachedToPlayer && !c.gameObject.GetComponent<MarsTowbar>().bTowing && !bDelivered ) {
-			
-			bAttachedToPlayer = true;
-			this.GetComponent<BoxCollider>().isTrigger = true;
-			goPlayerTowbar = c.gameObject;
-			this.transform.position = goPlayerTowbar.GetComponent<MarsTowbar>().goTowbar.transform.position;
-			goPlayerTowbar.GetComponent<MarsTowbar>().goAttached = this.gameObject;
-			goPlayerTowbar.GetComponent<MarsTowbar>().bTowing = true;
-			this.transform.rotation = c.gameObject.transform.rotation;
-			this.transform.position = ((this.transform.forward * -0.5f) + this.transform.position);
-			this.transform.SetParent(c.gameObject.transform);
-			this.GetComponent<Rigidbody>().isKinematic = true;
-			this.GetComponent<Rigidbody>().useGravity = false;
+		if (c.gameObject.tag == "Player" && !bAttachedToPlayer && !bDelivered ) {
+			if (!c.gameObject.GetComponent<MarsTowbar>().bTowing) {
+				mngMsg.bExternalFlagFirstPickupDelivery = true;
 
-			transform.GetChild (1).gameObject.SetActive (false);
+				bAttachedToPlayer = true;
+				this.GetComponent<BoxCollider>().isTrigger = true;
+				goPlayerTowbar = c.gameObject;
+				this.transform.position = goPlayerTowbar.GetComponent<MarsTowbar>().goTowbar.transform.position;
+				goPlayerTowbar.GetComponent<MarsTowbar>().goAttached = this.gameObject;
+				goPlayerTowbar.GetComponent<MarsTowbar>().bTowing = true;
+				this.transform.rotation = c.gameObject.transform.rotation;
+				this.transform.position = ((this.transform.forward * -0.5f) + this.transform.position);
+				this.transform.SetParent(c.gameObject.transform);
+				this.GetComponent<Rigidbody>().isKinematic = true;
+				this.GetComponent<Rigidbody>().useGravity = false;
 
-			//c.gameObject.GetComponent<MarsPlayer>().iRocksCarried--;
+				transform.GetChild (1).gameObject.SetActive (false);
 
-			if (eDeliveryType == BASE_ATTACHMENT.Level1) {
-				Level1 = GameObject.Find ("SceneManager").GetComponent<GameManager> ().Level1;
-				Level1.SetActive (true);
-			}
-			if (eDeliveryType == BASE_ATTACHMENT.Level2) {
-				Level2 = GameObject.Find ("SceneManager").GetComponent<GameManager> ().Level2;
-				Level2.SetActive (true);
-			}
-			if (eDeliveryType == BASE_ATTACHMENT.Level3) {
-				Level3 = GameObject.Find ("SceneManager").GetComponent<GameManager> ().Level3;
-				Level3.SetActive (true);
-			}
-			if (eDeliveryType == BASE_ATTACHMENT.Level4) {
-				Level4 = GameObject.Find ("SceneManager").GetComponent<GameManager> ().Level4;
-				Level4.SetActive (true);
-			}
-			if (eDeliveryType == BASE_ATTACHMENT.smallPanel) {
-				smallPanel = GameObject.Find ("SceneManager").GetComponent<GameManager> ().smallPanel;
-				smallPanel.SetActive (true);
-			}
-			if (eDeliveryType == BASE_ATTACHMENT.largePanel) {
-				largePanel = GameObject.Find ("SceneManager").GetComponent<GameManager> ().largePanel;
-				largePanel.SetActive (true);
-			}
+				//c.gameObject.GetComponent<MarsPlayer>().iRocksCarried--;
 
+				if (eDeliveryType == BASE_ATTACHMENT.Level1) {
+					Level1 = GameObject.Find ("SceneManager").GetComponent<GameManager> ().Level1;
+					Level1.SetActive (true);
+				}
+				if (eDeliveryType == BASE_ATTACHMENT.Level2) {
+					Level2 = GameObject.Find ("SceneManager").GetComponent<GameManager> ().Level2;
+					Level2.SetActive (true);
+				}
+				if (eDeliveryType == BASE_ATTACHMENT.Level3) {
+					Level3 = GameObject.Find ("SceneManager").GetComponent<GameManager> ().Level3;
+					Level3.SetActive (true);
+				}
+				if (eDeliveryType == BASE_ATTACHMENT.Level4) {
+					Level4 = GameObject.Find ("SceneManager").GetComponent<GameManager> ().Level4;
+					Level4.SetActive (true);
+				}
+				if (eDeliveryType == BASE_ATTACHMENT.smallPanel) {
+					smallPanel = GameObject.Find ("SceneManager").GetComponent<GameManager> ().smallPanel;
+					smallPanel.SetActive (true);
+				}
+				if (eDeliveryType == BASE_ATTACHMENT.largePanel) {
+					largePanel = GameObject.Find ("SceneManager").GetComponent<GameManager> ().largePanel;
+					largePanel.SetActive (true);
+				}
+			}
+			else {
+				mngMsg.bExternalFlagAttemptToCarryTooMuch = true;
+			}
 		}
 	}
 

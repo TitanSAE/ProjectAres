@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-
+namespace UnityStandardAssets.Utility
+{
 	public class SmoothFollow : MonoBehaviour
 	{
 
@@ -20,9 +20,6 @@ using System.Collections;
 		[SerializeField]
 		private float heightDamping;
 
-		public GameObject Rover;
-		public GameObject Copter;
-
 		// Use this for initialization
 		void Start() { }
 
@@ -32,14 +29,7 @@ using System.Collections;
 			// Early out if we don't have a target
 			if (!target)
 				return;
-			if (GameObject.Find ("GameManager").GetComponent<GameManager> ().copterControl == true) {
-				target = Copter.transform;
 
-			}
-
-			if (GameObject.Find ("GameManager").GetComponent<GameManager> ().roverControl == true) {
-				target = Rover.transform;
-			}
 			// Calculate the current rotation angles
 			var wantedRotationAngle = target.eulerAngles.y;
 			var wantedHeight = target.position.y + height;
@@ -67,7 +57,5 @@ using System.Collections;
 			// Always look at the target
 			transform.LookAt(target);
 		}
-
-
-
 	}
+}

@@ -14,6 +14,10 @@ public class Tracker : MonoBehaviour {
 	public List<Vector3> points = new List<Vector3>();
 	public string HeatmapTextAssetPath = "Assets/PlayerPoints.txt";
 
+
+	public List<Vector3> deathPoints = new List<Vector3>();
+	public string DeathHeatmapTextAssetPath = "Assets/DeathPlayerPoints.txt";
+
 	public void Start()
 	{
 		logSplit = 1f/logsPerSecond;
@@ -28,15 +32,26 @@ public class Tracker : MonoBehaviour {
 			timer = 0f;
 			LogPosition(gameObject.transform.position);
 		}
+		if (this.GetComponent<MarsPlayer> ().fHealth <= 0) {
+			LogDeathPos (gameObject.transform.position);
+			Debug.Log ("Death Logged");
+		}
 	}
 
 	public void OnDisable()
 	{
 		StringUtility.Vector3ArrayToTextAsset(points.ToArray(), HeatmapTextAssetPath);
+		StringUtility.Vector3ArrayToTextAsset(deathPoints.ToArray(), DeathHeatmapTextAssetPath);
 	}
 
 	public void LogPosition(Vector3 position)
 	{
 		points.Add(position);
+	}
+
+
+	public void LogDeathPos(Vector3 position){
+		deathPoints.Add (position);
+
 	}
 }
