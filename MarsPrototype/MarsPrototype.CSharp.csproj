@@ -188,6 +188,7 @@
     <Compile Include="Assets\Scripts\DayNight\LightWall.cs" />
     <Compile Include="Assets\Scripts\DayNight\SetSunLight.cs" />
     <Compile Include="Assets\Scripts\DefunctStats.cs" />
+    <Compile Include="Assets\Scripts\DontRotate.cs" />
     <Compile Include="Assets\Scripts\DrawCircle.cs" />
     <Compile Include="Assets\Scripts\DrawLine.cs" />
     <Compile Include="Assets\Scripts\DrawNavMarkers.cs" />
@@ -293,12 +294,14 @@
     <Compile Include="Assets\Scripts\WheelManager.cs" />
     <Compile Include="Assets\Scripts\WinSceneManager.cs" />
     <Compile Include="Assets\Scripts\zoomortho.cs" />
+    <Compile Include="Assets\SkyCamMarker.cs" />
     <Compile Include="Assets\Surface\SurfaceCreator.cs" />
     <Compile Include="Assets\Surface\SurfaceFlow.cs" />
     <Compile Include="Assets\UIButtonSwitcher.cs" />
     <Compile Include="Assets\WorldCanvasFaceUp.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\DeathPlayerPoints.txt" />
     <None Include="Assets\JMO Assets\MatCap Shaders\Shaders\MatCap_Plain_Additive.shader" />
     <None Include="Assets\Meteor Storm Effects\Shaders\PlanetNoFog.shader" />
     <None Include="Assets\OVR\Moonlight\Resources\Unlit Transparent Color.shader" />
@@ -331,6 +334,7 @@
     <None Include="Assets\Shaders\SkyMap.shader" />
     <None Include="Assets\Shaders\SphereShader.shader" />
     <None Include="Assets\Shaders\TestShader.shader" />
+    <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
     <None Include="Assets\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\BlendModesOverlay.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\BlurEffectConeTaps.shader" />
