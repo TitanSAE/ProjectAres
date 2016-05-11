@@ -35,6 +35,12 @@ public class HeatMap: MonoBehaviour {
 	Rect DeathRect = new Rect(5, 75, 100, 30);	
 	Rect HeatRect = new Rect(5, 110, 100, 30);	
 	Rect threeDHeatRect = new Rect(5, 145, 100, 30);	
+
+
+	public GameObject flyCam;
+	public GameObject visualHeatmap;
+	public GameObject orthoCam;
+
 	public void OnGUI()
 	{
 		if(GUI.Button(resetRect, "Reset")) {
@@ -46,12 +52,16 @@ public class HeatMap: MonoBehaviour {
 		}
 
 		if(GUI.Button(threeDHeatRect, "3D HeatMap")) {
-			
+			orthoCam.SetActive (false);
+			visualHeatmap.SetActive (true);
+			flyCam.SetActive (true);
 		}
 
 		if(GUI.Button(DeathRect, "DeathMap")) {
 
-		
+			orthoCam.SetActive (true);
+			visualHeatmap.SetActive (false);
+			flyCam.SetActive (false);
 			p = new GameObject();
 
 			if(!DeathCoordinatesFile || presetCoordinatesFile == null)
@@ -74,7 +84,9 @@ public class HeatMap: MonoBehaviour {
 		}
 		if(GUI.Button(HeatRect, "HeatMap")) {
 
-
+			orthoCam.SetActive (true);
+			visualHeatmap.SetActive (false);
+			flyCam.SetActive (false);
 			p = new GameObject();
 
 			if(!presetCoordinatesFile || presetCoordinatesFile == null)
