@@ -73,6 +73,7 @@ public class HeatMap: MonoBehaviour {
 			{
 				GameObject go = (createPrimitive) ? GameObject.CreatePrimitive(PrimitiveType.Cube) : new GameObject();
 				go.transform.position = positionArray[i];
+
 				go.name = "Point: " + i;
 				go.transform.parent = p.transform;
 				points.Add(go);
