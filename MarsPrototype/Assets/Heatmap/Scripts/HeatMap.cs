@@ -15,7 +15,6 @@ public class HeatMap: MonoBehaviour {
 	// Heatmap Settings
 	public int pointRadius = 40;								//!< How large of a radius should a point on the heatmap be?
 
-#if UNITY_EDITOR && !UNITY_WEBPLAYER
 
 	public TextAsset presetCoordinatesFile;
 	public TextAsset DeathCoordinatesFile;
@@ -23,7 +22,7 @@ public class HeatMap: MonoBehaviour {
 	[HideInInspector]
 	public bool generatePresetCoordinates = false;				//!< If set to true, clicks will be logged to a text file.
 																///	Clicks will be logged to a text file that can then be loaded w/ the toggleable usePresetCoordinates (nice for debugging).  Commented out as this may be confusing for someone first playing around with the editor.
-#endif
+
 	
 	public bool createPrimitive = false;						//!< If true, a primitive will be drawn the raycast collision point
 
