@@ -63,6 +63,10 @@ public class GameManager : MonoBehaviour {
 			enabled = !enabled;
 			Tornado.SetActive (enabled);
 		}
+		if (Input.GetKey (KeyCode.U)) {
+
+			Car.GetComponent<MarsPlayer> ().fHealth = 0;
+		}
 
 		if (Input.GetKeyDown (KeyCode.U)) {
 			PackageParticle.Clear ();

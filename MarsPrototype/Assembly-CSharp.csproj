@@ -159,6 +159,7 @@
      <Compile Include="Assets\Scripts\DrawLine.cs" />
      <Compile Include="Assets\Scripts\DrawNavMarkers.cs" />
      <Compile Include="Assets\Scripts\FPS_Player.cs" />
+     <Compile Include="Assets\Scripts\Follow.cs" />
      <Compile Include="Assets\Scripts\GameEnums.cs" />
      <Compile Include="Assets\Scripts\Gravity.cs" />
      <Compile Include="Assets\Scripts\Grid.cs" />
@@ -249,6 +250,7 @@
      <Compile Include="Assets\Scripts\UI\Debug_Clickable.cs" />
      <Compile Include="Assets\Scripts\UI\SponsorUI.cs" />
      <Compile Include="Assets\Scripts\UI\UIContentSpawner.cs" />
+     <Compile Include="Assets\Scripts\UI\UIFollow.cs" />
      <Compile Include="Assets\Scripts\UI\UIFollowObject.cs" />
      <Compile Include="Assets\Scripts\UI\UIListItem.cs" />
      <Compile Include="Assets\Scripts\UI\UISceneManager.cs" />
@@ -258,6 +260,7 @@
      <Compile Include="Assets\Scripts\WheelManager.cs" />
      <Compile Include="Assets\Scripts\WinSceneManager.cs" />
      <Compile Include="Assets\Scripts\zoomortho.cs" />
+     <Compile Include="Assets\SkyCamMarker.cs" />
      <Compile Include="Assets\Surface\SurfaceCreator.cs" />
      <Compile Include="Assets\Surface\SurfaceFlow.cs" />
      <Compile Include="Assets\UIButtonSwitcher.cs" />
@@ -299,6 +302,7 @@
      <None Include="Assets\Resources\Sponsors\Mars First.xml" />
      <None Include="Assets\Shaders\BlendTransitionPanorama.shader" />
      <None Include="Assets\Resources\Rovers\test.xml" />
+     <None Include="Assets\DeathPlayerPoints.txt" />
      <None Include="Assets\RAIN\Editor\Shaders\NavMeshContourShader.shader" />
      <None Include="Assets\Meteor Storm Effects\Shaders\PlanetNoFog.shader" />
      <None Include="Assets\RAIN\Editor\Shaders\WaypointShader.shader" />
@@ -351,6 +355,7 @@
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\LensFlareCreate.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\EdgeDetectNormals.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\PrepareSunShaftsBlur.shader" />
+     <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\Blend.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\BlendModesOverlay.shader" />
      <None Include="Assets\Resources\Rovers\Sojourner II.xml" />

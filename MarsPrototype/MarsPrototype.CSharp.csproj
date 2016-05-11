@@ -188,6 +188,7 @@
     <Compile Include="Assets\Scripts\DayNight\LightWall.cs" />
     <Compile Include="Assets\Scripts\DayNight\SetSunLight.cs" />
     <Compile Include="Assets\Scripts\DefunctStats.cs" />
+    <Compile Include="Assets\Scripts\DontRotate.cs" />
     <Compile Include="Assets\Scripts\DrawCircle.cs" />
     <Compile Include="Assets\Scripts\DrawLine.cs" />
     <Compile Include="Assets\Scripts\DrawNavMarkers.cs" />
@@ -293,6 +294,7 @@
     <Compile Include="Assets\Scripts\WheelManager.cs" />
     <Compile Include="Assets\Scripts\WinSceneManager.cs" />
     <Compile Include="Assets\Scripts\zoomortho.cs" />
+    <Compile Include="Assets\SkyCamMarker.cs" />
     <Compile Include="Assets\Surface\SurfaceCreator.cs" />
     <Compile Include="Assets\Surface\SurfaceFlow.cs" />
     <Compile Include="Assets\UIButtonSwitcher.cs" />

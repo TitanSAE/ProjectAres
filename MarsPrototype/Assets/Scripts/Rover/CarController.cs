@@ -38,7 +38,7 @@ public class CarController : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
-		if (GameObject.Find ("SceneManager").GetComponent<GameManager> ().roverControl == true) {
+		
 			if (speedText != null)
 				speedText.text = "Speed: " + Speed ().ToString ("f0") + " km/h";
 
@@ -81,7 +81,7 @@ public class CarController : MonoBehaviour {
 				wheelRR.brakeTorque = 0;
 				wheelRL.brakeTorque = 0;
 			}
-		}
+
 	}
 
 

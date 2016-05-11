@@ -37,7 +37,7 @@ public class DrawLine : MonoBehaviour {
 				
 				newMaterial.color = Heatmap.colorizedArray[counter] ;
 				cube.GetComponent<Renderer> ().material = newMaterial;
-				Instantiate(cube, i+ new Vector3(0,pos.y - 2.5f,0), Quaternion.identity);
+			Instantiate(cube, i+ new Vector3(0,2,0), Quaternion.identity);
 				++counter;
 			}
 		Debug.Log ("first");
