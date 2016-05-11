@@ -10,7 +10,7 @@ public class DontRotate : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        xRot = transform.rotation.eulerAngles.x;
+        xRot = .eulerAngles.x;
         yRot = transform.rotation.eulerAngles.y;
         zRot = transform.rotation.eulerAngles.z;
     }
