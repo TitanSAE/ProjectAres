@@ -1,22 +1,12 @@
-﻿<Properties StartupItem="Assembly-CSharp.csproj">
+﻿<Properties StartupItem="MarsPrototype.CSharp.Plugins.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-<<<<<<< HEAD
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Standard Assets\Characters\FirstPersonCharacter\Scripts\FirstPersonController.cs">
-    <Files>
-      <File FileName="Assets\PlayerPoints.txt" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Rover\CarController.cs" Line="84" Column="3" />
-      <File FileName="Assets\Scripts\MarsPlayer.cs" Line="37" Column="23" />
-      <File FileName="Assets\Heatmap\Scripts\Tracker.cs" Line="35" Column="47" />
-      <File FileName="Assets\Scripts\Kacey Scripts\GameManager.cs" Line="53" Column="36" />
-      <File FileName="Assets\DeathPlayerPoints.txt" Line="2" Column="1" />
-      <File FileName="Assets\Heatmap\Scripts\HeatMap.cs" Line="37" Column="39" />
-      <File FileName="Assets\Heatmap\Classes\Heatmap.cs" Line="8" Column="3" />
-      <File FileName="Assets\Standard Assets\Characters\FirstPersonCharacter\Scripts\FirstPersonController.cs" Line="109" Column="47" />
-=======
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\MarsMessageManager.cs">
     <Files>
-      <File FileName="Assets\Scripts\MarsMessageManager.cs" Line="15" Column="25" />
->>>>>>> ca25ca4d23629e37457a99f8d502972d8410a3a2
+      <File FileName="Assets\Scripts\MarsMessageManager.cs" Line="140" Column="25" />
+      <File FileName="Assets\Scripts\MarsDelivery.cs" Line="42" Column="44" />
+      <File FileName="Assets\Scripts\MarsResource.cs" Line="45" Column="4" />
+      <File FileName="Assets\Scripts\RoverModules\RechargePad.cs" Line="25" Column="38" />
+      <File FileName="Assets\Scripts\TimedDelivery.cs" Line="48" Column="51" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

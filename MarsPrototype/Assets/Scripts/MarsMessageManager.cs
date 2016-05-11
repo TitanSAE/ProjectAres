@@ -16,17 +16,14 @@ public class MarsMessageManager : MonoBehaviour {
 	public Text txtBody;
 
 	private MarsPlayerSettings mps;
-
-	[Header("Trigger Targets")]
-	public MarsPlayer ply;
+	private MarsPlayer ply;
 
 	[Header("Triggers")]
-	[SerializePrivateVariables]
+	public bool bExternalFlagTouchRepairPad;
+	private bool bFirstTimeTouchRepairPad;
+
 	private bool bFirstAdvice;
 	private bool bFirstMessage;
-
-	private bool bFirstTimeTouchRepairPad;
-	public bool bExternalFlagTouchRepairPad;
 
 	private bool bFirstLowEnergy75;
 	private bool bFirstLowEnergy35;

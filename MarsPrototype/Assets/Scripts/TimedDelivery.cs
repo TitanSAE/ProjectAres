@@ -50,39 +50,39 @@ public class TimedDelivery : MonoBehaviour {
 
 					SendPackage();
 				}
-//				else if (eMission == GAME_QUESTS.PACKAGE_2) {
-//					//mngMessages.AddMessage("Delivery Notification", "We've sent some more building supplies. Hopefully they land nearby!", "sponsor");
-//					fCountdown = 60.0f;
-//
-//					SendPackage1();
-//				}
-//				else if (eMission == GAME_QUESTS.PACKAGE_3) {
-//					//mngMessages.AddMessage("Delivery Notification", "We've sent some more building supplies. Hopefully they land nearby!", "sponsor");
-//					fCountdown = 120.0f;
-//
-//					SendPackage2();
-//				}
-//				else if (eMission == GAME_QUESTS.PACKAGE_4) {
-//					//mngMessages.AddMessage("Delivery Notification", "We've sent some more building supplies. Hopefully they land nearby!", "sponsor");
-//					fCountdown = 120.0f;
-//
-//					SendPackage();
-//				}
-//				else if (eMission == GAME_QUESTS.PACKAGE_5) {
-//					//mngMessages.AddMessage("Delivery Notification", "We've sent some more building supplies. Hopefully they land nearby!", "sponsor");
-//					fCountdown = 300.0f;
-//
-//					SendPackage1();
-//				}
-//				else if (eMission == GAME_QUESTS.PACKAGE_6) {
-//					//mngMessages.AddMessage("Delivery Notification", "We've sent some more building supplies. Hopefully they land nearby!", "sponsor");
-//					fCountdown = 300.0f;
-//
-//					SendPackage2();
-//				}
-//				else {
-//					//
-//				}
+				else if (eMission == GAME_QUESTS.PACKAGE_2) {
+					mngMessages.AddMessage("Delivery Notification", "We've sent some more building supplies from Earth. The locator beacon will be live for a few days.", "Earth");
+					fCountdown = 300.0f;
+
+					SendPackage1();
+				}
+				else if (eMission == GAME_QUESTS.PACKAGE_3) {
+					mngMessages.AddMessage("Delivery Notification", "We've sent some more building supplies from Earth. The locator beacon will be live for a few days.", "Earth");
+					fCountdown = 300.0f;
+
+					SendPackage2();
+				}
+				else if (eMission == GAME_QUESTS.PACKAGE_4) {
+					mngMessages.AddMessage("Delivery Notification", "We've sent some more building supplies from Earth. The locator beacon will be live for a few days.", "Earth");
+					fCountdown = 300.0f;
+
+					SendPackage();
+				}
+				else if (eMission == GAME_QUESTS.PACKAGE_5) {
+					mngMessages.AddMessage("Delivery Notification", "We've sent some more building supplies from Earth. The locator beacon will be live for a few days.", "Earth");
+					fCountdown = 300.0f;
+
+					SendPackage1();
+				}
+				else if (eMission == GAME_QUESTS.PACKAGE_6) {
+					mngMessages.AddMessage("Delivery Notification", "We've sent some more building supplies from Earth. The locator beacon will be live for a few days.", "Earth");
+					fCountdown = 300.0f;
+
+					SendPackage2();
+				}
+				else {
+					//
+				}
 			}
 		}
 
