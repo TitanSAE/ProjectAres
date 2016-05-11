@@ -21,15 +21,32 @@ public class MarsMessageManager : MonoBehaviour {
 	public MarsPlayer ply;
 
 	[Header("Triggers")]
-	public bool bFirstAdvice;
-	public bool bFirstPackageFind;
-	public bool bFirstLowEnergy;
-	public bool bFirstMineral;
-	public bool bFirstWater;
-	public bool bFirstLowHealth;
-	public bool bFirstMessage;
-	public bool bFirstBuilt;
-	public bool bFirstPackageCollect;
+	[SerializePrivateVariables]
+	private bool bFirstAdvice;
+	private bool bFirstMessage;
+
+	private bool bFirstTimeTouchRepairPad;
+	public bool bExternalFlagTouchRepairPad;
+
+	private bool bFirstLowEnergy75;
+	private bool bFirstLowEnergy35;
+	private bool bFirstLowEnergy10;
+
+	private bool bFirstMineral;
+	public bool bExternalFlagFirstMineral;
+	private bool bFirstWater;
+
+	private bool bFirstLowHealth75;
+	private bool bFirstLowHealth35;
+	private bool bFirstLowHealth10;
+
+	private bool bFirstBuilt;
+	public bool bExternalFlagFirstPackageDelivery;
+	private bool bFirstPackageDelivery;
+	private bool bFirstPickupDelivery;
+	public bool bExternalFlagFirstPickupDelivery;
+	private bool bFirstAttemptToCarryTooMuch;
+	public bool bExternalFlagAttemptToCarryTooMuch;
 
     public int iUnread {
 		get {
@@ -70,18 +87,82 @@ public class MarsMessageManager : MonoBehaviour {
 			LoadMessageAvatar();
 		}
 
+		//First package delivery
+		if (!bFirstPackageDelivery && bExternalFlagFirstPackageDelivery) {
+			bFirstPackageDelivery = true;
+			AddMessage("Information", "We've sent a delivery of construction materials from Earth. It should be landing somewhere near you." +
+				"All you need to do is collect it from the drop site, acquire some additional Mars minerals, then bring the package back to base." +
+				"The beacon that highlights the location of the package will only last a limited time. Once you collect the package, you'll recieve further instructions.", "Earth");
+		}
+
 		//Low energy
-		if (!bFirstLowEnergy && ply.fEnergy < (ply.fMaxEnergy * 0.75f)) {
-			bFirstLowEnergy = true;
+		if (!bFirstLowEnergy75 && ply.fEnergy < (ply.fMaxEnergy * 0.75f)) {
+			bFirstLowEnergy75 = true;
 			AddMessage("Information", "Your energy appears to be running out. Energy is used to move, especially climbing hills." +
 				"It is recharged back at the recharge pad at home base. If it runs out, your rover will be stranded.", "Info");
 		}
 
+		if (!bFirstLowEnergy35 && ply.fEnergy < (ply.fMaxEnergy * 0.35f)) {
+			bFirstLowEnergy35 = true;
+			AddMessage("Information", "Your energy is nearly depleted. You should head to base and recharge.", "Info");
+		}
+
+		if (!bFirstLowEnergy10 && ply.fEnergy < (ply.fMaxEnergy * 0.10f)) {
+			bFirstLowEnergy10 = true;
+			AddMessage("Information", "Your energy levels are critical. Return to base and recharge immediately!", "Caution");
+		}
+
 		//Low health
-		if (!bFirstLowHealth && ply.fHealth < (ply.fMaxHealth * 0.75f)) {
-			bFirstLowHealth = true;
+		if (!bFirstLowHealth75 && ply.fHealth < (ply.fMaxHealth * 0.75f)) {
+			bFirstLowHealth75 = true;
 			AddMessage("Information", "Your chassis integrity appears to be running out. As it becomes damaged, it will become harder to climb hills and go fast" +
 				"It is repaired back at the recharge pad at home base. If it runs out, your rover will be stranded.", "Info");
+		}
+
+		if (!bFirstLowHealth35 && ply.fHealth < (ply.fMaxHealth * 0.35f)) {
+			bFirstLowHealth35 = true;
+			AddMessage("Information", "Your chassis appears to be in bad shape. You should consider returning to base for repairs.", "Info");
+		}
+
+		if (!bFirstLowHealth10 && ply.fHealth < (ply.fMaxHealth * 0.10f)) {
+			bFirstLowHealth10 = true;
+			AddMessage("Information", "Your chassis is badly damaged. You need to return to base and repair!", "Caution");
+		}
+
+		//Attempt to carry two packages
+		if (bExternalFlagAttemptToCarryTooMuch && !bFirstAttemptToCarryTooMuch) {
+			bFirstAttemptToCarryTooMuch = true;
+			AddMessage("Error", "You can only carry one Earth delivery at a time!", "Caution");
+		}
+
+		//Run in with first mineral
+		if (bExternalFlagFirstMineral && !bFirstMineral) {
+			bFirstMineral = true;
+			if (ply.IsJoystickConnected()) {
+				AddMessage("Information", "Press the A button to harvest the minerals from this rock. This process takes 1 Sol.", "Info");
+			}
+			else {
+				AddMessage("Information", "Press C to harvest the minerals from this rock. This process takes 1 Sol.", "Info");
+			}
+		}
+
+		//Pickup first package
+		if (bExternalFlagFirstPickupDelivery && !bFirstPickupDelivery) {
+			bFirstPickupDelivery = true;
+			AddMessage("Information", "This Earth delivery of important building components can be taken back to base and used to build a new base struture." +
+				"However, you will also need at least 1 harvested Mars mineral to complete the construction." +
+				"Look for rock symbols on your minimap to guide you to them.", "Earth");
+		}
+
+		//Help message for repair pad
+		if (bExternalFlagTouchRepairPad && !bFirstTimeTouchRepairPad) {
+			bFirstTimeTouchRepairPad = true;
+			if (ply.IsJoystickConnected()) {
+				AddMessage("Information", "Press the A button to repair while on the repair pad. This process takes 1 Sol.", "Info");
+			}
+			else {
+				AddMessage("Information", "Press C to repair while on the repair pad. This process takes 1 Sol.", "Info");
+			}
 		}
 	}
 

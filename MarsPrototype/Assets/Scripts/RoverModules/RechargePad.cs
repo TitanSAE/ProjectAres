@@ -5,9 +5,11 @@ public class RechargePad : MonoBehaviour {
 	
 	public bool onPad = false;
 	private DayNightCycle daynight;
+	private MarsMessageManager mngMsg;
 
 	void Start() {
 		daynight = GameObject.FindGameObjectWithTag("DayNight").GetComponent<DayNightCycle>();
+		mngMsg = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<MarsMessageManager>();
 	}
 
 	void Update() {
@@ -20,6 +22,7 @@ public class RechargePad : MonoBehaviour {
 	void OnTriggerEnter(Collider col) {
 		if (col.gameObject.tag == "Player") {
 			onPad = true;
+			mngMsg.bExternalFlagTouchRepairPad = true;
 		}
 	}
 

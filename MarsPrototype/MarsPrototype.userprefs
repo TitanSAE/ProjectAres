@@ -1,13 +1,8 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\SkyCamMarker.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\MarsMessageManager.cs">
     <Files>
-      <File FileName="Assets\Scripts\MarsMessageManager.cs" Line="69" Column="42" />
-      <File FileName="Assets\Scripts\MarsPlayer.cs" Line="34" Column="23" />
-      <File FileName="Assets\Scripts\SkyCamera.cs" Line="63" Column="25" />
-      <File FileName="Assets\MessageAlerter.cs" Line="30" Column="22" />
-      <File FileName="Assets\Shaders\SkyMap.shader" Line="50" Column="2" />
-      <File FileName="Assets\SkyCamMarker.cs" Line="22" Column="47" />
+      <File FileName="Assets\Scripts\MarsMessageManager.cs" Line="15" Column="25" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
