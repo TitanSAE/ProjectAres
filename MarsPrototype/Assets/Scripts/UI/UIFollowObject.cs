@@ -10,9 +10,14 @@ public class UIFollowObject : MonoBehaviour
 
     [Header("UI References")]
     public RectTransform RectTMainCanvas;
-    public RectTransform RectTMyOwn;
+    private RectTransform RectTMyOwn;
     public Transform tObjectToFollow;
     public Camera camToRenderTo;
+
+    void Start()
+    {
+        RectTMyOwn = this.GetComponent<RectTransform>();
+    }
 
     void Update()
     {

@@ -192,6 +192,7 @@
     <Compile Include="Assets\Scripts\DrawLine.cs" />
     <Compile Include="Assets\Scripts\DrawNavMarkers.cs" />
     <Compile Include="Assets\Scripts\FPS_Player.cs" />
+    <Compile Include="Assets\Scripts\Follow.cs" />
     <Compile Include="Assets\Scripts\GameEnums.cs" />
     <Compile Include="Assets\Scripts\Gravity.cs" />
     <Compile Include="Assets\Scripts\Grid.cs" />
