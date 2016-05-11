@@ -29,7 +29,7 @@ public class SimpleSmoothMouseLook : MonoBehaviour {
 	Quaternion originalRotation;
 
 	bool bEnableLook = true;
-	bool bLockMouse = true;
+	public bool bLockMouse = true;
 
 	//Find the first non-virtual (fake) joystick/gamepad
 	public bool IsJoystickConnected() {

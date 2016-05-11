@@ -16,7 +16,6 @@ public class HeatMap: MonoBehaviour {
 	public int pointRadius = 40;								//!< How large of a radius should a point on the heatmap be?
 
 
-
 	public TextAsset presetCoordinatesFile;
 	public TextAsset DeathCoordinatesFile;
 	public bool usePresetCoordinates = false;					//!< If true, this attempts to parse the presetCoordinatesFile and draw a heatmap
@@ -73,6 +72,7 @@ public class HeatMap: MonoBehaviour {
 			{
 				GameObject go = (createPrimitive) ? GameObject.CreatePrimitive(PrimitiveType.Cube) : new GameObject();
 				go.transform.position = positionArray[i];
+
 				go.name = "Point: " + i;
 				go.transform.parent = p.transform;
 				points.Add(go);
