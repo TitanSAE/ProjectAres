@@ -18,10 +18,12 @@ public class MarsResource : MonoBehaviour {
 
 	private DayNightCycle daynight;
 	private MarsPlayer ply;
+	private MarsMessageManager mngMsg;
 
 	void Start() {
 		daynight = GameObject.FindGameObjectWithTag("DayNight").GetComponent<DayNightCycle>();
 		ply = GameObject.FindGameObjectWithTag("Player").GetComponent<MarsPlayer>();
+		mngMsg = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<MarsMessageManager>();
 	}
 
 	void Update() {
@@ -40,6 +42,7 @@ public class MarsResource : MonoBehaviour {
 	void OnTriggerEnter(Collider col) {
 		if (col.gameObject.tag == "Harvester") {
 			bOverlap = true;
+			mngMsg.bExternalFlagFirstMineral = true;
 		}
 	}
 

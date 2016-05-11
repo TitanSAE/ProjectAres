@@ -45,7 +45,7 @@ public class TimedDelivery : MonoBehaviour {
 				eMission = (GAME_QUESTS)mis;
 
 				if (eMission == GAME_QUESTS.INITIAL_PACKAGE) {
-					mngMessages.AddMessage("Delivery Notification", "We've sent a package close to your destination. Retrieve it and bring it back to base to build the first building.", "Earth");
+					mngMessages.bExternalFlagFirstPackageDelivery = true;
 					fCountdown = 60.0f;
 
 					SendPackage();
