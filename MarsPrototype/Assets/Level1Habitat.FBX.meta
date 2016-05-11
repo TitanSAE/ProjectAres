@@ -1,0 +1,199 @@
+fileFormatVersion: 2
+guid: a2a9cfef929f4d341946824d392ae920
+timeCreated: 1459914631
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Body
+    100002: Bootom
+    100004: Door
+    100006: DoorFrame
+    100008: group
+    100010: //RootNode
+    100012: pasted__pCube1
+    100014: pasted__pCube2
+    100016: pasted__polySurface29
+    100018: pasted__polySurface31
+    100020: pasted__polySurface32
+    100022: pasted__polySurface33
+    100024: pasted__polySurface35
+    100026: pasted__polySurface36
+    100028: pasted__polySurface37
+    100030: pasted__Steps
+    100032: pasted__transform1
+    100034: PeepHole
+    100036: PeepholeBorder
+    100038: polySurface30
+    100040: polySurface34
+    100042: RAiling
+    100044: Rim
+    100046: Rim2
+    100048: RoofRim
+    100050: Steps
+    100052: Top
+    100054: Topv2
+    100056: transform1
+    400000: Body
+    400002: Bootom
+    400004: Door
+    400006: DoorFrame
+    400008: group
+    400010: //RootNode
+    400012: pasted__pCube1
+    400014: pasted__pCube2
+    400016: pasted__polySurface29
+    400018: pasted__polySurface31
+    400020: pasted__polySurface32
+    400022: pasted__polySurface33
+    400024: pasted__polySurface35
+    400026: pasted__polySurface36
+    400028: pasted__polySurface37
+    400030: pasted__Steps
+    400032: pasted__transform1
+    400034: PeepHole
+    400036: PeepholeBorder
+    400038: polySurface30
+    400040: polySurface34
+    400042: RAiling
+    400044: Rim
+    400046: Rim2
+    400048: RoofRim
+    400050: Steps
+    400052: Top
+    400054: Topv2
+    400056: transform1
+    2300000: Body
+    2300002: Bootom
+    2300004: Door
+    2300006: DoorFrame
+    2300008: pasted__pCube1
+    2300010: pasted__pCube2
+    2300012: pasted__polySurface29
+    2300014: pasted__polySurface31
+    2300016: pasted__polySurface32
+    2300018: pasted__polySurface33
+    2300020: pasted__polySurface35
+    2300022: pasted__polySurface36
+    2300024: pasted__polySurface37
+    2300026: PeepHole
+    2300028: PeepholeBorder
+    2300030: polySurface30
+    2300032: polySurface34
+    2300034: RAiling
+    2300036: Rim
+    2300038: Rim2
+    2300040: RoofRim
+    2300042: Top
+    2300044: Topv2
+    3300000: Body
+    3300002: Bootom
+    3300004: Door
+    3300006: DoorFrame
+    3300008: pasted__pCube1
+    3300010: pasted__pCube2
+    3300012: pasted__polySurface29
+    3300014: pasted__polySurface31
+    3300016: pasted__polySurface32
+    3300018: pasted__polySurface33
+    3300020: pasted__polySurface35
+    3300022: pasted__polySurface36
+    3300024: pasted__polySurface37
+    3300026: PeepHole
+    3300028: PeepholeBorder
+    3300030: polySurface30
+    3300032: polySurface34
+    3300034: RAiling
+    3300036: Rim
+    3300038: Rim2
+    3300040: RoofRim
+    3300042: Top
+    3300044: Topv2
+    4300000: Body
+    4300002: Door
+    4300004: DoorFrame
+    4300006: PeepHole
+    4300008: PeepholeBorder
+    4300010: Bootom
+    4300012: Rim
+    4300014: Rim2
+    4300016: Top
+    4300018: Topv2
+    4300020: RoofRim
+    4300022: RAiling
+    4300024: polySurface30
+    4300026: polySurface34
+    4300028: pasted__polySurface29
+    4300030: pasted__polySurface31
+    4300032: pasted__polySurface32
+    4300034: pasted__polySurface33
+    4300036: pasted__polySurface35
+    4300038: pasted__polySurface36
+    4300040: pasted__polySurface37
+    4300042: pasted__pCube1
+    4300044: pasted__pCube2
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
