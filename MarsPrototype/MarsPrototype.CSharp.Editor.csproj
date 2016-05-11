@@ -171,6 +171,7 @@
     <Compile Include="Assets\Surface\Editor\SurfaceCreatorInspector.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\DeathPlayerPoints.txt" />
     <None Include="Assets\JMO Assets\MatCap Shaders\Shaders\MatCap_Plain_Additive.shader" />
     <None Include="Assets\Meteor Storm Effects\Shaders\PlanetNoFog.shader" />
     <None Include="Assets\OVR\Moonlight\Resources\Unlit Transparent Color.shader" />
@@ -203,6 +204,7 @@
     <None Include="Assets\Shaders\SkyMap.shader" />
     <None Include="Assets\Shaders\SphereShader.shader" />
     <None Include="Assets\Shaders\TestShader.shader" />
+    <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
     <None Include="Assets\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\BlendModesOverlay.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\BlurEffectConeTaps.shader" />
