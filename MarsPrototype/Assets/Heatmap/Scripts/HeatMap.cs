@@ -18,6 +18,7 @@ public class HeatMap: MonoBehaviour {
 #if UNITY_EDITOR && !UNITY_WEBPLAYER
 
 	public TextAsset presetCoordinatesFile;
+	public TextAsset DeathCoordinatesFile;
 	public bool usePresetCoordinates = false;					//!< If true, this attempts to parse the presetCoordinatesFile and draw a heatmap
 	[HideInInspector]
 	public bool generatePresetCoordinates = false;				//!< If set to true, clicks will be logged to a text file.
@@ -31,16 +32,70 @@ public class HeatMap: MonoBehaviour {
 
 	Rect resetRect = new Rect(5, 5, 100, 30);	
 	Rect screenshotRect = new Rect(5, 40, 100, 30);
-
+	Rect DeathRect = new Rect(5, 75, 100, 30);	
+	Rect HeatRect = new Rect(5, 110, 100, 30);	
+	Rect threeDHeatRect = new Rect(5, 145, 100, 30);	
 	public void OnGUI()
 	{
 		if(GUI.Button(resetRect, "Reset")) {
 			Heatmap.DestroyHeatmapObjects();
 			ClearPoints();
 #if !UNITY_WEBPLAYER
-			usePresetCoordinates = false;
+			//usePresetCoordinates = false;
 #endif
 		}
+
+		if(GUI.Button(threeDHeatRect, "3D HeatMap")) {
+			
+		}
+
+		if(GUI.Button(DeathRect, "DeathMap")) {
+
+		
+			p = new GameObject();
+
+			if(!DeathCoordinatesFile || presetCoordinatesFile == null)
+				return;
+
+			Vector3[] positionArray = StringUtility.Vector3ArrayWithFile(DeathCoordinatesFile);
+
+			for(int i = 0; i < positionArray.Length; i++)
+			{
+				GameObject go = (createPrimitive) ? GameObject.CreatePrimitive(PrimitiveType.Cube) : new GameObject();
+				go.transform.position = positionArray[i];
+				go.name = "Point: " + i;
+				go.transform.parent = p.transform;
+				points.Add(go);
+			}
+
+			Texture2D heatmapImage = Heatmap.CreateHeatmap(positionArray, null, pointRadius);
+			Heatmap.CreateRenderPlane(heatmapImage);
+		
+		}
+		if(GUI.Button(HeatRect, "HeatMap")) {
+
+
+			p = new GameObject();
+
+			if(!presetCoordinatesFile || presetCoordinatesFile == null)
+				return;
+
+			Vector3[] positionArray = StringUtility.Vector3ArrayWithFile(presetCoordinatesFile);
+
+			for(int i = 0; i < positionArray.Length; i++)
+			{
+				GameObject go = (createPrimitive) ? GameObject.CreatePrimitive(PrimitiveType.Cube) : new GameObject();
+				go.transform.position = positionArray[i];
+				go.name = "Point: " + i;
+				go.transform.parent = p.transform;
+				points.Add(go);
+			}
+
+			Texture2D heatmapImage = Heatmap.CreateHeatmap(positionArray, null, pointRadius);
+			Heatmap.CreateRenderPlane(heatmapImage);
+
+		}
+
 
 #if !UNITY_WEBPLAYER
 		if(GUI.Button(screenshotRect, "Screenshot"))
@@ -52,6 +107,7 @@ public class HeatMap: MonoBehaviour {
 
 	public void Start()
 	{
+		
 		p = new GameObject();
 
 #if UNITY_EDITOR && !UNITY_WEBPLAYER

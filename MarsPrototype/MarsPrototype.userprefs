@@ -1,26 +1,16 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-<<<<<<< HEAD
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Heatmap\Classes\Heatmap.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Standard Assets\Characters\FirstPersonCharacter\Scripts\FirstPersonController.cs">
     <Files>
-      <File FileName="Assets\Scripts\DrawLine.cs" Line="38" Column="27" />
-      <File FileName="Assets\Heatmap\Classes\Heatmap.cs" Line="395" Column="6" />
-      <File FileName="Assets\Heatmap\Scripts\HeatMap.cs" Line="1" Column="1" />
-      <File FileName="Assets\PlayerPoints.txt" Line="2057" Column="22" />
-      <File FileName="Assets\Scripts\DrawCircle.cs" Line="1" Column="1" />
-      <File FileName="Assets\Heatmap\Classes\StringUtility.cs" Line="1" Column="1" />
-      <File FileName="Assets\Heatmap\Scripts\Tracker.cs" Line="1" Column="1" />
-      <File FileName="Assets\Heatmap\Scripts\3DHeatmap.cs" Line="1" Column="1" />
-=======
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\SkyCamMarker.cs">
-    <Files>
-      <File FileName="Assets\Scripts\MarsMessageManager.cs" Line="69" Column="42" />
-      <File FileName="Assets\Scripts\MarsPlayer.cs" Line="34" Column="23" />
-      <File FileName="Assets\Scripts\SkyCamera.cs" Line="63" Column="25" />
-      <File FileName="Assets\MessageAlerter.cs" Line="30" Column="22" />
-      <File FileName="Assets\Shaders\SkyMap.shader" Line="50" Column="2" />
-      <File FileName="Assets\SkyCamMarker.cs" Line="22" Column="47" />
->>>>>>> 73adf70916d133abb560467c705722fa1106b768
+      <File FileName="Assets\PlayerPoints.txt" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Rover\CarController.cs" Line="84" Column="3" />
+      <File FileName="Assets\Scripts\MarsPlayer.cs" Line="37" Column="23" />
+      <File FileName="Assets\Heatmap\Scripts\Tracker.cs" Line="35" Column="47" />
+      <File FileName="Assets\Scripts\Kacey Scripts\GameManager.cs" Line="53" Column="36" />
+      <File FileName="Assets\DeathPlayerPoints.txt" Line="2" Column="1" />
+      <File FileName="Assets\Heatmap\Scripts\HeatMap.cs" Line="37" Column="39" />
+      <File FileName="Assets\Heatmap\Classes\Heatmap.cs" Line="8" Column="3" />
+      <File FileName="Assets\Standard Assets\Characters\FirstPersonCharacter\Scripts\FirstPersonController.cs" Line="109" Column="47" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
