@@ -19,7 +19,7 @@ public class TimedDelivery : MonoBehaviour {
 	void Start() {
 		mngMessages = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<MarsMessageManager>();
 
-		fCountdown = 6.0f;
+		fCountdown = 30.0f;
 	}
 
 	public void SendPackage() {
